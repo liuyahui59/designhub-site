@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="23px" viewBox="0 0 20 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>00000000-0000-4000-8000-00000000005E</title>
+    <g id="📱-移动端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-323, -773)" fill="#8E8E93">
+            <g id="Bottom-Tab" transform="translate(0, 760)">
+                <g id="Tab-/-我的" transform="translate(303, 12)">
+                    <g id="icon-mine" transform="translate(18, 0)">
+                        <circle id="Head" cx="12" cy="6" r="5"></circle>
+                        <rect id="Shoulder" x="2" y="13" width="20" height="11"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

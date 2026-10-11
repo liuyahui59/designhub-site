@@ -1,0 +1,362 @@
+:root {
+  --studio-accent: #0f62fe;
+  --studio-accent-soft: rgba(10,132,255,.12);
+  --studio-border: rgba(60,60,67,.18);
+  --studio-muted: #6e6e73;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --studio-accent-soft: rgba(10,132,255,.26);
+    --studio-border: rgba(255,255,255,.16);
+    --studio-muted: #98989d;
+  }
+}
+
+.studio-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 14px 8px;
+  border-bottom: 1px solid var(--studio-border);
+  background: var(--bg-bar, rgba(255,255,255,.88));
+}
+.studio-search {
+  flex: 1 1 180px;
+  min-width: 150px;
+  height: 30px;
+  border: 1px solid var(--studio-border);
+  border-radius: 6px;
+  padding: 0 10px;
+  color: var(--text);
+  background: var(--bg);
+}
+.studio-pills, .studio-sizes, .studio-variants { display: flex; gap: 5px; flex-wrap: wrap; }
+.studio-pill, .studio-size, .studio-variant {
+  border: 1px solid var(--studio-border);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text-2);
+  font-size: 11px;
+  line-height: 26px;
+  height: 28px;
+  padding: 0 9px;
+  cursor: pointer;
+}
+.studio-pill.active, .studio-size.active, .studio-variant.active {
+  color: var(--studio-accent);
+  border-color: var(--studio-accent);
+  background: var(--studio-accent-soft);
+}
+.studio-label { color: var(--studio-muted); font-size: 11px; margin-right: 1px; }
+/* 自定义尺寸 W × H */
+.studio-size-custom { display: inline-flex; align-items: center; gap: 4px; }
+.studio-size-custom input {
+  width: 52px;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid var(--studio-border);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text);
+  font-size: 11px;
+}
+.studio-size-custom input:focus { border-color: var(--studio-accent); outline: none; }
+.studio-size-times { color: var(--studio-muted); font-size: 11px; }
+.studio-variants { padding: 8px 14px; border-bottom: 1px solid var(--studio-border); }
+.studio-variant { min-width: 72px; height: 48px; line-height: 16px; padding: 7px 8px; text-align: left; }
+.studio-variant strong { display: block; color: var(--text); font-size: 11px; font-weight: 600; }
+.studio-variant span { display: block; color: var(--studio-muted); font-size: 10px; }
+.studio-context { margin-left: auto; color: var(--studio-muted); font-size: 11px; }
+.studio-chart-hidden { display: none !important; }
+.studio-new-type { position: relative; }
+/* NEW 徽章已移除：四种图表已在 xchart-core.js 中正式实现，不再是空壳 */
+.xchart-edit .studio-bar { padding-right: 18px; }
+
+/* Taxonomy Studio: 主图表 / 数据表现变体 / 公共样式修饰器 */
+.taxonomy-studio { overflow: hidden; }
+.taxonomy-studio .studio-windowbar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--studio-border);
+  background: var(--bg-chrome, #f7f7f8);
+}
+.studio-window-title { color: var(--studio-muted); font-size: 11px; letter-spacing: .2px; }
+.studio-template-settings {
+  border: 0;
+  background: transparent;
+  color: var(--studio-accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.taxonomy-studio .webview { height: 100vh; }
+.taxonomy-studio .center-header h1 { display: block; text-align: left; }
+.chart-title-icon { display: inline-flex; width: 18px; height: 18px; flex: none; color: var(--text); }
+.chart-title-icon-svg { display: block; width: 18px; height: 18px; }
+.chart-title-label { min-width: 0; }
+.taxonomy-studio .tools {
+  width: 176px;
+  flex: 0 0 176px;
+  padding: 8px 0 18px;
+  align-items: stretch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--bg-chrome, #f7f7f8);
+}
+.taxonomy-studio .tools .tool-section.taxonomy-section {
+  flex: none;
+  height: auto;
+  margin: 12px 18px 5px;
+  padding: 0;
+  color: var(--text-3, #8e8e93);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+  border: 0;
+  background: transparent;
+}
+.taxonomy-studio .tools .tool-section.taxonomy-section:first-child { margin-top: 4px; }
+.taxonomy-studio .tools .icon_tools.taxonomy-chart {
+  flex: none;
+  justify-content: flex-start;
+  gap: 9px;
+  height: 34px;
+  margin: 1px 8px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text, #1d1d1f);
+  font-size: 13px;
+  text-align: left;
+}
+.taxonomy-studio .tools .icon_tools.taxonomy-chart svg { width: 17px; height: 17px; flex: none; }
+.taxonomy-studio .tools .icon_tools.taxonomy-chart .carbon-chart-icon { color: currentColor; }
+.taxonomy-studio .tools .icon_tools.taxonomy-chart .tool-label {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.taxonomy-studio .tools .icon_tools.taxonomy-chart:hover { background: var(--bg-hover, rgba(0,0,0,.05)); }
+.taxonomy-studio .tools .icon_tools.taxonomy-chart.icon_active {
+  color: var(--text, #1d1d1f);
+  background: rgba(0,0,0,.055);
+}
+.taxonomy-studio .tools .icon_tools.taxonomy-chart.taxonomy-chart-disabled {
+  color: var(--text-3, #9a9aa0);
+  cursor: not-allowed;
+  opacity: .65;
+}
+.taxonomy-studio .tools .icon_tools.taxonomy-chart.taxonomy-chart-disabled:hover {
+  background: transparent;
+}
+.taxonomy-studio .center-header { padding-bottom: 12px; }
+.taxonomy-studio .center-header h1 { font-size: 18px; }
+.taxonomy-studio .preview-panel { margin-bottom: 12px; }
+.taxonomy-studio .data-tabs { display: none !important; }
+.taxonomy-studio .center-scroll {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.taxonomy-studio .center-scroll .data-panel.active {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.taxonomy-studio .center-scroll .raw_table {
+  min-height: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.taxonomy-studio .center-scroll .table_wrap {
+  min-height: 0;
+  max-height: none;
+  flex: 1;
+  overflow: auto;
+}
+.taxonomy-studio .center-random-panel {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  column-gap: 8px;
+  row-gap: 0;
+  padding: 10px 20px;
+  border-top: 1px solid var(--line);
+  border-bottom: 0;
+  background: #fff;
+  box-shadow: none;
+}
+.taxonomy-studio .center-random-panel .right-section-title {
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+}
+.taxonomy-studio #dataSection.center-random-panel .data-note {
+  width: 100%;
+  margin: 2px 0 9px;
+  line-height: 16px;
+}
+.taxonomy-studio .center-random-panel .grid_inputs {
+  display: flex;
+  flex: 1 1 280px;
+  min-width: 0;
+  gap: 8px;
+}
+.taxonomy-studio .center-random-panel .settings_input {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+}
+.taxonomy-studio .center-random-panel .minmax {
+  display: flex;
+  min-width: 0;
+  gap: 8px;
+  flex: 1 1 0;
+}
+.taxonomy-studio .center-random-panel .minmax .settings_input { flex: 1 1 0; }
+.taxonomy-studio .center-random-panel .settings_input p {
+  margin: 0 0 4px;
+  color: var(--text-2, #636366);
+  font-size: 11px;
+  line-height: 16px;
+}
+.taxonomy-studio .center-random-panel .select-wraper { min-width: 0; }
+.taxonomy-studio .center-random-panel input,
+.taxonomy-studio .center-random-panel select {
+  width: 100%;
+  height: 28px;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #c9c9ce;
+  border-radius: 5px;
+  background: #f7f7f8;
+  color: var(--text, #1d1d1f);
+  box-shadow: none;
+  font: 12px/26px -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+.taxonomy-studio .center-random-panel input { padding: 0 8px; }
+.taxonomy-studio .center-random-panel select { padding: 0 26px 0 8px; }
+.taxonomy-studio .center-random-panel input:hover,
+.taxonomy-studio .center-random-panel select:hover { border-color: #aeb0b6; }
+.taxonomy-studio .center-random-panel input:focus,
+.taxonomy-studio .center-random-panel select:focus {
+  outline: none;
+  border-color: var(--studio-accent, #0f62fe);
+  box-shadow: 0 0 0 2px var(--studio-accent-soft, rgba(10,132,255,.12));
+}
+.studio-variant-block { margin: 0 0 20px; overflow-x: auto; }
+.studio-variant-block[hidden] { display: none !important; }
+.studio-variant-block .studio-variants {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0;
+  min-width: min-content;
+  padding: 3px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--bg-inset, #ececef);
+}
+.studio-variant-block .studio-variant {
+  min-width: auto;
+  height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-2, #636366);
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+  white-space: nowrap;
+}
+.studio-variant-block .studio-variant:hover { color: var(--text, #1d1d1f); }
+.studio-variant-block .studio-variant.active {
+  color: #fff;
+  background: #111;
+  box-shadow: none;
+}
+.studio-variant-block .studio-variant.disabled {
+  color: var(--text-3, #9a9aa0);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+.studio-variant-block .studio-variant.disabled::after {
+  content: ' · 待支持';
+  font-size: 10px;
+  opacity: .75;
+}
+.taxonomy-studio .right-panel { width: 300px; }
+.taxonomy-studio .right-section-title { font-size: 17px; font-weight: 600; }
+.taxonomy-studio .center-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 4;
+  box-shadow: none;
+}
+.taxonomy-studio .center-footer .create-chart {
+  min-width: 148px;
+  height: 34px;
+  font-size: 13px;
+}
+.taxonomy-studio #dataSection .data-note {
+  margin: -4px 0 12px;
+  color: var(--text-3, #8e8e93);
+  font-size: 11px;
+  line-height: 16px;
+}
+.taxonomy-studio #categories[hidden] { display: none !important; }
+.taxonomy-studio #advancedDesign {
+  background: #fff;
+  border-color: var(--line-strong);
+  box-shadow: none;
+}
+.taxonomy-studio #advancedDesign:hover { background: var(--bg-hover); }
+.taxonomy-studio .data-tab[data-target="json"],
+.taxonomy-studio #json,
+.taxonomy-studio .linkHTTP { display: none !important; }
+
+@media (max-width: 900px) {
+  .taxonomy-studio .tools { width: 148px; flex-basis: 148px; }
+  .taxonomy-studio .right-panel { width: 264px; }
+  .studio-variant-block .studio-variant { padding: 0 9px; }
+}
+
+/* Sketch inspector: one compact field row per line, with a protected value column. */
+.right-panel .chart-settings .settings_inputs {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+}
+
+.right-panel .chart-settings .settings_input_item:not(.area-style-picker):not([data-field-component="series-editor"]):not([data-field-component="multi-select"]):not([data-field-component="visual-picker"]) {
+  height: 28px;
+  min-height: 28px;
+  grid-template-columns: minmax(72px, 1fr) minmax(112px, 48%) !important;
+  align-items: center;
+  gap: 0;
+  padding: 0 !important;
+  min-width: 0;
+}
+
+.right-panel .chart-settings .settings_input_item:not(.area-style-picker) > .field-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

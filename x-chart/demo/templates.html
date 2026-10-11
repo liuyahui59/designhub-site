@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>模板</title>
+  <style type="text/css">
+/* ============================================================
+   X-Chart — Sketch 原生风格主题（macOS / Sketch UI 语言）
+   ============================================================ */
+:root {
+  /* 品牌 / 交互强调色（macOS 系统蓝） */
+  --accent:        #0f62fe;
+  --accent-strong: #0070e0;
+  --accent-press:  #005cc3;
+  --accent-soft:   rgba(10,132,255,0.12);
+  --danger:        #ff3b30;
+
+  /* 表面 */
+  --bg:        #ffffff;
+  --bg-chrome: #f5f5f7;
+  --bg-inset:  #ececf0;
+  --bg-hover:  #e9e9ed;
+
+  /* 文本 */
+  --text:        #1d1d1f;
+  --text-2:      #6e6e73;
+  --text-3:      #98989e;
+  --text-on-acc: #ffffff;
+
+  /* 线条 */
+  --line:        #e5e5ea;
+  --line-strong: #d2d2d7;
+
+  /* 圆角 */
+  --radius:    6px;
+  --radius-lg: 8px;
+
+  /* 效果 */
+  --focus-ring: 0 0 0 3px rgba(10,132,255,0.16);
+  --shadow-pop: 0 8px 24px rgba(0,0,0,0.20);
+  --bg-glass: rgba(255,255,255,0.85);
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+/* F14 深色模式：只覆盖 token */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent-strong: #2b93ff;
+    --accent-press:  #4da3ff;
+    --accent-soft:   rgba(10,132,255,0.26);
+    --danger:        #ff6961;
+    --bg:        #1e1e20;
+    --bg-chrome: #262628;
+    --bg-inset:  #2e2e31;
+    --bg-hover:  #353538;
+    --text:        #f2f2f4;
+    --text-2:      #a6a7ab;
+    --text-3:      #7c7d82;
+    --line:        #3d3d41;
+    --line-strong: #4e4e54;
+    --focus-ring: 0 0 0 3px rgba(10,132,255,0.35);
+    --shadow-pop: 0 8px 24px rgba(0,0,0,0.5);
+    --bg-glass: rgba(30,30,32,0.85);
+  }
+}
+
+html { color-scheme: light dark; }
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0; padding: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  -webkit-user-select: none; user-select: none;
+}
+input, textarea, select, td[contenteditable] { -webkit-user-select: text; user-select: text; }
+
+/* ---------- 标题 / 文本 ---------- */
+h1 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 16px 0;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  margin: 0 0 6px 0;
+  color: var(--text);
+}
+p {
+  font-size: 12px;
+  color: var(--text-2);
+  margin: 0 0 6px 0;
+}
+a { text-decoration: none; color: var(--accent); cursor: pointer; }
+a:hover { text-decoration: underline; }
+.link { color: var(--accent); cursor: pointer; }
+.link:hover { text-decoration: underline; }
+.red-link { color: var(--danger); cursor: pointer; }
+.description { display: inline-block; color: var(--text-3); font-size: 12px; }
+.secondary_text { font-size: 13px; line-height: 19px; color: var(--text-2); }
+.bold { font-weight: 600; }
+
+/* ---------- 输入控件 ---------- */
+input[type="text"],
+input[type="number"],
+input:not([type]) {
+  font-family: inherit;
+  font-size: 13px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  width: 100%;
+  color: var(--text);
+  outline: none;
+  transition: border-color 90ms ease, box-shadow 90ms ease;
+}
+input::placeholder { color: var(--text-3); }
+input:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+input:disabled { background: var(--bg-inset); color: var(--text-3); cursor: not-allowed; }
+
+select {
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  font-family: inherit;
+  font-size: 13px;
+  height: 28px;
+  padding: 0 28px 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 90ms ease, box-shadow 90ms ease;
+}
+select:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+select:disabled { color: var(--text-3); cursor: not-allowed; }
+.select_height { height: 28px; }
+
+textarea {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  width: 100%;
+  outline: none;
+  color: var(--text);
+  resize: vertical;
+  transition: border-color 90ms ease, box-shadow 90ms ease;
+}
+textarea::placeholder { color: var(--text-3); }
+textarea:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+
+.select-wraper { position: relative; }
+.select-wraper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  width: 6px; height: 6px;
+  border-right: 1.5px solid var(--text-2);
+  border-bottom: 1.5px solid var(--text-2);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+/* ---------- 按钮 ---------- */
+.button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  height: 28px;
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--text-on-acc);
+  cursor: pointer;
+  transition: background-color 90ms ease;
+  white-space: nowrap;
+}
+.button:hover { background: var(--accent-strong); }
+.button:active { background: var(--accent-press); }
+.button:disabled { background: var(--line-strong); color: var(--text-3); cursor: not-allowed; }
+.button.create-chart { min-width: 128px; height: 30px; }
+.button.secondary-button { background: var(--bg-inset); color: var(--text); }
+.button.secondary-button:hover { background: var(--bg-hover); }
+.button.ghost-button { background: transparent; color: var(--accent); border: 1px solid var(--line-strong); }
+.button.ghost-button:hover { background: var(--accent-soft); }
+.button.danger-button { background: var(--danger); }
+.button.small-button { height: 24px; padding: 0 10px; font-size: 12px; }
+
+/* ---------- 通知 / 加载 ---------- */
+.alert {
+  width: calc(100% - 16px);
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  position: absolute;
+  top: 8px; left: 8px;
+  min-height: 40px;
+  background: rgba(40,40,44,0.94);
+  color: #ffffff;
+  padding: 0 14px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  box-sizing: border-box;
+}
+#alert_text { font-size: 13px; line-height: 18px; }
+.close_alert { cursor: pointer; opacity: 0.7; display: flex; align-items: center; }
+.close_alert:hover { opacity: 1; }
+
+.loader {
+  width: 100%; height: 100vh;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 100000;
+  background: var(--bg-glass);
+  display: none; align-items: center; justify-content: center;
+}
+.spinner {
+  width: 26px; height: 26px;
+  border: 3px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.flex { display: flex; }
+.hide_file { position: absolute; z-index: 1000; opacity: 0; cursor: pointer; right: 0; top: 0; height: 100%; font-size: 24px; width: 100%; }
+
+/* ============================================================
+   主界面布局（侧栏 + 内容）
+   ============================================================ */
+.webview { display: flex; opacity: 1; height: 100vh; }
+
+/* 左侧图表类型栏（Sketch 图层栏风格：浅灰 chrome） */
+.tools {
+  width: 80px;
+  height: 100vh;
+  flex: none;
+  padding: 8px 0;
+  background: var(--bg-chrome);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  overflow-y: auto;
+}
+.icon_tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin: 1px 8px;
+  border-radius: var(--radius);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background-color 90ms ease, color 90ms ease;
+}
+.icon_tools svg { fill: currentColor; }
+.icon_tools:hover { background: var(--bg-hover); color: var(--text); }
+.icon_active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* 右侧内容区 */
+.content {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* 分段控件（macOS segmented control） */
+.button_group {
+  display: flex;
+  background: var(--bg-inset);
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+.radio {
+  flex: 1;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 90ms ease, color 90ms ease, box-shadow 90ms ease;
+}
+.radio:hover { color: var(--text); }
+.radio.active {
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.14);
+}
+
+/* 表单网格 */
+.data_form {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 14px;
+}
+.random_form { grid-template-columns: 1fr; grid-row-gap: 14px; }
+.new_columns { grid-template-columns: auto; grid-row-gap: 0; }
+.form_active { display: grid; }
+.full_row { grid-column: 1 / -1; }
+.grid_inputs { display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 16px; }
+.minmax { display: flex; gap: 16px; }
+.minmax .settings_input { flex: 1; }
+.settings_inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 14px;
+}
+.settings_input { width: 100%; }
+.settings_input p { margin: 0 0 6px; }
+.small_input { width: calc(50% - 8px); }
+
+.raw_table { display: grid; }
+.imported_table { display: none; grid-template-columns: 1fr 1fr; grid-column-gap: 16px; grid-row-gap: 14px; }
+.checkbox { display: flex; flex-direction: row; align-items: center; gap: 8px; }
+.checkbox input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--accent); }
+
+/* 数据表格 */
+.table_wrap {
+  max-width: 100%;
+  max-height: 220px;
+  overflow: auto;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+table { border-collapse: collapse; font-size: 12px; width: 100%; }
+thead td { background: var(--bg-inset); font-weight: 600; color: var(--text); }
+td {
+  min-width: 60px;
+  border: 1px solid var(--line);
+  border-top: none;
+  border-left: none;
+  padding: 6px 10px;
+  background: var(--bg);
+  transition: background-color 90ms ease;
+}
+td:last-child { border-right: none; }
+tr:last-child td { border-bottom: none; }
+td:focus { outline: none; box-shadow: inset 0 0 0 2px var(--accent); background: var(--bg); }
+
+.jsonLink, .tableLink {
+  font-size: 13px;
+  line-height: 18px;
+  padding: 8px 12px;
+  background: var(--bg-inset);
+  color: var(--text);
+  word-break: break-all;
+  border-radius: var(--radius);
+}
+#jsonKeys, #jsonHeader { display: none; }
+
+/* 实时预览面板（Sketch 画布风格） */
+.preview-panel {
+  margin: 0 0 16px 0;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.preview-panel::before {
+  content: '实时预览';
+  position: absolute;
+  top: -1px; left: -1px;
+  background: var(--bg-inset);
+  color: var(--text-2);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  padding: 3px 10px;
+  border-radius: var(--radius-lg) 0 var(--radius) 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  z-index: 1;
+}
+.preview-panel canvas { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; background: var(--bg); }
+.preview-panel.empty {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+/* 页脚 */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.footer .second_actions { display: flex; align-items: center; gap: 12px; }
+.footer .second_actions a { color: var(--accent); }
+.footer_table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  padding: 8px 0;
+  color: var(--text-2);
+}
+.footer_table a { color: var(--accent); }
+#help { color: var(--text-2); }
+#help:hover { color: var(--text); text-decoration: none; }
+
+/* ============================================================
+   设置 / 弹层（右侧 inspector 面板）
+   ============================================================ */
+.settings,
+.linkHTTP,
+.selectLayer {
+  -webkit-user-select: none;
+  display: none;
+  position: absolute;
+  top: 0; left: 148px;
+  z-index: 1000;
+  width: calc(100% - 148px);
+  height: 100%;
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.linkHTTP.active, .selectLayer.active { display: block; }
+.selectLayer { display: flex; align-items: center; text-align: center; }
+.select_wrap { margin: 0 auto; max-width: 400px; }
+
+.popup_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.popup_header h1 { margin: 0; }
+.popup_header a { font-size: 13px; color: var(--accent); }
+
+.form-element { width: 100%; margin-bottom: 16px; }
+.complex_title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.complex_title p { margin: 0; }
+.complex_title a { font-size: 12px; }
+
+/* 分组标题（Sketch inspector section header） */
+.section-header,
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 20px 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.section-header:first-child, .section-title:first-child { margin-top: 0; }
+
+/* 全局 / 个性 大分区 */
+.layer-block { margin-bottom: 8px; }
+.layer-title {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 26px 0 2px 0;
+  padding: 9px 12px;
+  background: var(--bg-chrome);
+  border-radius: var(--radius);
+}
+.layer-title:first-child { margin-top: 0; }
+.layer-desc { font-size: 11px; font-weight: 400; color: var(--text-3); }
+
+/* 配色 */
+.colors_preview { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; min-height: 30px; }
+.color_item {
+  width: 28px; height: 28px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius);
+  position: relative;
+}
+.color_item:hover { box-shadow: 0 0 0 2px var(--accent); }
+.color_item:active { cursor: grabbing; }
+
+.save_template {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin-top: 10px;
+  color: var(--text-2);
+}
+
+.highlight { background: var(--accent); }
+#table_descr { display: none; }
+#csv, #localJSON { position: relative; }
+
+/* ---------- 多选下拉（multiselect 插件） ---------- */
+.ms-options-wrap, .ms-options-wrap * { box-sizing: border-box; }
+.ms-options-wrap > button:focus,
+.ms-options-wrap > button {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  padding: 0 28px 0 10px;
+  height: 28px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+  white-space: nowrap;
+  margin: 0;
+  cursor: pointer;
+}
+.ms-options-wrap > button:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+.ms-options-wrap > button > span { display: inline-block; }
+.ms-options-wrap > button[disabled] { background: var(--bg-inset); color: var(--text-3); cursor: not-allowed; }
+.ms-options-wrap > button::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: 11px;
+  width: 6px; height: 6px;
+  border-right: 1.5px solid var(--text-2);
+  border-bottom: 1.5px solid var(--text-2);
+  transform: translateY(-70%) rotate(45deg);
+}
+.ms-options-wrap.ms-has-selections > button { color: var(--text); }
+.ms-options-wrap > .ms-options {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  background: var(--bg);
+  z-index: 2000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  max-height: 240px;
+  overflow: auto;
+  visibility: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ms-options-wrap.ms-active > .ms-options { visibility: visible; }
+.ms-options-wrap > .ms-options > .ms-search input {
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  font-family: inherit;
+  font-size: 13px;
+  height: auto;
+  border-radius: 0;
+  outline: none;
+}
+.ms-options-wrap > .ms-options .ms-selectall {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--accent);
+  padding: 8px 12px;
+}
+.ms-options-wrap > .ms-options .ms-selectall:hover { text-decoration: underline; }
+.ms-options-wrap > .ms-options > .ms-selectall.global { margin: 0; }
+.ms-options-wrap > .ms-options > ul,
+.ms-options-wrap > .ms-options > ul > li.optgroup ul { list-style-type: none; padding: 0; margin: 0; }
+.ms-options-wrap > .ms-options > ul li.ms-hidden { display: none; }
+.ms-options-wrap > .ms-options > ul > li.optgroup { padding: 4px 0; }
+.ms-options-wrap > .ms-options > ul > li.optgroup + li.optgroup { border-top: 1px solid var(--line); }
+.ms-options-wrap > .ms-options > ul > li.optgroup .label {
+  display: block;
+  padding: 6px 12px 4px;
+  font-weight: 600;
+  color: var(--text-2);
+  font-size: 12px;
+}
+.ms-options-wrap > .ms-options > ul label {
+  position: relative;
+  font-family: inherit;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 7px 12px 7px 34px;
+  margin: 0;
+  cursor: pointer;
+}
+.ms-options-wrap > .ms-options.checkbox-autofit > ul label,
+.ms-options-wrap > .ms-options.hide-checkbox > ul label { padding: 7px 12px; }
+.ms-options-wrap > .ms-options > ul label.focused,
+.ms-options-wrap > .ms-options > ul label:hover { background-color: var(--bg-hover); }
+.ms-options-wrap > .ms-options > ul li.selected label { background-color: var(--accent-soft); color: var(--text); }
+.ms-options-wrap > .ms-options > ul input[type="checkbox"] {
+  margin: 0;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent);
+}
+.ms-options-wrap > .ms-options.hide-checkbox > ul input[type="checkbox"] {
+  position: absolute !important;
+  height: 1px; width: 1px; overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* ============================================================
+   模板页（列表 + 可视化编辑器）
+   ============================================================ */
+.main-view {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px 24px;
+  box-sizing: border-box;
+}
+.main-view > p { margin-bottom: 10px; }
+#templates {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-top: 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+.template {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: background-color 90ms ease;
+}
+.template + .template { border-top: 1px solid var(--line); }
+.template:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.template:last-child { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.template:hover { background: var(--bg-hover); }
+.template_name {
+  flex: 1;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tag { font-size: 12px; line-height: 18px; color: var(--text-3); padding: 0 2px; white-space: nowrap; }
+.tag .act { margin-left: 12px; font-size: 12px; color: var(--accent); cursor: pointer; }
+.tag .del { margin-left: 12px; font-size: 12px; color: var(--danger); cursor: pointer; }
+
+.edit-view { display: none; flex-direction: column; height: 100vh; background: var(--bg); }
+.edit-view .popup_header { margin: 0; padding: 16px 24px; border-bottom: 1px solid var(--line); }
+.edit-scroll { flex: 1; overflow-y: auto; padding: 20px 24px; }
+.edit-view .footer {
+  margin: 0;
+  padding: 14px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-chrome);
+}
+
+.color_input_row { display: flex; align-items: center; gap: 8px; }
+.color_swatch {
+  width: 28px; height: 28px; flex: none;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+.color_hex_input { flex: 1; }
+</style>
+	<link rel="stylesheet" href="./xchart-ui.css?v=8.1.4">
+	<link rel="stylesheet" href="./xchart-studio.css?v=8.1.2">
+	<script src="./jquery.js"></script>
+	<script src="./xchart-schema.js"></script>
+	<script src="./xchart-default-template.js?v=3"></script>
+	<script src="./xchart-core.js?v=8.1.7"></script>
+	<script src="./xchart-canvas-adapter.js?v=8.1.3"></script>
+	<script src="./preview-engine.js?v=8.1.4"></script>
+	<script src="./xchart-ui.js"></script>
+	<script src="./xchart-studio.js?v=8.1.3"></script>
+</head>
+<body>
+	<div class="alert">
+	  <div id="alert_text"></div>
+	  <div class="close_alert">
+	    <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path d="M-2-2h16v16H-2z"/><path d="M7.414 6l4.243 4.243-1.414 1.414L6 7.414l-4.243 4.243-1.414-1.414L4.586 6 .343 1.757 1.757.343 6 4.586 10.243.343l1.414 1.414L7.414 6z" fill="#FFF"/></g></svg>
+	  </div>
+	</div>
+
+	<div class="main-view">
+		<div class="popup_header">
+			<h1>模板</h1>
+			<a href="#" class="link" id="createTemplate">+ 新建模板</a>
+		</div>
+		<p>第一个模板用于新图表。</p>
+		<div id="templates"></div>
+	</div>
+
+	<div class="edit-view">
+		<div class="popup_header">
+			<div class="template-title-block">
+				<span class="template-eyebrow">模板</span>
+				<h1 id="editTitle">新模板</h1>
+			</div>
+			<div class="template-header-actions">
+				<a href="#" class="link template-back-link" id="backToList">返回列表</a>
+				<button type="button" class="button ghost-button" id="resetTemplate">恢复默认</button>
+				<button type="button" class="button" id="saveBtn">保存</button>
+			</div>
+		</div>
+		<div class="edit-scroll">
+			<div class="template-workspace">
+			<aside class="template-preview-pane">
+			<div class="template-preview-toolbar">
+				<div class="template-preview-wrap">
+					<div class="preview-panel" id="previewPanel">
+						<canvas id="previewCanvas" width="800" height="360"></canvas>
+					</div>
+				</div>
+				<div class="template-chart-selector">
+					<div class="settings_input">
+						<label class="field-label" for="templateChartFamily">图表族</label>
+						<div class="select-wraper">
+							<select id="templateChartFamily"></select>
+						</div>
+					</div>
+					<div class="settings_input">
+						<label class="field-label" for="templateChartVariant">样式变体</label>
+						<div class="select-wraper">
+							<select id="templateChartVariant"></select>
+						</div>
+					</div>
+					<input type="hidden" name="chartType" id="templateChartType" value="lineChart">
+				</div>
+			</div>
+			</aside>
+			<section class="template-settings-pane">
+
+			<div data-template-pane="common" class="active">
+				<div class="pane-heading">
+					<div class="layer-title">全局设置<span class="layer-desc">影响整个模板</span></div>
+					<button type="button" class="section-reset" id="resetCommon">重置全局</button>
+				</div>
+
+			<div class="template-form-section">
+			<div class="section-title">模板</div>
+			<div class="settings_inputs settings-one-column">
+				<div class="settings_input">
+					<p>模板名</p>
+					<input type="text" name="tplName" autocomplete="off">
+				</div>
+			</div>
+			</div>
+
+			<div class="template-form-section">
+			<div class="section-title">配色</div>
+			<div class="form-element">
+				<div class="complex_title">
+					<p>通用调色板</p>
+					<div><button type="button" class="section-reset" id="removeColor" disabled>移除选中色</button> · <a href="#" class="link" id="resetColors">恢复默认</a></div>
+				</div>
+				<div class="color_input_row">
+					<input class="color_hex_input" type="text" id="colorInput" placeholder="输入 HEX 回车添加，如 #0f62fe" autocomplete="off">
+					<div class="color_swatch" id="colorSwatch"></div>
+				</div>
+				<div class="colors_preview" id="commonColors"></div>
+			</div>
+			</div>
+
+			<div class="template-form-section">
+			<div class="section-title section-title-with-control">
+				<span>坐标图通用</span>
+				<label class="checkbox axis-mode-check"><input type="checkbox" name="separateAxisStyles"> 分别设置 X / Y 轴</label>
+			</div>
+			<div class="settings_inputs">
+				<div class="settings_input">
+					<p>字体</p>
+					<input type="text" name="labelFontName" placeholder="IBM Plex Sans" autocomplete="off">
+				</div>
+				<div class="settings_input" data-axis-unified-field>
+					<p>标签字号</p>
+					<input type="number" name="labelFontSize" autocomplete="off">
+				</div>
+				<div class="settings_input" data-axis-unified-field>
+					<p>文字颜色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="labelColor" autocomplete="off"><div class="color_swatch" data-hex-of="labelColor"></div></div>
+				</div>
+				<div class="settings_input" data-axis-unified-field>
+					<p>标签</p>
+					<div class="select-wraper"><select name="labels">
+						<option value="0">隐藏</option>
+						<option value="1">显示</option>
+					</select></div>
+				</div>
+				<div class="settings_input">
+					<p>网格</p>
+					<div class="select-wraper"><select name="grid">
+						<option value="0">无网格</option>
+						<option value="1">全网格</option>
+						<option value="2">水平线</option>
+						<option value="3">垂直线</option>
+					</select></div>
+				</div>
+				<div class="settings_input">
+					<p>网格线宽</p>
+					<input type="number" name="gridLineWidth" autocomplete="off">
+				</div>
+				<div class="settings_input">
+					<p>网格颜色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="gridColor" autocomplete="off"><div class="color_swatch" data-hex-of="gridColor"></div></div>
+				</div>
+				<div class="settings_input">
+					<p>Y 轴段数</p>
+					<input type="number" name="yAxisSegments" min="0" step="1" placeholder="0 = 自动" autocomplete="off">
+				</div>
+				<div class="settings_input">
+					<p>数值范围</p>
+					<div class="select-wraper"><select name="beginAtZero">
+						<option value="0">从零开始</option>
+						<option value="1">按数据范围</option>
+					</select></div>
+				</div>
+			</div>
+
+			<div class="axis-settings-grid" data-axis-specific-fields>
+				<fieldset class="axis-settings-group">
+					<legend>X 轴</legend>
+				<div class="settings_input">
+					<p>标签</p>
+					<label class="checkbox"><input type="checkbox" name="xAxisLabels"> 显示</label>
+				</div>
+				<div class="settings_input">
+					<p>轴线</p>
+					<label class="checkbox"><input type="checkbox" name="xAxisLine"> 显示</label>
+				</div>
+				<div class="settings_input">
+					<p>刻度</p>
+					<label class="checkbox"><input type="checkbox" name="xAxisTicks"> 显示</label>
+				</div>
+				<div class="settings_input">
+					<p>字号</p>
+					<input type="number" name="xAxisFontSize" autocomplete="off">
+				</div>
+				<div class="settings_input">
+					<p>轴线颜色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="xAxisLineColor" autocomplete="off"><div class="color_swatch" data-hex-of="xAxisLineColor"></div></div>
+				</div>
+				<div class="settings_input">
+					<p>文字颜色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="xAxisColor" autocomplete="off"><div class="color_swatch" data-hex-of="xAxisColor"></div></div>
+				</div>
+				</fieldset>
+				<fieldset class="axis-settings-group">
+					<legend>Y 轴</legend>
+				<div class="settings_input">
+					<p>标签</p>
+					<label class="checkbox"><input type="checkbox" name="yAxisLabels"> 显示</label>
+				</div>
+				<div class="settings_input">
+					<p>轴线</p>
+					<label class="checkbox"><input type="checkbox" name="yAxisLine"> 显示</label>
+				</div>
+				<div class="settings_input">
+					<p>刻度</p>
+					<label class="checkbox"><input type="checkbox" name="yAxisTicks"> 显示</label>
+				</div>
+				<div class="settings_input">
+					<p>字号</p>
+					<input type="number" name="yAxisFontSize" autocomplete="off">
+				</div>
+				<div class="settings_input">
+					<p>轴线颜色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="yAxisLineColor" autocomplete="off"><div class="color_swatch" data-hex-of="yAxisLineColor"></div></div>
+				</div>
+				<div class="settings_input">
+					<p>文字颜色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="yAxisColor" autocomplete="off"><div class="color_swatch" data-hex-of="yAxisColor"></div></div>
+				</div>
+				</fieldset>
+			</div>
+			</div>
+
+			<div class="template-form-section">
+			<div class="section-title">交互</div>
+			<div class="settings_inputs settings-one-column">
+				<div class="settings_input">
+					<p>数值浮窗</p>
+					<label class="checkbox"><input type="checkbox" name="showValueTooltip" checked> 显示</label>
+				</div>
+			</div>
+			</div>
+
+			</div>
+
+			<div data-template-pane="chart">
+				<div class="pane-heading">
+					<div class="layer-title">当前图表<span class="layer-desc" id="chartPaneName">折线图</span></div>
+					<button type="button" class="section-reset" id="resetChart">重置当前类型</button>
+				</div>
+
+			<div class="section-title">折线 / 面积</div>
+			<div class="settings_inputs">
+				<div class="settings_input">
+					<p>线条类型</p>
+					<div class="select-wraper"><select name="lineType">
+						<option value="0">曲线</option>
+						<option value="1">直线</option>
+						<option value="2">阶梯</option>
+					</select></div>
+				</div>
+				<div class="settings_input">
+					<p>线条粗细</p>
+					<input type="number" name="lineWidth" autocomplete="off">
+				</div>
+				<div class="settings_input">
+					<p>圆点</p>
+					<div class="select-wraper"><select name="dotType">
+						<option value="0">无圆点</option>
+						<option value="1">实心圆点</option>
+						<option value="2">空心圆点</option>
+					</select></div>
+				</div>
+				<div class="settings_input">
+					<p>圆点直径</p>
+					<input type="number" name="dotDiameter" autocomplete="off">
+				</div>
+				<div class="settings_input">
+					<p>面积透明度</p>
+					<input type="number" name="areaOpacity" autocomplete="off">
+				</div>
+				<div class="settings_input">
+					<p>面积填充</p>
+					<div class="select-wraper"><select name="areaFillStyle">
+						<option value="solid">纯色填充</option>
+						<option value="solid-line">描边与纯色</option>
+						<option value="gradient-line">描边与渐变</option>
+					</select></div>
+				</div>
+				<div class="settings_input">
+					<p>面积描边宽度</p>
+					<input type="number" name="areaLineWidth" min="0" step="0.5" autocomplete="off">
+				</div>
+			</div>
+
+			<div class="section-title">柱状图</div>
+			<div class="settings_inputs">
+				<div class="settings_input"><p>垂直柱间距</p><input type="number" name="marginV" autocomplete="off"></div>
+				<div class="settings_input"><p>水平柱间距</p><input type="number" name="marginH" autocomplete="off"></div>
+				<div class="settings_input"><p>垂直堆叠间距</p><input type="number" name="stackGapV" min="0" step="0.1" autocomplete="off"></div>
+				<div class="settings_input"><p>水平堆叠间距</p><input type="number" name="stackGapH" min="0" step="0.1" autocomplete="off"></div>
+				<div class="settings_input"><p>分组垂直间距</p><input type="number" name="groupMarginV" autocomplete="off"></div>
+				<div class="settings_input"><p>分组水平间距</p><input type="number" name="groupMarginH" autocomplete="off"></div>
+				<div class="settings_input"><p>垂直组内间距</p><input type="number" name="groupInnerGapV" min="0" step="0.01" autocomplete="off"></div>
+				<div class="settings_input"><p>水平组内间距</p><input type="number" name="groupInnerGapH" min="0" step="0.01" autocomplete="off"></div>
+				<div class="settings_input"><p>垂直柱圆角 (px)</p><input type="number" name="roundTopV" min="0" autocomplete="off"></div>
+				<div class="settings_input"><p>水平柱圆角 (px)</p><input type="number" name="roundTopH" min="0" autocomplete="off"></div>
+				<div class="settings_input"><p>分组垂直圆角 (px)</p><input type="number" name="groupRoundTopV" min="0" autocomplete="off"></div>
+				<div class="settings_input"><p>分组水平圆角 (px)</p><input type="number" name="groupRoundTopH" min="0" autocomplete="off"></div>
+				<div class="settings_input"><p>直方图分箱</p><div class="select-wraper"><select name="binMode"><option value="auto">自动分箱</option><option value="fixed">固定宽度</option></select></div></div>
+				<div class="settings_input"><p>分箱数量</p><input type="number" name="binCount" min="1" max="100" autocomplete="off"></div>
+				<div class="settings_input"><p>分箱宽度</p><input type="number" name="binWidth" min="0" step="0.1" autocomplete="off"></div>
+				<div class="settings_input"><p>组合图坐标轴</p><div class="select-wraper"><select name="axisAssignment"><option value="auto">按图表默认</option><option value="right-second">第二系列使用右轴</option></select></div></div>
+			</div>
+
+			<div class="section-title">饼图 / 环形 / 进度</div>
+			<div class="settings_inputs">
+				<div class="settings_input">
+					<p>排序</p>
+					<div class="select-wraper"><select name="sorting">
+						<option value="0">降序</option>
+						<option value="1">无排序</option>
+					</select></div>
+				</div>
+				<div class="settings_input">
+					<p>圆形类型</p>
+					<div class="select-wraper"><select name="typeOfCircle">
+						<option value="0">整圆</option>
+						<option value="1">半圆</option>
+					</select></div>
+				</div>
+				<div class="settings_input"><p>饼图外置标签</p><label class="checkbox"><input type="checkbox" name="spiderLabels"> 引导线标签</label></div>
+				<div class="settings_input"><p>区块间距 (px)</p><input type="number" name="segmentGap" min="0" max="20" step="1" autocomplete="off"></div>
+				<div class="settings_input"><p>环形厚度 (px)</p><input type="number" name="thicknessOfDonut" autocomplete="off"></div>
+				<div class="settings_input"><p>进度环厚度 (px)</p><input type="number" name="thicknessOfProgress" autocomplete="off"></div>
+				<div class="settings_input">
+					<p>进度背景色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="progressBgColor" autocomplete="off"><div class="color_swatch" data-hex-of="progressBgColor"></div></div>
+				</div>
+				<div class="settings_input">
+					<p>进度颜色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="progressColor" autocomplete="off"><div class="color_swatch" data-hex-of="progressColor"></div></div>
+				</div>
+				<div class="settings_input">
+					<p>线端</p>
+					<div class="select-wraper"><select name="endOfLine">
+						<option value="0">默认</option>
+						<option value="1">圆角</option>
+					</select></div>
+				</div>
+			</div>
+
+			<div class="section-title">迷你图 / 散点 / K 线</div>
+			<div class="settings_inputs">
+				<div class="settings_input"><p>迷你图线宽</p><input type="number" name="sparkLineWidth" autocomplete="off"></div>
+				<div class="settings_input"><p>迷你图点径</p><input type="number" name="sparkDotDiameter" autocomplete="off"></div>
+				<div class="settings_input"><p>迷你图颜色</p><div class="color_input_row"><input class="color_hex_input" type="text" name="sparklineColor" autocomplete="off"><div class="color_swatch" data-hex-of="sparklineColor"></div></div></div>
+				<div class="settings_input"><p>散点直径</p><input type="number" name="scatterDotDiameter" autocomplete="off"></div>
+				<div class="settings_input"><p>散点颜色</p><div class="color_input_row"><input class="color_hex_input" type="text" name="scatterColor" autocomplete="off"><div class="color_swatch" data-hex-of="scatterColor"></div></div></div>
+				<div class="settings_input"><p>蜡烛间距</p><input type="number" name="candleMargin" autocomplete="off"></div>
+				<div class="settings_input">
+					<p>K 线涨色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="candleUp" autocomplete="off"><div class="color_swatch" data-hex-of="candleUp"></div></div>
+				</div>
+				<div class="settings_input">
+					<p>K 线跌色</p>
+					<div class="color_input_row"><input class="color_hex_input" type="text" name="candleDown" autocomplete="off"><div class="color_swatch" data-hex-of="candleDown"></div></div>
+				</div>
+			</div>
+				<div class="template-chart-empty" hidden>此图表没有额外样式参数。</div>
+			</div>
+			</section>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<div class="second_actions">
+				<a href="#" class="link" id="cancelEdit">取消</a>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+	// 拦截外链（target=_blank）
+	function interceptClickEvent(event) {
+		const target = event.target.closest('a')
+		if (target && target.getAttribute('target') === '_blank') {
+			event.preventDefault()
+			window.postMessage('externalLinkClicked', target.href)
+		}
+	}
+	document.addEventListener('click', interceptClickEvent)
+
+	// 默认模板由共享源提供，页面只持有可变副本。
+	var DEFAULT_TEMPLATE_SOURCE = window.XChartDefaultTemplate;
+	var DEFAULT_COLORS = DEFAULT_TEMPLATE_SOURCE.palette;
+
+	function defaultTemplateObject(){
+		var template = DEFAULT_TEMPLATE_SOURCE.create();
+		template.name = '新模板';
+		return template;
+	}
+
+	// 深拷贝 + 兜底读取
+	function deepClone(o){ return JSON.parse(JSON.stringify(o)); }
+	function g(obj, path, d){
+		try {
+			var v = path.split('.').reduce(function(o,k){ return o[k]; }, obj);
+			return (v === undefined || v === null) ? d : v;
+		} catch(e){ return d; }
+	}
+	function num(name, d){
+		var raw = $.trim($('[name='+name+']').val());
+		if (raw === '') return d;
+		var v = Number(raw);
+		return isFinite(v) ? v : d;
+	}
+	function isHexColor(value){ return /^#[0-9a-fA-F]{6}$/.test($.trim(value)); }
+	function validateColorFields(){
+		var invalid = null;
+		$('.color_hex_input[name]').filter(function(){ return $(this).closest('[data-axis-specific-fields]').length === 0 || $('[name=separateAxisStyles]').is(':checked'); }).each(function(){
+			if (!isHexColor($(this).val()) && !invalid) invalid = this;
+		});
+		if (!invalid) return true;
+		showAlert('颜色必须使用完整六位 HEX，例如 #0f62fe');
+		invalid.focus();
+		return false;
+	}
+
+	var templates = [];
+	var editingId = null;
+	var working = null;
+	var workingColors = [];
+	var selectedColorIndex = -1;
+	var pendingDelete = null;
+	var deleteTimer = null;
+
+	// ===== 列表渲染 =====
+	function renderList(){
+		$('#templates').html('');
+		templates.forEach(function(template, index){
+			var tag;
+			if (index === 0) tag = '<span class="tag">默认</span>';
+			else tag = '<span class="tag"><button type="button" class="act make_def">设为默认</button><button type="button" class="del del_tpl">删除</button></span>';
+			var html = '<div class="template" data-templid="'+template.id+'">'+
+				'<button type="button" class="template_name">'+template.name+'</button>'+tag+'</div>';
+			$('#templates').append(html);
+		});
+	}
+	function submit(){
+		if (templates.length === 0) window.postMessage('nativeLog', '[]');
+		else window.postMessage('nativeLog', JSON.stringify(templates));
+	}
+	function showAlert(message, duration){
+		$('#alert_text').html(message);
+		$('.alert').css('display','flex');
+		clearTimeout(window.__alertTimer);
+		window.__alertTimer = setTimeout(closeAlert, duration || 4000);
+	}
+	function closeAlert(){ $('.alert').hide(); }
+	function settlePendingDelete(){
+		if (!pendingDelete) return;
+		clearTimeout(deleteTimer);
+		pendingDelete = null;
+	}
+
+	// ===== 配色编辑 =====
+	function renderCommonColors(){
+		$('#commonColors').html('');
+		workingColors.forEach(function(color, index){
+			$('#commonColors').append('<button type="button" class="color_item'+(index === selectedColorIndex ? ' selected' : '')+'" data-index="'+index+'" aria-label="颜色 '+color+'" title="'+color+'" style="background-color:'+color+'"></button>');
+		});
+		$('#removeColor').prop('disabled', workingColors.length <= 1 || selectedColorIndex < 0 || selectedColorIndex >= workingColors.length);
+	}
+	function updateSwatches(){
+		$('.color_swatch').each(function(){
+			var ref = $(this).attr('data-hex-of');
+			var input = ref ? $('[name='+ref+']') : $('#colorInput');
+			$(this).css('background-color', $.trim(input.val()) || '#ffffff');
+		});
+	}
+
+	// ===== 表单加载 / 保存 =====
+	function loadForm(){
+		$('[name=tplName]').val(working.name);
+		workingColors = working.colors.common.slice();
+		selectedColorIndex = -1;
+		$('[name=candleUp]').val(g(working, 'colors.candlestickChart.0', '#da1e28'));
+		$('[name=candleDown]').val(g(working, 'colors.candlestickChart.1', '#198038'));
+		$('[name=gridColor]').val(g(working, 'grid.color', '#e0e0e0'));
+		$('[name=labelColor]').val(g(working, 'labels.color', '#525252'));
+		$('[name=grid]').val(String(g(working, 'grid.type', 1)));
+		$('[name=gridLineWidth]').val(g(working, 'grid.lineWidth', 1));
+		$('[name=yAxisSegments]').val(g(working, 'grid.yAxisSegments', 0));
+		var labelsType = g(working, 'labels.type', 1);
+		$('[name=labels]').val(String(labelsType === 0 ? 0 : 1));
+		XChartFontPicker.setValue(g(working, 'labels.fontName', 'IBM Plex Sans'));
+		$('[name=labelFontSize]').val(g(working, 'labels.fontSize', 12));
+		var separateAxisStyles = g(working, 'labels.separateAxisStyles', null);
+		if (separateAxisStyles == null) separateAxisStyles = labelsType === 2 || labelsType === 3 ||
+			g(working, 'labels.xAxis.line', true) === false || g(working, 'labels.xAxis.ticks', true) === false ||
+			g(working, 'labels.yAxis.line', true) === false || g(working, 'labels.yAxis.ticks', true) === false ||
+			g(working, 'labels.xAxis.lineColor', null) != null || g(working, 'labels.yAxis.lineColor', null) != null ||
+			g(working, 'labels.xAxis.fontSize', g(working, 'labels.fontSize', 12)) !== g(working, 'labels.fontSize', 12) ||
+			g(working, 'labels.yAxis.fontSize', g(working, 'labels.fontSize', 12)) !== g(working, 'labels.fontSize', 12) ||
+			g(working, 'labels.xAxis.color', g(working, 'labels.color', '#525252')) !== g(working, 'labels.color', '#525252') ||
+			g(working, 'labels.yAxis.color', g(working, 'labels.color', '#525252')) !== g(working, 'labels.color', '#525252');
+		$('[name=separateAxisStyles]').prop('checked', separateAxisStyles === true);
+		$('[name=xAxisLabels]').prop('checked', g(working, 'labels.xAxis.labels', labelsType === 1 || labelsType === 3));
+		$('[name=xAxisLine]').prop('checked', g(working, 'labels.xAxis.line', true));
+		$('[name=xAxisTicks]').prop('checked', g(working, 'labels.xAxis.ticks', true));
+		$('[name=xAxisFontSize]').val(g(working, 'labels.xAxis.fontSize', 12));
+		$('[name=xAxisLineColor]').val(g(working, 'labels.xAxis.lineColor', '#8d8d8d'));
+		$('[name=xAxisColor]').val(g(working, 'labels.xAxis.color', '#525252'));
+		$('[name=yAxisLabels]').prop('checked', g(working, 'labels.yAxis.labels', labelsType === 1 || labelsType === 2));
+		$('[name=yAxisLine]').prop('checked', g(working, 'labels.yAxis.line', true));
+		$('[name=yAxisTicks]').prop('checked', g(working, 'labels.yAxis.ticks', true));
+		$('[name=yAxisFontSize]').val(g(working, 'labels.yAxis.fontSize', 12));
+		$('[name=yAxisLineColor]').val(g(working, 'labels.yAxis.lineColor', '#8d8d8d'));
+		$('[name=yAxisColor]').val(g(working, 'labels.yAxis.color', '#525252'));
+		$('[name=lineType]').val(String(g(working, 'lineType', 0) === 2 ? 2 : (g(working, 'lineType', 0) === 1 ? 1 : 0)));
+		$('[name=binMode]').val(g(working, 'histogram.binMode', 'auto'));
+		$('[name=binCount]').val(g(working, 'histogram.binCount', 8));
+		$('[name=binWidth]').val(g(working, 'histogram.binWidth', 0));
+		$('[name=axisAssignment]').val(g(working, 'combo.axisAssignment', 'auto'));
+		$('[name=lineWidth]').val(g(working, 'lineChart.lineWidth', 2));
+		$('[name=dotType]').val(String(g(working, 'lineChart.dotType', 1)));
+		$('[name=dotDiameter]').val(g(working, 'lineChart.dotDiameter', 8));
+		$('[name=areaOpacity]').val(g(working, 'areaChart.opacity', 0.8));
+		$('[name=areaLineWidth]').val(g(working, 'areaChart.lineWidth', 0));
+		$('[name=areaFillStyle]').val(g(working, 'areaChart.fillStyle', g(working, 'areaChart.lineWidth', 0) > 0 ? 'solid-line' : 'solid'));
+		$('[name=marginV]').val(g(working, 'verticalBarChart.margin', 0.4));
+		$('[name=marginH]').val(g(working, 'horizontalBarChart.margin', 0.4));
+		$('[name=groupMarginV]').val(g(working, 'groupedBarChart.margin', 0.4));
+		$('[name=groupMarginH]').val(g(working, 'groupedHorizontalBarChart.margin', 0.4));
+		$('[name=stackGapV]').val(g(working, 'verticalBarChart.stackGap', 1));
+		$('[name=stackGapH]').val(g(working, 'horizontalBarChart.stackGap', 1));
+		$('[name=groupInnerGapV]').val(g(working, 'groupedBarChart.innerGap', 0.12));
+		$('[name=groupInnerGapH]').val(g(working, 'groupedHorizontalBarChart.innerGap', 0.12));
+		$('[name=roundTopV]').val(g(working, 'verticalBarChart.roundTop', 0));
+		$('[name=roundTopH]').val(g(working, 'horizontalBarChart.roundTop', 0));
+		$('[name=groupRoundTopV]').val(g(working, 'groupedBarChart.roundTop', 0));
+		$('[name=groupRoundTopH]').val(g(working, 'groupedHorizontalBarChart.roundTop', 0));
+		$('[name=sorting]').val(String(g(working, 'sorting', 0)));
+		$('[name=typeOfCircle]').val(String(g(working, 'typeOfCircle', 0)));
+		$('[name=spiderLabels]').prop('checked', g(working, 'spiderLabels', false) === true);
+		$('[name=segmentGap]').val(g(working, 'segmentGap', 0));
+		$('[name=thicknessOfDonut]').val(g(working, 'donutChart.thicknessOfDonut', 30));
+		$('[name=thicknessOfProgress]').val(g(working, 'progressChart.thicknessOfProgress', 10));
+		$('[name=progressBgColor]').val(g(working, 'progressChart.backgroundColor', '#e0e0e0'));
+		$('[name=progressColor]').val(g(working, 'colors.progressChart.0', DEFAULT_COLORS[0]));
+		$('[name=endOfLine]').val(String(g(working, 'progressChart.endOfLine', 0)));
+		$('[name=sparkLineWidth]').val(g(working, 'sparkline.lineWidth', 1));
+		$('[name=sparkDotDiameter]').val(g(working, 'sparkline.dotDiameter', 4));
+		$('[name=sparklineColor]').val(g(working, 'colors.sparkline.0', DEFAULT_COLORS[0]));
+		$('[name=scatterDotDiameter]').val(g(working, 'scatterPlot.dotDiameter', 8));
+		$('[name=scatterColor]').val(g(working, 'colors.scatterPlot.0', DEFAULT_COLORS[0]));
+		$('[name=candleMargin]').val(g(working, 'candlestickChart.margin', 0.4));
+		$('[name=beginAtZero]').val(String(g(working, 'beginAtZero', 0)));
+		$('[name=showValueTooltip]').prop('checked', g(working, 'interaction.showValueTooltip', true) !== false);
+		renderCommonColors();
+		updateSwatches();
+		filterAxisFields();
+		document.dispatchEvent(new CustomEvent('xchart:refresh-controls'));
+	}
+	function saveForm(){
+		working.name = $.trim($('[name=tplName]').val()) || '未命名模板';
+		working.colors.common = workingColors.length ? workingColors.slice() : DEFAULT_COLORS.slice(0, 1);
+		working.colors.candlestickChart = [$.trim($('[name=candleUp]').val()) || '#da1e28', $.trim($('[name=candleDown]').val()) || '#198038'];
+		working.grid.type = Number($('[name=grid]').val());
+		working.grid.lineWidth = num('gridLineWidth', 1);
+		working.grid.yAxisSegments = num('yAxisSegments', 0);
+		working.grid.color = $.trim($('[name=gridColor]').val()) || '#e0e0e0';
+		var separateAxisStyles = $('[name=separateAxisStyles]').is(':checked');
+		var showXLabels = separateAxisStyles ? $('[name=xAxisLabels]').is(':checked') : Number($('[name=labels]').val()) === 1;
+		var showYLabels = separateAxisStyles ? $('[name=yAxisLabels]').is(':checked') : Number($('[name=labels]').val()) === 1;
+		working.labels.type = showXLabels ? (showYLabels ? 1 : 3) : (showYLabels ? 2 : 0);
+		working.labels.separateAxisStyles = separateAxisStyles;
+		working.labels.fontName = $.trim($('[name=labelFontName]').val()) || 'IBM Plex Sans';
+		working.labels.fontSize = num('labelFontSize', 12);
+		working.labels.color = $.trim($('[name=labelColor]').val()) || '#525252';
+		working.labels.xAxis = {
+			labels: showXLabels,
+			line: $('[name=xAxisLine]').is(':checked'),
+			ticks: $('[name=xAxisTicks]').is(':checked'),
+			fontSize: num('xAxisFontSize', 12),
+			lineColor: $.trim($('[name=xAxisLineColor]').val()) || '#8d8d8d',
+			color: $.trim($('[name=xAxisColor]').val()) || '#525252'
+		};
+		working.labels.yAxis = {
+			labels: showYLabels,
+			line: $('[name=yAxisLine]').is(':checked'),
+			ticks: $('[name=yAxisTicks]').is(':checked'),
+			fontSize: num('yAxisFontSize', 12),
+			lineColor: $.trim($('[name=yAxisLineColor]').val()) || '#8d8d8d',
+			color: $.trim($('[name=yAxisColor]').val()) || '#525252'
+		};
+		working.lineType = Number($('[name=lineType]').val());
+		working.histogram = working.histogram || {};
+		working.histogram.binMode = $('[name=binMode]').val() || 'auto';
+		working.histogram.binCount = Math.max(1, num('binCount', 8));
+		working.histogram.binWidth = Math.max(0, num('binWidth', 0));
+		working.combo = working.combo || {};
+		working.combo.axisAssignment = $('[name=axisAssignment]').val() || 'auto';
+		working.lineChart.lineWidth = num('lineWidth', 2);
+		working.lineChart.dotType = Number($('[name=dotType]').val());
+		working.lineChart.dotDiameter = num('dotDiameter', 8);
+		working.areaChart.opacity = num('areaOpacity', 0.8);
+		working.areaChart.lineWidth = Math.max(0, num('areaLineWidth', 0));
+		working.areaChart.fillStyle = $('[name=areaFillStyle]').val() || 'solid';
+		if (working.areaChart.fillStyle === 'solid') working.areaChart.lineWidth = 0;
+		working.verticalBarChart.margin = num('marginV', 0.4);
+		working.horizontalBarChart.margin = num('marginH', 0.4);
+		working.groupedBarChart.margin = num('groupMarginV', 0.4);
+		working.groupedHorizontalBarChart.margin = num('groupMarginH', 0.4);
+		working.verticalBarChart.stackGap = num('stackGapV', 1);
+		working.horizontalBarChart.stackGap = num('stackGapH', 1);
+		working.groupedBarChart.innerGap = num('groupInnerGapV', 0.12);
+		working.groupedHorizontalBarChart.innerGap = num('groupInnerGapH', 0.12);
+		working.verticalBarChart.roundTop = num('roundTopV', 0);
+		working.horizontalBarChart.roundTop = num('roundTopH', 0);
+		working.groupedBarChart.roundTop = num('groupRoundTopV', 0);
+		working.groupedHorizontalBarChart.roundTop = num('groupRoundTopH', 0);
+		working.sorting = Number($('[name=sorting]').val());
+		working.typeOfCircle = Number($('[name=typeOfCircle]').val());
+		working.spiderLabels = $('[name=spiderLabels]').is(':checked');
+		working.segmentGap = Math.max(0, Math.min(20, num('segmentGap', 0)));
+		working.donutChart.thicknessOfDonut = num('thicknessOfDonut', 30);
+		working.progressChart.thicknessOfProgress = num('thicknessOfProgress', 10);
+		working.progressChart.backgroundColor = $.trim($('[name=progressBgColor]').val()) || '#e0e0e0';
+		working.colors.progressChart = [$.trim($('[name=progressColor]').val()) || DEFAULT_COLORS[0]];
+		working.progressChart.endOfLine = Number($('[name=endOfLine]').val());
+		working.sparkline.lineWidth = num('sparkLineWidth', 1);
+		working.sparkline.dotDiameter = num('sparkDotDiameter', 4);
+		working.colors.sparkline = [$.trim($('[name=sparklineColor]').val()) || DEFAULT_COLORS[0]];
+		working.scatterPlot.dotDiameter = num('scatterDotDiameter', 8);
+		working.colors.scatterPlot = [$.trim($('[name=scatterColor]').val()) || DEFAULT_COLORS[0]];
+		working.candlestickChart.margin = num('candleMargin', 0.4);
+		working.beginAtZero = Number($('[name=beginAtZero]').val());
+		working.interaction = working.interaction || {};
+		working.interaction.showValueTooltip = $('[name=showValueTooltip]').is(':checked');
+	}
+
+	function openEditor(id){
+		var tpl = null;
+		for (var i = 0; i < templates.length; i++) if (templates[i].id === id) tpl = templates[i];
+		if (!tpl) return;
+		editingId = id;
+		working = deepClone(tpl);
+		$('#editTitle').text(working.name || '未命名模板');
+		loadForm();
+		$('.main-view').hide();
+		$('.edit-view').css('display', 'flex');
+		filterChartFields();
+		filterAxisFields();
+		setTimeout(function(){ PreviewEngine.init(); refreshPreview(); }, 0);
+	}
+	function backToList(){
+		$('.edit-view').hide();
+		$('.main-view').show();
+	}
+
+	var CHART_FIELDS = {};
+	Object.keys(window.XChartFormSchema.charts).forEach(function(chartId){
+		CHART_FIELDS[chartId] = window.XChartFormSchema.getTemplateChartFields(chartId);
+	});
+	var COMMON_FIELDS = window.XChartFormSchema.getCommonTemplateFields();
+	// 模板编辑器与中台 taxonomy 共用同一套「图表族 / 变体」定义。
+	// 这样新增变体只需更新 schema，不再维护一份容易过期的模板页列表。
+	var TEMPLATE_TAXONOMY = window.XChartFormSchema.taxonomy || {};
+	var TEMPLATE_BASES = TEMPLATE_TAXONOMY.bases || {};
+	var CHART_GROUPS = Object.keys(TEMPLATE_BASES).map(function(baseId){
+		var base = TEMPLATE_BASES[baseId] || {};
+		var variants = Array.isArray(base.variants) ? base.variants : [];
+		return {
+			family: baseId,
+			name: base.name || baseId,
+			base: base,
+			variants: variants.filter(function(variant){
+				return variant && variant.disabled !== true && variant.chartType && CHART_FIELDS[variant.chartType];
+			})
+		};
+	}).filter(function(group){ return group.variants.length > 0; });
+	var activeVariant = null;
+
+	function chartLabel(chartId){
+		var meta = window.XChartFormSchema.getChart(chartId);
+		return meta && meta.name ? meta.name : chartId;
+	}
+	function chartGroupFor(chartId){
+		for (var i = 0; i < CHART_GROUPS.length; i++) {
+			if (CHART_GROUPS[i].variants.some(function(variant){ return variant.chartType === chartId; })) return CHART_GROUPS[i];
+		}
+		return CHART_GROUPS[0] || null;
+	}
+	function variantKey(variant){ return variant.chartType + '::' + variant.id; }
+	function findVariant(group, selected){
+		if (!group) return null;
+		return group.variants.filter(function(variant){
+			return variantKey(variant) === selected || variant.chartType === selected || variant.id === selected;
+		})[0] || group.variants[0] || null;
+	}
+	function renderChartVariants(family, selected){
+		var group = CHART_GROUPS.filter(function(item){ return item.family === family; })[0] || CHART_GROUPS[0];
+		if (!group) return;
+		var $variant = $('#templateChartVariant').empty();
+		group.variants.forEach(function(variant){
+			$variant.append($('<option>').val(variantKey(variant)).text(variant.name || chartLabel(variant.chartType)));
+		});
+		var next = findVariant(group, selected);
+		if (next) $variant.val(variantKey(next));
+		return next;
+	}
+	function applyVariantSet(variant){
+		if (!variant || !variant.set) return;
+		Object.keys(variant.set).forEach(function(key){
+			var value = variant.set[key];
+			if (key === 'funnelShape') working.funnelShape = value;
+			else working[key] = value;
+		});
+	}
+	function setPreviewChartType(chartId, refresh){
+		var requested = chartId;
+		var baseChartId = typeof requested === 'string' && requested.indexOf('::') >= 0 ? requested.split('::')[0] : requested;
+		var group = chartGroupFor(baseChartId);
+		if (!group) return;
+		$('#templateChartFamily').val(group.family);
+		var variant = renderChartVariants(group.family, requested);
+		activeVariant = variant;
+		var selected = variant ? variant.chartType : chartId;
+		$('#templateChartType').val(selected);
+		applyVariantSet(variant);
+		$('#chartPaneName').text((variant && variant.name) || chartLabel(selected));
+		if (refresh !== false) {
+			filterChartFields();
+			filterAxisFields();
+			refreshPreview();
+		}
+	}
+	function initChartSelectors(){
+		var $family = $('#templateChartFamily').empty();
+		CHART_GROUPS.forEach(function(group){
+			$family.append($('<option>').val(group.family).text(group.name));
+		});
+		setPreviewChartType($('#templateChartType').val() || 'lineChart', false);
+	}
+
+	function filterChartFields(){
+		var chart = $('[name=chartType]').val() || 'lineChart';
+		var fields = CHART_FIELDS[chart] || [];
+		$('#chartPaneName').text(chartLabel(chart));
+		$('[data-template-pane=chart] .settings_input').each(function(){
+			var name = $(this).find('[name]').first().attr('name');
+			var visible = fields.indexOf(name) >= 0;
+			if (name === 'areaLineWidth' && $('[name=areaFillStyle]').val() === 'solid') visible = false;
+			$(this).toggle(visible);
+		});
+		$('[data-template-pane=chart] .section-title').each(function(){
+			var group = $(this).next('.settings_inputs');
+			var visibleCount = group.find('.settings_input').filter(function(){ return this.style.display !== 'none'; }).length;
+			$(this).toggle(visibleCount > 0);
+			group.toggle(visibleCount > 0);
+		});
+		$('.template-chart-empty').prop('hidden', fields.length > 0);
+	}
+	function filterAxisFields(){
+		var visible = $('[name=separateAxisStyles]').is(':checked');
+		$('[data-axis-specific-fields]').toggle(visible);
+		$('[data-axis-unified-field]').toggle(!visible);
+	}
+
+	function refreshPreview(){
+		if (!working) return;
+		saveForm();
+		window.chartConfig = { settings: working, data: { selected: 'random' } };
+		PreviewEngine.update();
+	}
+
+	function resetFields(names, resetColors){
+		saveForm();
+		var snapshots = [];
+		$('.edit-view [name]').each(function(){
+			if (names.indexOf(this.name) >= 0) return;
+			snapshots.push({ el: this, value: $(this).val(), checked: $(this).is(':checked') });
+		});
+		var retainedColors = workingColors.slice();
+		var original = working;
+		var defaults = defaultTemplateObject();
+		defaults.id = original.id;
+		defaults.name = original.name;
+		working = defaults;
+		loadForm();
+		snapshots.forEach(function(item){
+			$(item.el).val(item.value);
+			if (item.el.type === 'checkbox') $(item.el).prop('checked', item.checked);
+		});
+		if (!resetColors) {
+			workingColors = retainedColors;
+			renderCommonColors();
+		}
+		working = original;
+		saveForm();
+		updateSwatches();
+		document.dispatchEvent(new CustomEvent('xchart:refresh-controls'));
+		refreshPreview();
+	}
+
+	// ===== 事件 =====
+	$(document).ready(function(){
+		$('.close_alert').click(closeAlert);
+
+		// 新建模板
+		$('#createTemplate').click(function(){
+			settlePendingDelete();
+			var nt = defaultTemplateObject();
+			var maxId = 0;
+			templates.forEach(function(t){ if (t.id > maxId) maxId = t.id; });
+			nt.id = maxId + 1;
+			templates.push(nt);
+			renderList();
+			submit();
+			openEditor(nt.id);
+		});
+
+		// 点击模板名 → 打开编辑器
+		$('#templates').on('click', '.template_name', function(){
+			openEditor(Number($(this).parent().attr('data-templid')));
+		});
+
+		// 设为默认
+		$('#templates').on('click', '.make_def', function(){
+			settlePendingDelete();
+			var id = Number($(this).closest('.template').attr('data-templid'));
+			var arr = [];
+			templates.forEach(function(t){ if (t.id === id) arr.unshift(t); else arr.push(t); });
+			templates = arr;
+			renderList();
+			submit();
+		});
+
+		// 删除
+		$('#templates').on('click', '.del_tpl', function(){
+			settlePendingDelete();
+			var id = Number($(this).closest('.template').attr('data-templid'));
+			var index = templates.findIndex(function(t){ return t.id === id; });
+			var removed = templates[index];
+			templates = templates.filter(function(t){ return t.id !== id; });
+			renderList();
+			pendingDelete = { template: removed, index: index };
+			showAlert('已删除“'+removed.name+'” <button type="button" class="alert-action" id="undoDelete">撤销</button>', 6000);
+			deleteTimer = setTimeout(function(){ pendingDelete = null; submit(); }, 5000);
+		});
+		$(document).on('click', '#undoDelete', function(){
+			if (!pendingDelete) return;
+			clearTimeout(deleteTimer);
+			templates.splice(pendingDelete.index, 0, pendingDelete.template);
+			pendingDelete = null;
+			renderList();
+			closeAlert();
+		});
+
+		// 编辑器按钮
+		$('#backToList').click(backToList);
+		$('#cancelEdit').click(backToList);
+		$('#saveBtn').click(function(){
+			settlePendingDelete();
+			if (!validateColorFields()) return;
+			saveForm();
+			for (var i = 0; i < templates.length; i++) if (templates[i].id === editingId) templates[i] = working;
+			renderList();
+			submit();
+			backToList();
+			showAlert('模板已保存');
+		});
+
+		// 恢复默认样式（保留名称与 id）
+		$('#resetTemplate').click(function(){
+			var name = working.name, id = working.id;
+			working = defaultTemplateObject();
+			working.name = name; working.id = id;
+			loadForm();
+			refreshPreview();
+			showAlert('已恢复为实验页默认样式（未保存）');
+		});
+
+		// 配色：恢复默认
+		$('#resetColors').click(function(){
+			workingColors = DEFAULT_COLORS.slice();
+			selectedColorIndex = -1;
+			renderCommonColors();
+			refreshPreview();
+		});
+		$('#removeColor').click(function(){
+			if (selectedColorIndex < 0 || selectedColorIndex >= workingColors.length) return;
+			if (workingColors.length <= 1) { showAlert('至少保留一种通用颜色'); return; }
+			workingColors.splice(selectedColorIndex, 1);
+			selectedColorIndex = -1;
+			renderCommonColors();
+			refreshPreview();
+		});
+
+		$('#resetCommon').click(function(){ resetFields(COMMON_FIELDS, true); showAlert('通用样式已重置（未保存）'); });
+		$('#resetChart').click(function(){
+			var chart = $('[name=chartType]').val() || 'lineChart';
+			resetFields(CHART_FIELDS[chart] || [], false);
+			showAlert('当前图表样式已重置（未保存）');
+		});
+		initChartSelectors();
+		$('#templateChartFamily').on('change', function(){
+			var variant = renderChartVariants($(this).val());
+			setPreviewChartType(variant ? variantKey(variant) : 'lineChart');
+		});
+		$('#templateChartVariant').on('change', function(){ setPreviewChartType($(this).val()); });
+		$('[name=separateAxisStyles]').on('change', function(){ filterAxisFields(); refreshPreview(); });
+		$('.edit-view').on('input change', 'input, select', function(){
+			if (this.name === 'areaFillStyle') filterChartFields();
+			if (this.name === 'tplName') $('#editTitle').text($.trim(this.value) || '未命名模板');
+			if (this.id !== 'templateChartType') refreshPreview();
+		});
+
+		// 配色：hex 输入回车添加
+		$('#colorInput').on('keyup', function(e){
+			if (e.keyCode === 13) {
+				var value = $.trim($(this).val());
+				var colors = value ? value.split(/[\s,]+/) : [];
+				var valid = colors.length > 0 && colors.every(function(color){ return /^#[0-9a-fA-F]{6}$/.test(color); });
+				if (valid) {
+					colors.forEach(function(color){ workingColors.push(color); });
+					renderCommonColors();
+					$(this).val('');
+					refreshPreview();
+				}
+				else showAlert('颜色 HEX 无效，示例：#0f62fe');
+			}
+		});
+
+		// 配色：双击移除
+		$('#commonColors').on('dblclick', '.color_item', function(){
+			if (workingColors.length <= 1) { showAlert('至少保留一种通用颜色'); return; }
+			workingColors.splice(Number($(this).attr('data-index')), 1);
+			selectedColorIndex = -1;
+			renderCommonColors();
+			refreshPreview();
+		});
+
+		// 配色：单击选中（回填到输入框）
+		$('#commonColors').on('click', '.color_item', function(){
+			selectedColorIndex = Number($(this).attr('data-index'));
+			$('#colorInput').val($(this).attr('title'));
+			renderCommonColors();
+			updateSwatches();
+		});
+
+		// 颜色 swatch 实时预览
+		$(document).on('input', '.color_hex_input', updateSwatches);
+	});
+
+	// ===== 接收原生数据 =====
+	window.uploadTemplates = function(msg){
+		templates = JSON.parse(msg.templates);
+		renderList();
+	}
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="X-Chart Studio，一个更自由的 Sketch 图表工具。">
+  <title>X-Chart Studio · 一个更自由的 Sketch 图表工具</title>
+  <link rel="icon" type="image/png" href="./assets/plugin-icon.png">
+  <link rel="stylesheet" href="./styles.css?v=4">
+  <link rel="stylesheet" href="./polish.css?v=9">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="X-Chart Studio 首页">
+      <span class="brand-mark" aria-hidden="true">X</span>
+      <span>X-Chart Studio</span>
+    </a>
+    <nav aria-label="主导航">
+      <a href="#freedom">自由组合</a>
+      <a href="#features">插件功能</a>
+      <a href="#system">搭建思路</a>
+      <a href="#interface">真实界面</a>
+    </nav>
+    <a class="nav-download" href="./downloads/X-Chart-Studio-8.1.1.sketchplugin.zip" download>下载插件 <span>↓</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><i></i> X-CHART STUDIO / SKETCH PLUGIN</p>
+        <h1>一个更自由的<br><em>Sketch 图表工具</em></h1>
+        <p class="hero-lead">自由选择图表、组合变体、接入数据并调整视觉样式。把标准化图表资产，变成可以持续扩展的设计工作流。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="./downloads/X-Chart-Studio-8.1.1.sketchplugin.zip" download>下载插件 <span>↓</span></a>
+          <a class="button secondary" href="#freedom">查看组合逻辑 <span>→</span></a>
+        </div>
+        <div class="hero-tags"><span>图表检索</span><span>实时预览</span><span>数据导入</span><span>模板系统</span><span>矢量图层</span></div>
+      </div>
+      <figure class="hero-visual">
+        <figcaption><span>图表组合系统</span><b>组件 × 变体 × 自定义</b></figcaption>
+        <div class="composition-board" aria-label="图表骨架、结构变体和视觉参数经过组合后生成可编辑图表">
+          <div class="board-head"><span>CHART ASSEMBLY / 01—03</span><b>组合逻辑</b></div>
+          <div class="board-stage">
+            <div class="input-stack">
+              <article class="build-input input-base">
+                <div><small>01 / BASE</small><strong>图表骨架</strong><em>折线·柱状·饼环</em></div>
+                <svg class="build-graphic" viewBox="0 0 120 56" aria-hidden="true">
+                  <path class="mini-divider" d="M39.5 5V51M80.5 5V51"/>
+                  <g class="base-line"><path class="mini-axis" d="M3 44H35M3 10V44"/><path d="M5 37L13 28L21 32L29 17L36 12"/><circle cx="13" cy="28" r="1.6"/><circle cx="29" cy="17" r="1.6"/></g>
+                  <g class="base-bars"><path class="mini-axis" d="M44 44H76"/><rect x="46" y="31" width="7" height="13"/><rect x="56" y="16" width="7" height="28"/><rect x="66" y="24" width="7" height="20"/></g>
+                  <g class="base-ring"><circle class="ring-track" cx="101" cy="28" r="14"/><circle class="ring-value" cx="101" cy="28" r="14"/></g>
+                </svg>
+              </article>
+              <article class="build-input input-variant">
+                <div><small>02 / VARIANT</small><strong>结构变体</strong><em>基础·分组·堆叠</em></div>
+                <svg class="build-graphic" viewBox="0 0 120 56" aria-hidden="true">
+                  <path class="mini-divider" d="M39.5 5V51M80.5 5V51"/>
+                  <g class="variant-single"><path class="mini-axis" d="M4 46H35"/><rect x="11" y="24" width="16" height="22"/></g>
+                  <g class="variant-group"><path class="mini-axis" d="M44 46H76"/><rect x="48" y="28" width="7" height="18"/><rect class="tone-2" x="57" y="14" width="7" height="32"/><rect class="tone-3" x="66" y="22" width="7" height="24"/></g>
+                  <g class="variant-stack"><path class="mini-axis" d="M85 46H116"/><rect x="93" y="32" width="16" height="14"/><rect class="tone-2" x="93" y="19" width="16" height="13"/><rect class="tone-3" x="93" y="10" width="16" height="9"/></g>
+                </svg>
+              </article>
+              <article class="build-input input-style">
+                <div><small>03 / STYLE</small><strong>视觉参数</strong><em>色板·坐标轴·标签</em></div>
+                <svg class="build-graphic style-graphic" viewBox="0 0 120 56" aria-hidden="true">
+                  <g class="palette-strip"><rect x="3" y="8" width="15" height="13"/><rect x="20" y="8" width="15" height="13"/><rect x="37" y="8" width="15" height="13"/><rect x="54" y="8" width="15" height="13"/><rect x="71" y="8" width="15" height="13"/><rect x="88" y="8" width="15" height="13"/></g>
+                  <g class="style-grid"><path d="M3 29H60V49H3ZM3 39H60M22 29V49M41 29V49"/><path class="style-axis" d="M3 27V51H62"/></g>
+                  <g class="type-token"><rect x="78" y="29" width="39" height="20"/><text x="97.5" y="43">T 12</text></g>
+                </svg>
+              </article>
+            </div>
+            <div class="merge-track" aria-hidden="true"><i></i><i></i><i></i><span><b>X</b><small>CORE</small></span><em></em></div>
+            <div class="chart-result">
+              <div class="result-meta"><small>OUTPUT / SKETCH</small><b>可编辑矢量图层</b></div>
+              <svg viewBox="0 0 330 300" role="img" aria-label="组合生成的多系列面积折线图">
+                <g class="output-grid"><path d="M42 30V252H310"/><path d="M42 74H310M42 118H310M42 162H310M42 206H310"/><path d="M96 30V252M150 30V252M204 30V252M258 30V252"/></g>
+                <path class="output-area output-area-two" d="M42 212C75 190 92 150 124 161S170 211 201 178S248 109 310 128V252H42Z"/>
+                <path class="output-area output-area-one" d="M42 225C79 211 91 92 132 105s50 91 91 42 47-92 87-78v183H42Z"/>
+                <path class="output-line output-line-two" d="M42 212C75 190 92 150 124 161S170 211 201 178S248 109 310 128"/>
+                <path class="output-line output-line-one" d="M42 225C79 211 91 92 132 105s50 91 91 42 47-92 87-78"/>
+                <g class="output-points"><circle cx="132" cy="105" r="5"/><circle cx="223" cy="147" r="5"/><circle cx="310" cy="69" r="5"/></g>
+                <g class="axis-labels"><text x="29" y="35">80</text><text x="29" y="123">40</text><text x="29" y="255">0</text><text x="42" y="278">01</text><text x="150" y="278">03</text><text x="258" y="278">05</text></g>
+              </svg>
+              <div class="result-foot"><span><i></i>系列 01</span><span><i></i>系列 02</span><b>矢量图层</b></div>
+            </div>
+          </div>
+          <div class="board-foot"><span>COMPONENT</span><i>+</i><span>VARIANT</span><i>+</i><span>STYLE</span><i>→</i><b>EDITABLE CHART</b></div>
+        </div>
+      </figure>
+    </section>
+
+    <section class="metrics" aria-label="图表资产规模">
+      <div class="shell metric-grid">
+        <article><strong>06</strong><span>使用场景</span><small>从设计任务出发</small></article>
+        <article><strong>19</strong><span>主图表类型</span><small>覆盖常见报表表达</small></article>
+        <article><strong>25</strong><span>图表变体</span><small>自由组合不同结构</small></article>
+        <article class="metric-statement"><p>标准化图表资产，<br><b>自由组合设计表达。</b></p></article>
+      </div>
+    </section>
+
+    <section class="section freedom" id="freedom">
+      <div class="shell">
+        <header class="section-heading">
+          <div><p class="eyebrow">01 / 自由组合</p><h2>先回答要表达什么，<br><em>再选择用什么图表。</em></h2></div>
+          <p>图表不再是一长串难以检索的名称。X-Chart 以使用场景组织主图表，再用变体扩展结构，让选择更快，也为后续增加新图表保留清晰位置。</p>
+        </header>
+        <div class="taxonomy-map" aria-label="X-Chart 图表分类与组合图谱">
+          <header class="taxonomy-head"><span>CHART TAXONOMY / V1</span><b>06 场景 · 19 主图表 · 25 变体</b></header>
+          <div class="taxonomy-body">
+            <section class="scenario-index" aria-label="使用场景">
+              <div class="taxonomy-column-head"><span>01</span><b>使用场景</b></div>
+              <ol>
+                <li class="active"><b>01</b><span>趋势</span></li>
+                <li><b>02</b><span>对比</span></li>
+                <li><b>03</b><span>占比</span></li>
+                <li><b>04</b><span>进程</span></li>
+                <li><b>05</b><span>多维</span></li>
+                <li><b>06</b><span>其他</span></li>
+              </ol>
+            </section>
+            <section class="chart-catalog" aria-label="主图表分类">
+              <div class="taxonomy-column-head"><span>02</span><b>主图表</b><em>按表达目的组织，而不是按名称堆放</em></div>
+              <div class="catalog-rows">
+                <div class="catalog-row active"><b>趋势</b><div><span>折线图</span><span class="selected">面积图</span><span>迷你图</span></div></div>
+                <div class="catalog-row"><b>对比</b><div><span>柱状图</span><span>条形图</span><span>散点图</span><span>气泡图</span></div></div>
+                <div class="catalog-row"><b>占比</b><div><span>饼图</span><span>环形图</span><span>矩形树图</span></div></div>
+                <div class="catalog-row"><b>进程</b><div><span>仪表盘</span><span>进度条 / 环</span></div></div>
+                <div class="catalog-row"><b>多维</b><div><span>雷达图</span><span>漏斗图</span><span>组合图</span></div></div>
+                <div class="catalog-row"><b>其他</b><div><span>流图</span><span>直方图</span><span>热力图</span><span>K 线图</span></div></div>
+              </div>
+            </section>
+            <section class="variant-spectrum" aria-label="面积图变体与视觉参数">
+              <div class="taxonomy-column-head"><span>03</span><b>变体与参数</b></div>
+              <div class="spectrum-path"><small>EXAMPLE / 面积图</small><strong>同一骨架，扩展不同结构</strong></div>
+              <div class="variant-branches">
+                <span>基础单系列</span><span class="selected">多系列对比</span><span>堆叠面积</span><span>百分比堆叠</span>
+              </div>
+              <div class="parameter-set"><small>视觉参数</small><div class="parameter-swatches" aria-label="插件默认六色色板"><i title="#0A84FF"></i><i title="#30B0C7"></i><i title="#FF9F0A"></i><i title="#FF375F"></i><i title="#5E5CE6"></i><i title="#34C759"></i></div><p><span>默认色板</span><span>坐标轴</span><span>标签</span><span>间距</span></p></div>
+            </section>
+          </div>
+          <div class="composition-example">
+            <div class="example-label"><small>COMPOSITION EXAMPLE</small><b>一条组合路径</b></div>
+            <div class="example-node"><small>场景</small><strong>趋势</strong></div><i class="example-arrow">→</i>
+            <div class="example-node"><small>主图表</small><strong>面积图</strong></div><i class="example-arrow">→</i>
+            <div class="example-node"><small>图表变体</small><strong>多系列对比</strong></div><i class="example-arrow">→</i>
+            <div class="example-node"><small>视觉参数</small><strong>色板 + 坐标轴</strong></div><i class="example-arrow">→</i>
+            <figure class="example-output">
+              <svg viewBox="0 0 180 78" role="img" aria-label="组合生成的多系列面积图"><path class="mini-grid" d="M8 14H172M8 40H172M8 66H172M8 8V66"/><path class="mini-area two" d="M8 57C38 45 48 25 76 35s30 29 54 15 31-24 42-18v34H8Z"/><path class="mini-area one" d="M8 61C33 55 47 18 75 23s31 37 57 14 27-30 40-25v54H8Z"/><path class="mini-line two" d="M8 57C38 45 48 25 76 35s30 29 54 15 31-24 42-18"/><path class="mini-line one" d="M8 61C33 55 47 18 75 23s31 37 57 14 27-30 40-25"/></svg>
+              <figcaption>Sketch 矢量图层</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section features" id="features">
+      <div class="shell">
+        <header class="section-heading light-heading">
+          <div><p class="eyebrow">02 / 插件功能</p><h2>从找到图表，<br><em>到放进 Sketch。</em></h2></div>
+          <p>创建、编辑和模板不是三个孤立页面，而是同一套图表资产在不同任务里的入口。</p>
+        </header>
+        <div class="feature-grid">
+          <article><small>01 / SELECT</small><svg class="feature-pictogram" viewBox="0 0 32 32" aria-hidden="true"><path d="M15,31.36c-.092,0-.182-.035-.251-.103a.36.36 0 0 1-.078-.404l1.768-3.979a.36.36 0 0 1 .077-.11l12.232-12.021a.36.36 0 0 1 .508.003l2.001,2.016a.36.36 0 0 1-.001.508L19.144,29.396a.36.36 0 0 1-.1.071l-3.889,1.857a.36.36 0 0 1-.155.036Zm1.884-3.714-1.159,2.609 2.549-1.218-1.39-1.391Zm.395-.624 1.609,1.61 9.611-9.624-1.521-1.52-9.699,9.534Zm10.214-10.038 1.516,1.516 1.483-1.485-1.496-1.507-1.503,1.476ZM11,31.36H1A.36.36 0 0 1 .64,31V1A.36.36 0 0 1 1,.64h18c.096,0,.188.038.255.105l6,6A.36.36 0 0 1 25.36,7v7h-.72V7.36H19a.36.36 0 0 1-.36-.36V1.36H1.36v29.28H11v.72Zm8.36-24.72h4.771L19.36,1.869V6.64ZM19,21.36h-3a.36.36 0 0 1-.36-.36v-9a.36.36 0 0 1 .36-.36h3a.36.36 0 0 1 .36.36v9a.36.36 0 0 1-.36.36Zm-2.64-.72h2.28v-8.28h-2.28v8.28ZM14,21.36h-3a.36.36 0 0 1-.36-.36V9a.36.36 0 0 1 .36-.36h3a.36.36 0 0 1 .36.36v12a.36.36 0 0 1-.36.36Zm-2.64-.72h2.28V9.36h-2.28v11.28ZM9,21.36H6a.36.36 0 0 1-.36-.36v-6a.36.36 0 0 1 .36-.36h3a.36.36 0 0 1 .36.36v6a.36.36 0 0 1-.36.36Zm-2.64-.72h2.28v-5.28H6.36v5.28Z"/></svg><h3>按场景选择</h3><p>从趋势、对比、占比等使用目的出发，快速定位主图表和变体。</p><b>场景 → 图表 → 变体</b></article>
+          <article><small>02 / DATA</small><svg class="feature-pictogram" viewBox="0 0 32 32" aria-hidden="true"><path d="M28,31.36H4A.36.36 0 0 1 3.64,31V1A.36.36 0 0 1 4,.64h18c.096,0,.188.038.255.105l6,6A.36.36 0 0 1 28.36,7v24a.36.36 0 0 1-.36.36Zm-23.64-.72h23.28V7.36H22a.36.36 0 0 1-.36-.36V1.36H4.36v29.28Zm18-24h4.771L22.36,1.869V6.64ZM25,27.36H7a.36.36 0 0 1-.36-.36V11a.36.36 0 0 1 .36-.36h18a.36.36 0 0 1 .36.36v16a.36.36 0 0 1-.36.36Zm-5.64-.72h5.279v-3.28H19.36v3.28Zm-6,0h5.28v-3.28h-5.28v3.28Zm-6,0h5.28v-3.28H7.36v3.28Zm12-4h5.279v-3.28H19.36v3.28Zm-6,0h5.28v-3.28h-5.28v3.28Zm-6,0h5.28v-3.28H7.36v3.28Zm12-4h5.279v-3.28H19.36v3.28Zm-6,0h5.28v-3.28h-5.28v3.28Zm-6,0h5.28v-3.28H7.36v3.28Zm12-4h5.279v-3.28H19.36v3.28Zm-6,0h5.28v-3.28h-5.28v3.28Zm-6,0h5.28v-3.28H7.36v3.28Z"/></svg><h3>自由接入数据</h3><p>支持手动表格、CSV、本地 JSON 与 HTTPS JSON，预览随数据同步更新。</p><b>TABLE · CSV · JSON</b></article>
+          <article><small>03 / STYLE</small><svg class="feature-pictogram" viewBox="0 0 32 32" aria-hidden="true"><path d="M30,30.36c-.625,0-1.153-.425-1.312-1H14a.36.36 0 0 1-.313-.539l7.35-12.862a1.36 1.36 0 0 1-.349-.6h-9.377l-.018.06A7.36 7.36 0 0 1 9.34,29.229 1.36 1.36 0 0 1 6.659,29.229 7.36 7.36 0 0 1 8,14.64c.215,0,.437.012.679.037a1.36 1.36 0 0 1 .961-.988V3A.36.36 0 0 1 10,2.64h12a.36.36 0 0 1 .36.36v10.688a1.36 1.36 0 0 1 .603,2.271l6.699,11.723A1.36 1.36 0 1 1 30,30.36Zm0-2a.64.64 0 1 0 0,1.28.64.64 0 0 0 0-1.28Zm-22,0a.64.64 0 1 0 0,1.28.64.64 0 0 0 0-1.28Zm6.62.28h14.068c.063-.229.185-.435.349-.6l-6.699-11.723a1.36 1.36 0 0 1-.676,0L14.62,28.64ZM8,27.64c.577,0 1.072.362 1.269.871A6.64 6.64 0 0 0 10.893,16.025a1.36 1.36 0 0 1-2.192-.621A6.64 6.64 0 0 0 6.731,28.511 1.36 1.36 0 0 1 8,27.64Zm14-13.28a.64.64 0 1 0 0,1.28.64.64 0 0 0 0-1.28Zm-12,0a.64.64 0 1 0 0,1.28.64.64 0 0 0 0-1.28Zm1.312.28h9.377a1.36 1.36 0 0 1 .951-.952V3.36H10.36v10.329c.461.126.825.49.952.951Z"/></svg><h3>精细控制样式</h3><p>调整色板、字体、标签、网格、线条、间距与图表族专属参数。</p><b>TOKEN · AXIS · LABEL</b></article>
+          <article><small>04 / REUSE</small><svg class="feature-pictogram" viewBox="0 0 32 32" aria-hidden="true"><path d="M31,31.36h-4a.36.36 0 0 1-.36-.36v-1.64H5.36V31a.36.36 0 0 1-.36.36H1A.36.36 0 0 1 .64,31v-4a.36.36 0 0 1 .36-.36h1.64V5.36H1A.36.36 0 0 1 .64,5V1A.36.36 0 0 1 1,.64h4a.36.36 0 0 1 .36.36v1.64h21.28V1a.36.36 0 0 1 .36-.36h4a.36.36 0 0 1 .36.36v4a.36.36 0 0 1-.36.36h-1.64v21.28H31a.36.36 0 0 1 .36.36v4a.36.36 0 0 1-.36.36Zm-3.64-.72h3.279v-3.28H27.36v3.28Zm-26,0h3.28v-3.28H1.36v3.28Zm4-2h21.28V27a.36.36 0 0 1 .36-.36h1.64V5.36H27a.36.36 0 0 1-.36-.36V3.36H5.36V5a.36.36 0 0 1-.36.36H3.36v21.28H5a.36.36 0 0 1 .36.36v1.64Zm22-24h3.279V1.36H27.36v3.28Zm-26,0h3.28V1.36H1.36v3.28ZM12,17.36a.36.36 0 0 1-.337-.234l-3-8a.36.36 0 0 1 .464-.464l8,3a.36.36 0 0 1-.039.686l-3.79.948-.948,3.79a.36.36 0 0 1-.35.274ZM9.615,9.615l2.316,6.176.72-2.878a.36.36 0 0 1 .262-.262l2.878-.72-6.176-2.316Z"/></svg><h3>模板持续复用</h3><p>为不同项目建立图表模板，并决定图表跟随模板或保留独立样式。</p><b>LINKED · FROZEN · DETACHED</b></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section system" id="system">
+      <div class="shell">
+        <header class="section-heading">
+          <div><p class="eyebrow">03 / 搭建思路</p><h2>自由组合的背后，<br><em>是一套统一的图表中台。</em></h2></div>
+          <p>数据、图表组件和全局样式分别管理，再由一个公共核心完成规范化与几何计算。一处修改，可以作用到创建、编辑、模板和最终 Sketch 产物。</p>
+        </header>
+        <div class="system-map">
+          <div class="system-inputs">
+            <article><small>INPUT 01</small><h3>数据配置</h3><p>表格、CSV、JSON 与字段映射</p></article>
+            <article><small>INPUT 02</small><h3>图表组件</h3><p>主图表、变体与组成元素</p></article>
+            <article><small>INPUT 03</small><h3>全局样式</h3><p>色板、字体、网格与参数</p></article>
+          </div>
+          <div class="flow-line"><span>统一输入</span><i></i></div>
+          <article class="system-core"><span>X</span><div><small>XCHART CORE</small><h3>统一配置与 Scene</h3><p>数据规范化 · 布局计算 · 图形结构</p></div></article>
+          <div class="flow-line output-line"><span>同源输出</span><i></i></div>
+          <div class="system-outputs">
+            <article><small>CANVAS ADAPTER</small><h3>实时预览</h3><p>选择和修改时立即看到结果</p></article>
+            <article><small>SKETCH ADAPTER</small><h3>矢量图层</h3><p>生成可继续编辑的设计资产</p></article>
+          </div>
+        </div>
+        <div class="principles"><article><b>01</b><span><strong>一份数据源</strong><small>不在不同页面重复解析数据</small></span></article><article><b>02</b><span><strong>一份渲染源</strong><small>预览与 Sketch 共享同一 Scene</small></span></article><article><b>03</b><span><strong>一份默认模板</strong><small>公共视觉规则集中维护</small></span></article></div>
+      </div>
+    </section>
+
+    <section class="section interface" id="interface">
+      <div class="shell">
+        <header class="section-heading light-heading">
+          <div><p class="eyebrow">04 / 可操作插件界面</p><h2>复杂能力，<br><em>收进一个清晰工作台。</em></h2></div>
+          <p>这不是界面截图。你可以直接切换图表和变体、修改表格数据与样式，体验真实的创建流程。</p>
+        </header>
+        <figure class="interface-figure">
+          <div class="interface-bar"><span><i></i><i></i><i></i></span><b>X-Chart Studio / 创建图表</b><em>真实界面</em></div>
+          <div class="interactive-frame-wrap"><iframe src="./demo/createChart.html?demo=2" title="X-Chart Studio 可操作创建图表演示" loading="lazy"></iframe></div>
+        </figure>
+        <div class="interface-notes"><article><b>01</b><span><strong>切换图表与变体</strong><small>左侧目录可以直接操作</small></span></article><article><b>02</b><span><strong>编辑数据与预览</strong><small>修改表格后立即反馈到图形</small></span></article><article><b>03</b><span><strong>调整样式</strong><small>模板、颜色和高级参数集中控制</small></span></article></div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="shell closing-inner"><p class="eyebrow">X-CHART STUDIO / V8.1.1</p><h2>让图表资产保持一致，<br><em>让设计表达保留自由。</em></h2><div class="closing-meta"><span>创建图表</span><span>编辑图表</span><span>模板管理</span><span>Sketch 矢量输出</span></div><a class="button closing-download" href="./downloads/X-Chart-Studio-8.1.1.sketchplugin.zip" download>下载 Sketch 插件 <span>↓</span></a></div>
+    </section>
+  </main>
+
+  <footer class="footer shell"><a class="brand" href="#top"><span class="brand-mark">X</span><span>X-Chart Studio</span></a><p>一个更自由的 Sketch 图表工具</p><small>独立设计与开发 · 2026</small></footer>
+</body>
+</html>

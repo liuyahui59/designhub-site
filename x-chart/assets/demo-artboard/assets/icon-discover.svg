@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>00000000-0000-4000-8000-000000000058</title>
+    <g id="📱-移动端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="首页" transform="translate(-184, -773)">
+            <g id="Bottom-Tab" transform="translate(0, 760)">
+                <g id="Tab-/-发现" transform="translate(165, 12)">
+                    <g id="icon-discover" transform="translate(18, 0)">
+                        <circle id="Ring" stroke="#1A1A1A" stroke-width="2" cx="12" cy="12" r="10"></circle>
+                        <polygon id="Needle" fill="#1A1A1A" points="12 6 17.19612 15 6.80388 15"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

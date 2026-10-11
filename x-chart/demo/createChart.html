@@ -1,0 +1,2536 @@
+<!DOCTYPE html>
+<html data-page-node-id="ZiLY9VP5oZAEH77CEauj9I">
+<!DOCTYPE html>
+<html data-page-node-id="ZiLY9VP5oZAEH77CEauj9I">
+<head data-page-node-id="b4BmoueMTPiFIekdKPPS1n">
+	<meta charset="utf-8" data-page-node-id="AJHkK2nEGvwFiJB5dJ41T8">
+	<title>#chartName</title>
+	<style type="text/css">
+/* ============================================================
+   X-Chart — Sketch 原生风格主题（macOS / Sketch UI 语言）
+   ============================================================ */
+:root {
+  /* 品牌 / 交互强调色（macOS 系统蓝） */
+  --accent:        #0f62fe;
+  --accent-strong: #0070e0;
+  --accent-press:  #005cc3;
+  --accent-soft:   rgba(10,132,255,0.12);
+  --danger:        #ff3b30;
+
+  /* 表面 */
+  --bg:        #ffffff;
+  --bg-chrome: #f5f5f7;
+  --bg-inset:  #ececf0;
+  --bg-hover:  #e9e9ed;
+
+  /* 文本 */
+  --text:        #1d1d1f;
+  --text-2:      #6e6e73;
+  --text-3:      #98989e;
+  --text-on-acc: #ffffff;
+
+  /* 线条 */
+  --line:        #e5e5ea;
+  --line-strong: #d2d2d7;
+
+  /* 圆角 */
+  --radius:    6px;
+  --radius-lg: 8px;
+
+  /* 效果 */
+  --focus-ring: 0 0 0 3px rgba(10,132,255,0.16);
+  --shadow-pop: 0 8px 24px rgba(0,0,0,0.20);
+
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue",
+          "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+
+body {
+  margin: 0; padding: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: var(--font);
+  font-size: 13px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow: hidden;
+  -webkit-user-select: none; user-select: none;
+}
+input, textarea, select, td[contenteditable] { -webkit-user-select: text; user-select: text; }
+
+/* ---------- 标题 / 文本 ---------- */
+h1 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0 0 16px 0;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+h3 {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  margin: 0 0 6px 0;
+  color: var(--text);
+}
+p {
+  font-size: 12px;
+  color: var(--text-2);
+  margin: 0 0 6px 0;
+}
+a { text-decoration: none; color: var(--accent); cursor: pointer; }
+a:hover { text-decoration: underline; }
+.link { color: var(--accent); cursor: pointer; }
+.link:hover { text-decoration: underline; }
+.red-link { color: var(--danger); cursor: pointer; }
+.description { display: inline-block; color: var(--text-3); font-size: 12px; }
+.secondary_text { font-size: 13px; line-height: 19px; color: var(--text-2); }
+.bold { font-weight: 600; }
+
+/* ---------- 输入控件 ---------- */
+input[type="text"],
+input[type="number"],
+input:not([type]) {
+  font-family: inherit;
+  font-size: 13px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  width: 100%;
+  color: var(--text);
+  outline: none;
+  transition: border-color 90ms ease, box-shadow 90ms ease;
+}
+input::placeholder { color: var(--text-3); }
+input:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+input:disabled { background: var(--bg-inset); color: var(--text-3); cursor: not-allowed; }
+
+select {
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  font-family: inherit;
+  font-size: 13px;
+  height: 28px;
+  padding: 0 28px 0 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 90ms ease, box-shadow 90ms ease;
+}
+select:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+select:disabled { color: var(--text-3); cursor: not-allowed; }
+.select_height { height: 28px; }
+
+textarea {
+  font-family: inherit;
+  font-size: 13px;
+  padding: 8px 10px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  width: 100%;
+  outline: none;
+  color: var(--text);
+  resize: vertical;
+  transition: border-color 90ms ease, box-shadow 90ms ease;
+}
+textarea::placeholder { color: var(--text-3); }
+textarea:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+
+.select-wraper { position: relative; }
+.select-wraper::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 11px;
+  width: 6px; height: 6px;
+  border-right: 1.5px solid var(--text-2);
+  border-bottom: 1.5px solid var(--text-2);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
+/* ---------- 按钮 ---------- */
+.button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  height: 28px;
+  padding: 0 16px;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: var(--text-on-acc);
+  cursor: pointer;
+  transition: background-color 90ms ease;
+  white-space: nowrap;
+}
+.button:hover { background: var(--accent-strong); }
+.button:active { background: var(--accent-press); }
+.button:disabled { background: var(--line-strong); color: var(--text-3); cursor: not-allowed; }
+.button.create-chart { min-width: 128px; height: 30px; }
+.button.secondary-button { background: var(--bg-inset); color: var(--text); }
+.button.secondary-button:hover { background: var(--bg-hover); }
+.button.ghost-button { background: transparent; color: var(--accent); border: 1px solid var(--line-strong); }
+.button.ghost-button:hover { background: var(--accent-soft); }
+.button.danger-button { background: var(--danger); }
+.button.small-button { height: 24px; padding: 0 10px; font-size: 12px; }
+
+/* ---------- 通知 / 加载 ---------- */
+.alert {
+  width: calc(100% - 16px);
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+  position: absolute;
+  top: 8px; left: 8px;
+  min-height: 40px;
+  background: rgba(40,40,44,0.94);
+  color: #ffffff;
+  padding: 0 14px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-pop);
+  box-sizing: border-box;
+}
+#alert_text { font-size: 13px; line-height: 18px; }
+.close_alert { cursor: pointer; opacity: 0.7; display: flex; align-items: center; }
+.close_alert:hover { opacity: 1; }
+
+.loader {
+  width: 100%; height: 100vh;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 100000;
+  background: rgba(255,255,255,0.85);
+  display: none; align-items: center; justify-content: center;
+}
+.spinner {
+  width: 26px; height: 26px;
+  border: 3px solid var(--line);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.flex { display: flex; }
+.hide_file { position: absolute; z-index: 1000; opacity: 0; cursor: pointer; right: 0; top: 0; height: 100%; font-size: 24px; width: 100%; }
+
+/* ============================================================
+   主界面布局（侧栏 + 内容）
+   ============================================================ */
+.webview { display: flex; opacity: 1; height: 100vh; }
+
+/* 左侧图表类型栏（Sketch 图层栏风格：浅灰 chrome） */
+.tools {
+  width: 80px;
+  height: 100vh;
+  flex: none;
+  padding: 8px 0;
+  background: var(--bg-chrome);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.icon_tools {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin: 1px 8px;
+  border-radius: var(--radius);
+  color: var(--text-2);
+  cursor: pointer;
+  transition: background-color 90ms ease, color 90ms ease;
+}
+.icon_tools svg { display: block; }
+.icon_tools:hover { background: var(--bg-hover); color: var(--text); }
+.icon_active {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* 右侧内容区 */
+.content {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+/* 分段控件（macOS segmented control） */
+.button_group {
+  display: flex;
+  background: var(--bg-inset);
+  border-radius: var(--radius-lg);
+  padding: 2px;
+  gap: 2px;
+  margin-bottom: 16px;
+}
+.radio {
+  flex: 1;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-2);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 90ms ease, color 90ms ease, box-shadow 90ms ease;
+}
+.radio:hover { color: var(--text); }
+.radio.active {
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.14);
+}
+
+/* 表单网格 */
+.data_form {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 14px;
+}
+.random_form { grid-template-columns: 1fr; grid-row-gap: 14px; }
+.new_columns { grid-template-columns: auto; grid-row-gap: 0; }
+.form_active { display: grid; }
+
+.area-style-picker { grid-column: 1 / -1; }
+.area-style-options { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.area-style-option {
+  height: 46px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #d2d2d7;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+.area-style-option:hover { border-color: #a7a7ad; }
+.area-style-option.active { border-color: #0f62fe; box-shadow: 0 0 0 2px rgba(15,98,254,.14); }
+.area-style-option svg { display: block; width: 100%; height: 100%; }
+.area-style-caption { margin: 6px 0 0; color: #6e6e73; font-size: 11px; text-align: center; }
+.full_row { grid-column: 1 / -1; }
+.grid_inputs { display: grid; grid-template-columns: 1fr 1fr; grid-column-gap: 16px; }
+.minmax { display: flex; gap: 16px; }
+.minmax .settings_input { flex: 1; }
+.settings_inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 16px;
+  grid-row-gap: 14px;
+}
+.settings_input { width: 100%; }
+.settings_input p { margin: 0 0 6px; }
+.small_input { width: calc(50% - 8px); }
+
+.raw_table { display: grid; }
+.imported_table { display: none; grid-template-columns: 1fr 1fr; grid-column-gap: 16px; grid-row-gap: 14px; }
+.checkbox { display: flex; flex-direction: row; align-items: center; gap: 8px; }
+.checkbox input[type="checkbox"] { width: 15px; height: 15px; accent-color: var(--accent); }
+
+/* 数据表格 */
+.table_wrap {
+  max-width: 100%;
+  max-height: 220px;
+  overflow: auto;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+table { border-collapse: collapse; font-size: 12px; width: 100%; }
+thead td { background: var(--bg-inset); font-weight: 600; color: var(--text); }
+td {
+  min-width: 60px;
+  border: 1px solid var(--line);
+  border-top: none;
+  border-left: none;
+  padding: 6px 10px;
+  background: var(--bg);
+  transition: background-color 90ms ease;
+}
+td:last-child { border-right: none; }
+tr:last-child td { border-bottom: none; }
+td:focus { outline: none; box-shadow: inset 0 0 0 2px var(--accent); background: var(--bg); }
+
+.jsonLink, .tableLink {
+  font-size: 13px;
+  line-height: 18px;
+  padding: 8px 12px;
+  background: var(--bg-inset);
+  color: var(--text);
+  word-break: break-all;
+  border-radius: var(--radius);
+}
+#jsonKeys, #jsonHeader { display: none; }
+
+/* 实时预览面板（Sketch 画布风格） */
+.preview-panel {
+  margin: 0 0 16px 0;
+  height: 216px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+.preview-panel::before {
+  content: '实时预览';
+  position: absolute;
+  top: -1px; left: -1px;
+  background: var(--bg-inset);
+  color: var(--text-2);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  padding: 3px 10px;
+  border-radius: var(--radius-lg) 0 var(--radius) 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  z-index: 1;
+}
+.preview-panel canvas { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; background: var(--bg); }
+.preview-panel.empty {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+/* 页脚 */
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.footer .second_actions { display: flex; align-items: center; gap: 12px; }
+.footer .second_actions a { color: var(--accent); }
+.footer_table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  padding: 8px 0;
+  color: var(--text-2);
+}
+.footer_table a { color: var(--accent); }
+#help { color: var(--text-2); }
+#help:hover { color: var(--text); text-decoration: none; }
+
+/* ============================================================
+   设置 / 弹层（右侧 inspector 面板）
+   ============================================================ */
+.settings,
+.linkHTTP,
+.selectLayer {
+  -webkit-user-select: none;
+  display: none;
+  position: absolute;
+  top: 0; left: 148px;
+  z-index: 1000;
+  width: calc(100% - 148px);
+  height: 100%;
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+  padding: 20px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.linkHTTP.active, .selectLayer.active { display: block; }
+.selectLayer { display: flex; align-items: center; text-align: center; }
+.select_wrap { margin: 0 auto; max-width: 400px; }
+
+.popup_header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.popup_header h1 { margin: 0; }
+.popup_header a { font-size: 13px; color: var(--accent); }
+
+.form-element { width: 100%; margin-bottom: 16px; }
+.complex_title {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.complex_title p { margin: 0; }
+.complex_title a { font-size: 12px; }
+
+/* 分组标题（Sketch inspector section header） */
+.section-header,
+.section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  margin: 20px 0 10px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.section-header:first-child, .section-title:first-child { margin-top: 0; }
+.settings-section { display: none; }
+
+/* 配色 */
+.colors_preview { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; min-height: 30px; }
+.color_item {
+  width: 28px; height: 28px;
+  cursor: pointer;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius);
+  position: relative;
+}
+.color_item:hover { box-shadow: 0 0 0 2px var(--accent); }
+.color_item:active { cursor: grabbing; }
+
+.save_template {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  margin-top: 10px;
+  color: var(--text-2);
+}
+
+.highlight { background: var(--accent); }
+#table_descr { display: none; }
+#csv, #localJSON { position: relative; }
+
+/* ---------- 多选下拉（multiselect 插件） ---------- */
+.ms-options-wrap, .ms-options-wrap * { box-sizing: border-box; }
+.ms-options-wrap > button:focus,
+.ms-options-wrap > button {
+  position: relative;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--bg);
+  padding: 0 28px 0 10px;
+  height: 28px;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text);
+  outline: none;
+  white-space: nowrap;
+  margin: 0;
+  cursor: pointer;
+}
+.ms-options-wrap > button:focus { border-color: var(--accent); box-shadow: var(--focus-ring); }
+.ms-options-wrap > button > span { display: inline-block; }
+.ms-options-wrap > button[disabled] { background: var(--bg-inset); color: var(--text-3); cursor: not-allowed; }
+.ms-options-wrap > button::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: 11px;
+  width: 6px; height: 6px;
+  border-right: 1.5px solid var(--text-2);
+  border-bottom: 1.5px solid var(--text-2);
+  transform: translateY(-70%) rotate(45deg);
+}
+.ms-options-wrap.ms-has-selections > button { color: var(--text); }
+.ms-options-wrap > .ms-options {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  background: var(--bg);
+  z-index: 2000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  max-height: 240px;
+  overflow: auto;
+  visibility: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.ms-options-wrap.ms-active > .ms-options { visibility: visible; }
+.ms-options-wrap > .ms-options > .ms-search input {
+  width: 100%;
+  padding: 6px 10px;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  font-family: inherit;
+  font-size: 13px;
+  height: auto;
+  border-radius: 0;
+  outline: none;
+}
+.ms-options-wrap > .ms-options .ms-selectall {
+  display: inline-block;
+  font-size: 12px;
+  text-transform: none;
+  text-decoration: none;
+  color: var(--accent);
+  padding: 8px 12px;
+}
+.ms-options-wrap > .ms-options .ms-selectall:hover { text-decoration: underline; }
+.ms-options-wrap > .ms-options > .ms-selectall.global { margin: 0; }
+.ms-options-wrap > .ms-options > ul,
+.ms-options-wrap > .ms-options > ul > li.optgroup ul { list-style-type: none; padding: 0; margin: 0; }
+.ms-options-wrap > .ms-options > ul li.ms-hidden { display: none; }
+.ms-options-wrap > .ms-options > ul > li.optgroup { padding: 4px 0; }
+.ms-options-wrap > .ms-options > ul > li.optgroup + li.optgroup { border-top: 1px solid var(--line); }
+.ms-options-wrap > .ms-options > ul > li.optgroup .label {
+  display: block;
+  padding: 6px 12px 4px;
+  font-weight: 600;
+  color: var(--text-2);
+  font-size: 12px;
+}
+.ms-options-wrap > .ms-options > ul label {
+  position: relative;
+  font-family: inherit;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 7px 12px 7px 34px;
+  margin: 0;
+  cursor: pointer;
+}
+.ms-options-wrap > .ms-options.checkbox-autofit > ul label,
+.ms-options-wrap > .ms-options.hide-checkbox > ul label { padding: 7px 12px; }
+.ms-options-wrap > .ms-options > ul label.focused,
+.ms-options-wrap > .ms-options > ul label:hover { background-color: var(--bg-hover); }
+.ms-options-wrap > .ms-options > ul li.selected label { background-color: var(--accent-soft); color: var(--text); }
+.ms-options-wrap > .ms-options > ul input[type="checkbox"] {
+  margin: 0;
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent);
+}
+.ms-options-wrap > .ms-options.hide-checkbox > ul input[type="checkbox"] {
+  position: absolute !important;
+  height: 1px; width: 1px; overflow: hidden;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* ============================================================
+   模板页（列表 + 可视化编辑器）
+   ============================================================ */
+.main-view {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px 24px;
+  box-sizing: border-box;
+}
+.main-view > p { margin-bottom: 10px; }
+#templates {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin-top: 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+}
+.template {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+  padding: 11px 14px;
+  cursor: pointer;
+  transition: background-color 90ms ease;
+}
+.template + .template { border-top: 1px solid var(--line); }
+.template:first-child { border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.template:last-child { border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
+.template:hover { background: var(--bg-hover); }
+.template_name {
+  flex: 1;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tag { font-size: 12px; line-height: 18px; color: var(--text-3); padding: 0 2px; white-space: nowrap; }
+.tag .act { margin-left: 12px; font-size: 12px; color: var(--accent); cursor: pointer; }
+.tag .del { margin-left: 12px; font-size: 12px; color: var(--danger); cursor: pointer; }
+
+.edit-view { display: none; flex-direction: column; height: 100vh; background: var(--bg); }
+.edit-view .popup_header { margin: 0; padding: 16px 24px; border-bottom: 1px solid var(--line); }
+.edit-scroll { flex: 1; overflow-y: auto; padding: 20px 24px; }
+.edit-view .footer {
+  margin: 0;
+  padding: 14px 24px;
+  border-top: 1px solid var(--line);
+  background: var(--bg-chrome);
+}
+
+.color_input_row { display: flex; align-items: center; gap: 8px; }
+.color_swatch {
+  width: 28px; height: 28px; flex: none;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: var(--radius);
+  background: #ffffff;
+}
+.color_hex_input { flex: 1; }
+
+
+/* ============================================================
+   创建页新布局覆盖样式
+   ============================================================ */
+/* 旧 .content 内边距在 layout-split 下重置 */
+.content.layout-split {
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 隐藏旧设置浮层，内容已迁移到右侧栏 */
+.settings { display: none !important; }
+
+/* 数据面板在 layout-split 中简化 */
+.layout-split .data-panel {
+  display: none;
+}
+.layout-split .data-panel.active {
+  display: block;
+}
+
+/* 让 .random_form 在 center-scroll 中不占用网格 */
+.layout-split #random.data-panel.active {
+  display: block;
+}
+.layout-split #random .random-hint {
+  color: var(--text-2);
+  font-size: 12px;
+  line-height: 18px;
+  padding: 8px 0;
+}
+
+/* 表格/JSON 在 center 区域占满 */
+.layout-split #table,
+.layout-split #json {
+  display: none;
+}
+.layout-split #table.active,
+.layout-split #json.active {
+  display: block;
+}
+
+/* 右侧面板内 .settings_inputs 单列 */
+.right-panel .settings_inputs {
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 0;
+}
+
+.right-panel .settings-section .section-title {
+  margin: 14px 0 10px;
+  padding-bottom: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: var(--text-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.right-panel .settings-section .section-title:first-child {
+  margin-top: 0;
+}
+
+/* 颜色输入框在右侧面板中 */
+.right-panel .color_input {
+  margin-bottom: 8px;
+}
+
+.right-panel .description {
+  font-size: 11px;
+}
+
+/* 兼容旧 .form_active 类（用于 table/json 内部 imported_table 等） */
+.form_active { display: grid; }
+
+</style>
+		<link rel="stylesheet" href="./xchart-ui.css?v=8.1.4">
+		<link rel="stylesheet" href="./xchart-studio.css?v=8.1.2">
+		<script src="./jquery.js"></script>
+		<script src="./xchart-schema.js"></script>
+		<script src="./xchart-data.js"></script>
+		<script src="./xchart-default-template.js?v=3"></script>
+		<script src="./xchart-config.js?v=8.1.1"></script>
+		<script src="./xchart-colors.js?v=8.1.3"></script>
+		<script src="./xchart-core.js?v=8.1.8"></script>
+		<script src="./xchart-canvas-adapter.js?v=8.1.3"></script>
+		<script src="./preview-engine.js?v=8.1.6"></script>
+	<script src="./xchart-ui.js"></script>
+		<script src="./xchart-studio.js?v=8.1.3"></script>
+
+<body data-page-node-id="YSICrqmWRaA4gxOGa7Obep">
+	<div class="loader" data-page-node-id="bMQhRP5B0q4GDNAAHahI4L">
+		<div class="spinner" data-page-node-id="SOWosnuHdKEEXeSzgtwScW"></div>
+	</div>
+	<div class="alert" data-page-node-id="RmsNWlj1u9IoskyIPFeeAD">
+	  <div id="alert_text" data-page-node-id="ThkR5yGVgTUXEmK9sh4HQY"></div>
+	  <div class="close_alert" data-page-node-id="E3HFPvJcBtUK5bOSvNNnkU">
+	    <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg" data-page-node-id="0tcKC1jMk9rfizO9pcF1ol"><g fill="none" fill-rule="evenodd" data-page-node-id="YD8KPOdcw1CQukPTB9xSmg"><path d="M-2-2h16v16H-2z" data-page-node-id="uhD3kD7hT2PcSSCwYyfprE"/><path d="M7.414 6l4.243 4.243-1.414 1.414L6 7.414l-4.243 4.243-1.414-1.414L4.586 6 .343 1.757 1.757.343 6 4.586 10.243.343l1.414 1.414L7.414 6z" fill="#FFF" data-page-node-id="OxuplPXitaV9iXLIXSBdSE"/></g></svg>
+	  </div>
+	</div>
+	<div class="webview" data-page-node-id="koRGHJqWl4ufHZyPBZ8qF4">
+		<div class="tools" aria-label="图表类型" data-page-node-id="UcBgfAb5EKsMoHo48OSdpy">
+				<div class="tool-section">趋势</div>
+				<button type="button" class="icon_tools icon_active" data-action="lineChart" title="折线图" aria-label="折线图" data-page-node-id="YimQqseP9BKLSxxe3oADOS"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.67,28l6.39-12,7.3,6.49a2,2,0,0,0,1.7.47,2,2,0,0,0,1.42-1.07L27,10.9,25.18,10,19.69,21l-7.3-6.49A2,2,0,0,0,10.71,14a2,2,0,0,0-1.42,1L4,25V2H2V28a2,2,0,0,0,2,2H30V28Z"/></svg><span class="tool-label">折线图</span></button>
+				<button type="button" class="icon_tools" data-action="areaChart" title="面积图" aria-label="面积图" data-page-node-id="h7CAe7JDP36L4BjIbasym5"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M20.4761,8.0151,13.4473,4.2109a2.0076,2.0076,0,0,0-2.1158.2051L4,10.001V2H2V28a2,2,0,0,0,2,2H30V5.7354ZM28,20.209l-7.62,1.8022-7.0288-2.8838a1.99,1.99,0,0,0-2.022.37L4,25.8359v-4.455l8.375-9.4,7.0186,5.62a2.0155,2.0155,0,0,0,2.0459.2119L28,14.6025ZM12.5239,5.9849l7.03,3.8042a2.012,2.012,0,0,0,1.3408.16L28,8.2646v4.1138L20.6187,16.02,13.6,10.4a1.99,1.99,0,0,0-2.6885.2642L4,18.3838v-5.87ZM4.5513,28,12.62,20.9888l7.0288,2.8838a1.9977,1.9977,0,0,0,1.147.0771L28,22.2612V28Z"/></svg><span class="tool-label">面积图</span></button>
+				<button type="button" class="icon_tools" data-action="streamGraph" title="流图" aria-label="流图" data-page-node-id="G7FrMeWSRkbyFTqiUjHItW"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.4326,20.0171l8.0376,4.68a1.958,1.958,0,0,0,1.0508.3012,2.2412,2.2412,0,0,0,.4888-.0556l7.2532-1.9769A1,1,0,0,0,30,22.0007V7.996A1,1,0,0,0,28.74,7.0305L21.5034,8.9829l-8.0371-4.68a1.9917,1.9917,0,0,0-1.8652-.1352L4,7.4727V2H2V28a2,2,0,0,0,2,2H30V28H4V23.6577ZM28,21.2344l-6.4966,1.75-8.0371-4.68a1.9931,1.9931,0,0,0-1.8652-.1353L4,21.4746V16.6572l8.4326-3.6416L20.47,17.6968a1.962,1.962,0,0,0,1.0508.3008,2.2112,2.2112,0,0,0,.4888-.0557L28,16.31ZM12.4326,6.0156l8.0376,4.68a2.0091,2.0091,0,0,0,1.54.2451L28,9.3081v4.9258l-6.4966,1.7505-8.0371-4.6812a1.9917,1.9917,0,0,0-1.8652-.1352L4,14.4736V9.6562Z"/></svg><span class="tool-label">流图</span></button>
+				<div class="tool-section">比较</div>
+				<button type="button" class="icon_tools" data-action="verticalBarChart" title="垂直柱状图" aria-label="垂直柱状图" data-page-node-id="jtoG9DeK89gIhsNCveYEZP"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M27,28V6H19V28H15V14H7V28H4V2H2V28a2,2,0,0,0,2,2H30V28ZM13,28H9V16h4Zm12,0H21V8h4Z"/></svg><span class="tool-label">垂直柱状</span></button>
+				<button type="button" class="icon_tools" data-action="horizontalBarChart" title="水平柱状图" aria-label="水平柱状图" data-page-node-id="8fnc58msasQHzsCOyF2vIQ"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4,2H2V28a2,2,0,0,0,2,2H30V28H4V25H26V17H4V13H18V5H4ZM24,19v4H4V19ZM16,7v4H4V7Z"/></svg><span class="tool-label">水平柱状</span></button>
+				<button type="button" class="icon_tools" data-action="groupedBarChart" title="分组柱状图" aria-label="分组柱状图" data-page-node-id="S4eQhXxYgbBHaTc4SnVz2e"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M30,30H4a2,2,0,0,1-2-2V2H4V28H30Z"/><path d="M10 16H12V26H10zM7 22H9V26H7zM26 8H28V26H26zM23 14H25V26H23z"/><path d="M15 12H17V26H15z" transform="rotate(-180 16 19)"/><path d="M18 18H20V26H18z" transform="rotate(-180 19 22)"/></svg><span class="tool-label">分组柱状</span></button>
+						<button type="button" class="icon_tools" data-action="groupedHorizontalBarChart" title="水平分组柱状图" aria-label="水平分组柱状图" data-page-node-id="QUV7iOD1EQEWYUTWvsKZ0p"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4,28V26H26V16H4V14H18V4H4V2H2V28a2,2,0,0,0,2,2H30V28ZM24,18v6H4V22H20V20H4V18ZM16,6v6H4V10h8V8H4V6Z"/></svg><span class="tool-label">水平分组</span></button>
+						<button type="button" class="icon_tools" data-action="histogram" title="直方图" aria-label="直方图"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2 28h28v2H2zM5 18h5v10H5zM13 10h5v18h-5zM21 14h5v14h-5z"/></svg><span class="tool-label">直方图</span></button>
+						<button type="button" class="icon_tools" data-action="stackedHistogram" title="堆叠直方图" aria-label="堆叠直方图"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2 28h28v2H2zM5 20h6v8H5zM5 14h6v6H5zM14 17h6v11h-6zM14 9h6v8h-6zM23 21h6v7h-6zM23 13h6v8h-6z"/></svg><span class="tool-label">堆叠直方</span></button>
+						<button type="button" class="icon_tools" data-action="comboChart" title="柱线混合图" aria-label="柱线混合图"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 28h27v2H3zM6 17h5v11H6zM14 11h5v17h-5zM7 8l2 2 6-5 5 4 6-6 1 1-7 8-5-4-6 5z"/></svg><span class="tool-label">柱线混合</span></button>
+						<button type="button" class="icon_tools" data-action="dualBarChart" title="双轴柱状图" aria-label="双轴柱状图"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2 28h28v2H2zM5 16h5v12H5zM11 20h5v8h-5zM19 11h5v17h-5zM25 17h5v11h-5z"/></svg><span class="tool-label">双轴柱状</span></button>
+						<button type="button" class="icon_tools" data-action="dualLineBarChart" title="双轴折线柱状图" aria-label="双轴折线柱状图"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2 28h28v2H2zM5 17h5v11H5zM14 12h5v16h-5zM7 9l2 2 5-4 5 4 6-7 1 1-7 8-5-4-5 4z"/></svg><span class="tool-label">双轴折线柱</span></button>
+
+				<div class="tool-section">占比</div>
+				<button type="button" class="icon_tools" data-action="pieChart" title="饼图" aria-label="饼图" data-page-node-id="82Hw74mf7pEHjeepVCvAUI"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16,4A12,12,0,1,0,28,16,12,12,0,0,0,16,4ZM26,15H17V6.05A10,10,0,0,1,26,15ZM15.42,26A10,10,0,0,1,15,6.05v9a2,2,0,0,0,2,2h9A10,10,0,0,1,15.42,26Z"/></svg><span class="tool-label">饼图</span></button>
+				<button type="button" class="icon_tools" data-action="donutChart" title="环形图" aria-label="环形图" data-page-node-id="ivGzwAOEmkIDaflBzkWCK0"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2ZM27.9493,15.001H21.91a5.9825,5.9825,0,0,0-9.3806-3.8853l-4.27-4.27a11.9783,11.9783,0,0,1,19.69,8.1548ZM16,20a4,4,0,1,1,4-4A4.0045,4.0045,0,0,1,16,20ZM4,16A11.937,11.937,0,0,1,6.8455,8.26l4.27,4.2695A5.9836,5.9836,0,0,0,15,21.9106v6.04A12.0105,12.0105,0,0,1,4,16ZM17,27.95v-6.04A6.0069,6.0069,0,0,0,21.91,17h6.04A12.0082,12.0082,0,0,1,17,27.95Z"/></svg><span class="tool-label">环形图</span></button>
+				<button type="button" class="icon_tools" data-action="progressChart" title="进度图" aria-label="进度图" data-page-node-id="0L3GHxjm6wAdNyedqwKsKz"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16,30A14.0158,14.0158,0,0,1,2,16H4A12,12,0,1,0,16,4V2a14,14,0,0,1,0,28Z"/><path d="M16,26A10.0115,10.0115,0,0,1,6,16H8a8,8,0,1,0,8-8V6a10,10,0,0,1,0,20Z"/><path d="M16,22a6.0069,6.0069,0,0,1-6-6h2a4,4,0,1,0,4-4V10a6,6,0,0,1,0,12Z"/></svg><span class="tool-label">进度图</span></button>
+
+				<div class="tool-section">其他</div>
+				<button type="button" class="icon_tools" data-action="sparkline" title="迷你图" aria-label="迷你图" data-page-node-id="zIM2pazE6hZJYfKct5Cr0P"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M10.06,17.88A4.25,4.25,0,0,0,11,18a4,4,0,0,0,2.23-.68l3.22,2.87a3.88,3.88,0,0,0-.2,3.17A4,4,0,1,0,22.62,19l2.54-5.09a3.78,3.78,0,0,0,2.91-.53A4,4,0,1,0,23.38,13l-2.54,5.09A3.86,3.86,0,0,0,20,18a4,4,0,0,0-2.23.68l-3.22-2.87a3.88,3.88,0,0,0,.2-3.17A4,4,0,1,0,8.3,16.93L4,25V2H2V28a2,2,0,0,0,2,2H30V28H4.67ZM26,8a2,2,0,1,1-2,2A2,2,0,0,1,26,8ZM22,22a2,2,0,1,1-2-2A2,2,0,0,1,22,22ZM11,12a2,2,0,1,1-2,2A2,2,0,0,1,11,12Z"/></svg><span class="tool-label">迷你图</span></button>
+				<button type="button" class="icon_tools" data-action="scatterPlot" title="散点图" aria-label="散点图" data-page-node-id="6GEG9sixW3B0MklVXgqgbI"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M30,30H4a2,2,0,0,1-2-2V2H4V28H30Z"/><circle cx="10" cy="22" r="2"/><circle cx="14" cy="15" r="2"/><circle cx="22" cy="15" r="2"/><circle cx="26" cy="6" r="2"/><circle cx="14" cy="8" r="2"/></svg><span class="tool-label">散点图</span></button>
+				<button type="button" class="icon_tools" data-action="candlestickChart" title="K 线图" aria-label="K 线图" data-page-node-id="tF69B1YHBu6CppHpyuT70o"><svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M26 10H24V6H22v4H20V22h2v4h2V22h2zM24 20H22V12h2zM14 8H12V4H10V8H8V18h2v4h2V18h2zm-2 8H10V10h2z"/><path d="M30,30H4a2,2,0,0,1-2-2V2H4V28H30Z"/></svg><span class="tool-label">K 线图</span></button>
+		</div>
+		<div class="content layout-split" data-page-node-id="i3GwqLTutvJZn13hfI2IET">
+			<div class="center-panel" data-page-node-id="centerPanel000">
+				<div class="center-header" data-page-node-id="centerHeader000">
+					<h1 class="chart_name" data-page-node-id="SaRfVxRl2jL6t5smUZDNGz">折线图</h1>
+				</div>
+				<div class="center-scroll" data-page-node-id="centerScroll000">
+					<div class="preview-panel" id="previewPanel" data-page-node-id="cPrEvPanel000000000">
+						<canvas id="previewCanvas" width="800" height="360" data-page-node-id="cPrEvCanvas000000"></canvas>
+					</div>
+					<input spellcheck="false" autocomplete="off" type="number" id="hidden" value="1" min="1" style="display: none" data-page-node-id="5xq5NEhYaIi3BiRKUVb7H2">
+					<div class="data-panel active" data-panel="table" id="table" data-page-node-id="IH6YwBJgRS8zx8eAEJEyIC">
+						<div class="raw_table" data-page-node-id="oMHDZV4BSmBeQ6ZrLakmtM">
+							<div class="table-toolbar" data-page-node-id="PLeCuCVKBSe6HOKurkBcUU">
+								<span id="defaultTableDescr" data-page-node-id="iyFHGAw7wf3cZBhE3N0WPQ">输入或粘贴数据，也可导入本地 <span id="csvSupport" data-page-node-id="y02WIc6WGhVzwYnTIdsKAR"><span id="csv" class="link" data-page-node-id="BEzFC5BUBkkyRtJmldLsGJ">CSV</span></span></span>
+								<div class="table-toolbar-actions" data-page-node-id="OHjQ8VQzGMFucOj7mwhjec">
+									<span id="addTableRow" class="link">添加行</span>
+									<span id="addTableColumn" class="link">添加列</span>
+									<span id="transposeTable" class="link" data-page-node-id="CAC5eGylFrCBNYFJL7ppJt">转置表格</span>
+									<span id="clearTable" class="link" data-page-node-id="6xn7UlDCxdhhMaVWUTzZmq">清空表格</span>
+								</div>
+							</div>
+							<div class="table_wrap" data-page-node-id="nbZFSokhJPUJcB00u9DwwZ">
+								<table id="csvTable" data-page-node-id="IR1dCwdc1GLKmUX6Ip9tIE">
+								</table>
+							</div>
+						</div>
+						<div class="imported_table" data-page-node-id="4IcaRmQAUpPoPLrqJhdnBJ">
+							<div class="settings_input full_row" id="tableLink" data-page-node-id="r06Wu2AxEr1JDDnLkSFFvx">
+								<div class="complex_title" data-page-node-id="1LJgM7tZXUAAd48f60UGWA">
+									<p data-page-node-id="3Dr67hV8NITiJCzDPxtEcf">已上传数据</p>
+									<a href="#" class="remove_upload" data-page-node-id="iA1qNQJk2pyd2p3AB0lbll">移除</a>
+								</div>
+								<div class="tableLink" data-page-node-id="ILtsuvM5brbtzk4fNLgePK">本地数据文件</div>
+							</div>
+							<div class="settings_input" id="tableHeader" data-page-node-id="VMxdSRKOEkHu8deYlFrzdj">
+								<p data-page-node-id="hPgmFt0dULJl0o9d34aa9y">标签</p>
+								<div class="select-wraper" data-page-node-id="RljlcM0CpBxc2BvB520G8E">
+									<select class="select_height" name="tableHeader" data-page-node-id="yS5GSEDQBqbRyoW5dBRqdf"></select>
+								</div>
+							</div>
+							<div class="settings_input" id="tableKeys" data-page-node-id="5rzPMRT4zC01peq8fuPnnl">
+								<p data-page-node-id="9v81eUxyBxDFrrjOGcwnv1">图表数据</p>
+								<select name="tableKeys" multiple data-page-node-id="cOjCtbCZGMFYQRTZKECVsA">
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="data-panel" data-panel="json" id="json" data-page-node-id="HIkmFeEzfx1cVTKeXQu8Dd">
+						<div class="settings_input full_row" id="jsonLink" data-page-node-id="EHAlGnoueb1j2deJ9wmSwL">
+							<div class="complex_title" data-page-node-id="YzMMx7SWsb36FkwFGPJCdw">
+								<p data-page-node-id="yqJgvAcK1W1AOhGFc56zXn"><span id="httpJSON" class="link" data-page-node-id="vypwGQAwkkZMQQ9rTbEULO">HTTPS 链接</span> 到远程 JSON 或 <span id="jsonSupport" data-page-node-id="vm6bWvb6UA4NsOWHEclEGg"><span id="localJSON" class="link" data-page-node-id="tAjfrMG39hbaaMl5NAvv6N">本地 JSON <input id="inputJSON" type="file" accept=".json" onchange="readJSON()" class="hide_file" data-page-node-id="Ooqxe3a9ZJEFw6MRbkE9qg"></span></span></p>
+							</div>
+							<div class="jsonLink" data-page-node-id="ha5hjHhshkujbdk9HSP3Z8">请先加载 JSON...</div>
+						</div>
+						<div class="json-empty" id="jsonEmptyHint">
+							<p class="json-empty-title">JSON 数据格式</p>
+							<p class="json-empty-desc">需要一个对象数组：每条记录是一个数据点，字段名将成为可选的数据列。</p>
+							<pre class="json-sample">[
+  { "月份": "1月", "销量": 42, "目标": 50 },
+  { "月份": "2月", "销量": 65, "目标": 50 },
+  ...
+]</pre>
+							<button type="button" id="sampleJSON" class="table-command">使用示例数据</button>
+						</div>
+						<div class="settings_input" id="jsonHeader" data-page-node-id="6si0vJKKB3nnnOkoDIdj8e">
+							<p data-page-node-id="eropv3D2qZe4WszraNyFY3">标签</p>
+							<div class="select-wraper" data-page-node-id="9YjJPjxoXGQ118T8VDZjp4">
+								<select class="select_height" name="jsonHeader" data-page-node-id="9iPES2RFwh6fn2s2sonWIB"></select>
+							</div>
+						</div>
+						<div class="settings_input" id="jsonKeys" data-page-node-id="mBNrYmkfsvLfzPvsxqWJKk">
+							<p data-page-node-id="do5X8kS33esNuOmivF9UWH">图表数据</p>
+							<select name="jsonKeys" multiple data-page-node-id="FiioYeYd2E0xLUX3AOD2to">
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="center-footer" data-page-node-id="centerFooter000">
+					<button type="button" class="button create-chart" id="createChartButton" data-page-node-id="uEGJy33oFbPKJaXrQLLLVJ">确定并创建</button>
+				</div>
+			</div>
+			<div class="right-panel" data-page-node-id="rightPanel000">
+				<div class="right-section" id="dataSection" data-page-node-id="dataSection000">
+					<div class="right-section-title" data-page-node-id="dataSectionTitle000">随机填充</div>
+					<p class="data-note">调整参数会立即刷新表格；手动编辑表格后，以表格内容为准。</p>
+					<div class="grid_inputs" data-page-node-id="E1Ev6EHLlkFZNSAbrwPWtu">
+						<div class="settings_input" id="categories" data-page-node-id="saJyrvGebLyGat6n6bZvl3">
+							<p class="random_categories" data-page-node-id="BwVFya6703G0U3N3D4zVrm">线条数</p>
+							<input id="categoriesInput" spellcheck="false" autocomplete="off" type="number" name="categories" value="1" min="1" data-page-node-id="dzFcCQV1rvKkZOKgpyiUED">
+						</div>
+						<div class="settings_input" id="items" data-page-node-id="L5a2XvX6JBwrsfiEVcKEX3">
+							<p class="random_items" data-page-node-id="v5vMcMyQinnTMELFaGIe73">数据点数</p>
+							<input id="itemsInput" spellcheck="false" autocomplete="off" type="number" name="items" value="5" min="1" data-page-node-id="svrBfnjVLVoEKmbTKP4mAL">
+						</div>
+					</div>
+					<div class="grid_inputs" data-page-node-id="1ZIA9Dj8q7STJI1HRjnOXM">
+						<div class="settings_input" id="randomType" data-page-node-id="rcAbBpCjMB4siPXnf2WvC7">
+							<p data-page-node-id="CLg0t4GtPDqLgUdSBSOT0G">分布</p>
+							<div class="select-wraper" data-page-node-id="Qa0Q4p3a3wj4VwPpu7b5gl">
+								<select class="select_height" name="randomType" data-page-node-id="tlekCeCn4pA9bdiouIuCmW">
+									<option value="0" selected data-page-node-id="VBGMgnDgYWWgf2bFbHHgnF">随机</option>
+									<option value="1" data-page-node-id="RlXsP80vEfobpmkyJZkPhC">上升趋势</option>
+									<option value="2" data-page-node-id="sa3cC8jartavnEhp7ARRCN">下降趋势</option>
+									<option value="3" data-page-node-id="OvhSnBlWBpvhUwMurD82xo">正态分布</option>
+									<option value="4" data-page-node-id="Dayez2p9QAWE49BplwyHwx">混合</option>
+								</select>
+							</div>
+						</div>
+						<div class="minmax" data-page-node-id="Z9RaeniZ1AqNIkdHC5sR3i">
+							<div class="settings_input small_input" id="randomMin" data-page-node-id="bDWQ84JfEL9zId8utxdQRJ">
+								<p data-page-node-id="5W6M9UEjqnu9GzMEzPAGoD">最小值</p>
+								<input id="minInput" spellcheck="false" autocomplete="off" type="number" name="randomMin" value="0" data-page-node-id="C5C1Rk2tf6n9tHCYj3oPRQ">
+							</div>
+							<div class="settings_input small_input" id="randomMax" data-page-node-id="mkI612ZOqFYBBtL64E5WeS">
+								<p data-page-node-id="wHybaCKgdT3CkQL0AhgFxQ">最大值</p>
+								<input id="maxInput" spellcheck="false" autocomplete="off" type="number" name="randomMax" value="100" data-page-node-id="iQhEE58EhmdNOyjvSdKUzD">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="right-section" data-page-node-id="styleSection000">
+					<div class="right-section-title" id="styleSectionTitle" data-page-node-id="styleSectionTitle000">样式</div>
+					<div class="template-select" data-page-node-id="templateSelect000">
+						<p data-page-node-id="templateLabel000">模板</p>
+						<div class="select-wraper" data-page-node-id="g67GSXcqwoqeLF71WfHU9I">
+							<select class="select_height" name="template" id="template" data-page-node-id="25i1BppqAenGR4ibAViEx2"></select>
+						</div>
+					</div>
+					<div class="template-behavior" aria-label="模板行为">
+						<label class="template-toggle"><input type="checkbox" id="followTemplate" checked> <span>跟随模板更新</span></label>
+						<label class="template-toggle"><input type="checkbox" id="updateTemplate"> <span id="updateTemplateLabel">同时更新模板</span></label>
+					</div>
+					<div class="form-element inspector-color-section" id="colorEditor" data-page-node-id="colorFormElement000">
+						<div class="complex_title" data-page-node-id="diQ52VSmrtn94coPzh0JKk">
+							<p data-page-node-id="xcS7IIQDCT6Fx2LzugoYjl">颜色 <span class="color-usage-count" id="colorUsageCount"></span></p>
+						</div>
+						<div class="colors_preview drag-container" id="colorContainer" data-color-editor="managed" role="listbox" aria-label="当前图表颜色" data-page-node-id="L6qAMDO4GPvxpL6LtbygDM"></div>
+						<div class="template-color-palette">
+							<span class="template-color-palette-label">模板色板</span>
+							<div id="templateColorPalette" class="template-color-swatches" aria-label="模板可选颜色"></div>
+						</div>
+					</div>
+					<div class="chart-settings" id="chartSettings" data-page-node-id="chartSettings000">
+						<div class="settings-section" data-page-node-id="settingsSectionAxes000">
+							<div class="section-title">坐标轴</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="axes" id="grid">
+									<p>网格</p>
+									<div class="select-wraper">
+										<select class="select_height" name="grid">
+											<option value="0">无网格</option>
+											<option value="1" selected>全网格</option>
+											<option value="2">水平线</option>
+											<option value="3">垂直线</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="gridLineWidth">
+									<p>网格线宽</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="gridLineWidth" value="1">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="gridColor">
+									<p>网格颜色</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="gridColor" value="#e0e0e0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="yAxisSegments">
+									<p>Y 轴分段</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="yAxisSegments" value="0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="labels">
+									<p>标签</p>
+									<div class="select-wraper">
+									<select class="select_height" name="labels">
+										<option value="0">隐藏</option>
+										<option value="1" selected>显示</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="labelFontName">
+									<p>字体</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="labelFontName" value="IBM Plex Sans">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="labelFontSize">
+									<p>标签字号</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="labelFontSize" value="12">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="labelColor">
+									<p>文字颜色</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="labelColor" value="#525252">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="separateAxisStyles">
+									<p>分别设置 X/Y 轴</p>
+									<label class="checkbox"><input type="checkbox" name="separateAxisStyles"> 开启</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="beginAtZero">
+									<p>从零开始</p>
+									<div class="select-wraper">
+										<select class="select_height" name="beginAtZero">
+											<option value="0">是</option>
+											<option value="1">否</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="xAxisLabels">
+									<p>X 轴标签</p>
+									<label class="checkbox"><input type="checkbox" name="xAxisLabels" checked> 显示</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="xAxisLine">
+									<p>X 轴轴线</p>
+									<label class="checkbox"><input type="checkbox" name="xAxisLine" checked> 显示</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="xAxisTicks">
+									<p>X 轴刻度</p>
+									<label class="checkbox"><input type="checkbox" name="xAxisTicks" checked> 显示</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="xAxisFontSize">
+									<p>X 轴字号</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="xAxisFontSize" value="12">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="xAxisLineColor">
+									<p>X 轴线颜色</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="xAxisLineColor" value="#8d8d8d">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="xAxisColor">
+									<p>X 轴文字颜色</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="xAxisColor" value="#525252">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="yAxisLabels">
+									<p>Y 轴标签</p>
+									<label class="checkbox"><input type="checkbox" name="yAxisLabels" checked> 显示</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="yAxisLine">
+									<p>Y 轴轴线</p>
+									<label class="checkbox"><input type="checkbox" name="yAxisLine" checked> 显示</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="yAxisTicks">
+									<p>Y 轴刻度</p>
+									<label class="checkbox"><input type="checkbox" name="yAxisTicks" checked> 显示</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="yAxisFontSize">
+									<p>Y 轴字号</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="yAxisFontSize" value="12">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="yAxisLineColor">
+									<p>Y 轴线颜色</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="yAxisLineColor" value="#8d8d8d">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="axes" id="yAxisColor">
+									<p>Y 轴文字颜色</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="yAxisColor" value="#525252">
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionLine000">
+							<div class="section-title">线条</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="lineChart,areaChart,stackedAreaChart,percentStackedAreaChart,streamGraph,comboChart,dualLineBarChart" id="lineType">
+									<p>类型</p>
+									<div class="select-wraper">
+										<select class="select_height" name="lineType">
+											<option value="0">曲线</option>
+										<option value="1">直线</option>
+										<option value="2">阶梯</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="lineChart,comboChart,dualLineBarChart" id="lineWidth">
+									<p>线宽</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="lineWidth" value="2">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="sparkline" id="sparkLineWidth">
+									<p>线宽</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="sparkLineWidth" value="1">
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionDot000">
+							<div class="section-title">数据点</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="lineChart,comboChart,dualLineBarChart" id="dotType">
+									<p>圆点</p>
+									<div class="select-wraper">
+										<select class="select_height" name="dotType">
+											<option value="0">无圆点</option>
+											<option value="1">实心圆点</option>
+											<option value="2">空心圆点</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="lineChart,comboChart,dualLineBarChart" id="dotDiameter">
+									<p>圆点大小</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="dotDiameter" value="8">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="sparkline" id="sparkDotDiameter">
+									<p>圆点大小</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="sparkDotDiameter" value="4">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="scatterPlot" id="scatterDotDiameter">
+									<p>圆点大小</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="scatterDotDiameter" value="8">
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionFill000">
+							<div class="section-title">填充</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item area-style-picker" data-chart="areaChart" id="areaFillStyle">
+									<p>填充样式</p>
+									<div class="area-style-options" role="group" aria-label="面积图填充样式">
+										<button type="button" class="area-style-option active" data-style="solid" title="半透明纯色" aria-label="半透明纯色" aria-pressed="true"><svg viewBox="0 0 96 44" aria-hidden="true"><path d="M0 36 C18 30 28 13 45 18 C62 23 72 8 96 11 V44 H0Z" fill="#0f62fe" fill-opacity=".38"/></svg></button>
+										<button type="button" class="area-style-option" data-style="solid-line" title="描边加半透明纯色" aria-label="描边加半透明纯色" aria-pressed="false"><svg viewBox="0 0 96 44" aria-hidden="true"><path d="M0 36 C18 30 28 13 45 18 C62 23 72 8 96 11 V44 H0Z" fill="#0f62fe" fill-opacity=".38"/><path d="M0 36 C18 30 28 13 45 18 C62 23 72 8 96 11" fill="none" stroke="#0f62fe" stroke-width="2"/></svg></button>
+										<button type="button" class="area-style-option" data-style="gradient-line" title="描边加半透明渐变色" aria-label="描边加半透明渐变色" aria-pressed="false"><svg viewBox="0 0 96 44" aria-hidden="true"><defs><linearGradient id="areaStyleGradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0f62fe" stop-opacity=".48"/><stop offset="1" stop-color="#0f62fe" stop-opacity=".04"/></linearGradient></defs><path d="M0 36 C18 30 28 13 45 18 C62 23 72 8 96 11 V44 H0Z" fill="url(#areaStyleGradient)"/><path d="M0 36 C18 30 28 13 45 18 C62 23 72 8 96 11" fill="none" stroke="#0f62fe" stroke-width="2"/></svg></button>
+									</div>
+									<div class="area-style-caption" id="areaStyleCaption">半透明纯色</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="areaChart,streamGraph" id="areaOpacity">
+									<p>透明度</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="areaOpacity" value="0.4" step="0.05" min="0" max="1">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="areaChart" id="areaLineWidth">
+									<p>描边宽度</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="areaLineWidth" value="2" step="0.5" min="0">
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionBar000">
+							<div class="section-title">柱形</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="verticalBarChart" id="marginV">
+									<p>柱间距</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="marginV" value="0.4">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="verticalBarChart" id="stackGapV">
+									<p>堆叠段间距 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="stackGapV" value="0" min="0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="verticalBarChart" id="roundTopV">
+									<p>圆角 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="roundTopV" value="0" min="0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="horizontalBarChart" id="marginH">
+									<p>柱间距</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="marginH" value="0.4">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="horizontalBarChart" id="stackGapH">
+									<p>堆叠段间距 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="stackGapH" value="0" min="0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="horizontalBarChart" id="roundTopH">
+									<p>圆角 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="roundTopH" value="0" min="0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="groupedBarChart,comboChart,dualBarChart,dualLineBarChart" id="groupMarginV">
+									<p>分组间距</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="groupMarginV" value="0.4">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="groupedBarChart,dualBarChart" id="groupInnerGapV">
+									<p>组内柱间距</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="groupInnerGapV" value="0" min="0" max="0.95" step="0.05">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="groupedBarChart,comboChart,dualBarChart,dualLineBarChart" id="groupRoundTopV">
+									<p>圆角 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="groupRoundTopV" value="0" min="0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="groupedHorizontalBarChart" id="groupMarginH">
+									<p>分组间距</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="groupMarginH" value="0.4">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="groupedHorizontalBarChart" id="groupInnerGapH">
+									<p>组内条间距</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="groupInnerGapH" value="0" min="0" max="0.95" step="0.05">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="groupedHorizontalBarChart" id="groupRoundTopH">
+									<p>圆角 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="groupRoundTopH" value="0" min="0">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="histogram,stackedHistogram" id="binMode">
+									<p>分箱方式</p><div class="select-wraper"><select class="select_height" name="binMode"><option value="auto">自动分箱</option><option value="fixed">固定宽度</option></select></div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="histogram,stackedHistogram" id="binCount">
+									<p>分箱数量</p><input type="number" name="binCount" value="8" min="1" max="100">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="histogram,stackedHistogram" id="binWidth">
+									<p>分箱宽度</p><input type="number" name="binWidth" value="0" min="0" step="0.1">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="comboChart,dualBarChart,dualLineBarChart" id="axisAssignment">
+									<p>系列坐标轴</p><div class="select-wraper"><select class="select_height" name="axisAssignment"><option value="auto">按图表默认</option><option value="right-second">第二系列使用右轴</option></select></div>
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionLayout000">
+							<div class="section-title">布局与排序</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="pieChart,donutChart" id="sorting">
+									<p>排序</p>
+									<div class="select-wraper">
+										<select class="select_height" name="sorting">
+											<option value="0">降序</option>
+											<option value="1">无排序</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="pieChart,donutChart" id="segmentGap">
+									<p>区块间距 (px)</p><input type="number" name="segmentGap" value="0" min="0" max="20" step="1">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="pieChart,donutChart" id="spiderLabels">
+									<p>外置标签</p><label class="checkbox"><input type="checkbox" name="spiderLabels"> 引导线标签</label>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="pieChart,donutChart,progressChart" id="typeOfCircle">
+									<p>圆形类型</p>
+									<div class="select-wraper">
+										<select class="select_height" name="typeOfCircle">
+											<option value="0">整圆</option>
+											<option value="1">半圆</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionDonut000">
+							<div class="section-title">环形与进度</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="donutChart" id="thicknessOfDonut">
+									<p>环形厚度 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="thicknessOfDonut" value="30">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="progressChart" id="thicknessOfProgress">
+									<p>进度条厚度 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="thicknessOfProgress" value="10">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="progressChart" id="progressBgColor">
+									<p>背景色</p>
+									<input spellcheck="false" autocomplete="off" type="text" name="progressBgColor" value="#e0e0e0">
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionEnd000">
+							<div class="section-title">端点</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="progressChart" id="endOfLine">
+									<p>线端</p>
+									<div class="select-wraper">
+										<select class="select_height" name="endOfLine">
+											<option value="0">默认</option>
+											<option value="1">圆角</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionCandle000">
+							<div class="section-title">K线蜡烛</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="candlestickChart" id="candleMargin">
+									<p>蜡烛间距</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="candleMargin" value="0.4">
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionRadar000">
+							<div class="section-title">雷达网格</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="radarChart" id="radarGridShape">
+									<p>背景网格</p>
+									<div class="select-wraper">
+										<select class="select_height" name="radarGridShape">
+											<option value="polygon">正多边形</option>
+											<option value="circle">同心圆</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="radarChart" id="radarLevels">
+									<p>网格层数</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="radarLevels" value="4" min="1" max="12" step="1">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="radarChart" id="radarFillOpacity">
+									<p>填充透明度 (%)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="radarFillOpacity" value="0.16" min="0" max="1" step="0.05">
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionFunnel000">
+							<div class="section-title">漏斗</div>
+							<input type="hidden" name="funnelShape" value="standard">
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="funnelChart" id="funnelGap">
+									<p>层级间距 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="funnelGap" value="6" min="0" max="40" step="1">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="funnelChart" id="labelPosition">
+									<p>标签位置</p>
+									<div class="select-wraper">
+										<select class="select_height" name="labelPosition">
+											<option value="inside">层级内部</option>
+											<option value="right">右侧外置</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionHeatmap000">
+							<div class="section-title">热力单元格</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="heatmap" id="colorScale">
+									<p>色阶</p>
+									<div class="select-wraper">
+										<select class="select_height" name="colorScale">
+											<option value="blue">蓝色</option>
+											<option value="green">绿色</option>
+											<option value="red">红色</option>
+											<option value="gray">灰色</option>
+										</select>
+									</div>
+								</div>
+								<div class="settings_input settings_input_item" data-chart="heatmap" id="cellGap">
+									<p>单元格间距 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="cellGap" value="2" min="0" max="20" step="1">
+								</div>
+								<div class="settings_input settings_input_item" data-chart="heatmap" id="showValues">
+									<p>显示数值</p><label class="checkbox"><input type="checkbox" name="showValues"> 单元格内显示</label>
+								</div>
+							</div>
+						</div>
+						<div class="settings-section" data-page-node-id="settingsSectionTreemap000">
+							<div class="section-title">树图区块</div>
+							<div class="settings_inputs">
+								<div class="settings_input settings_input_item" data-chart="treemap" id="tileGap">
+									<p>区块间距 (px)</p>
+									<input spellcheck="false" autocomplete="off" type="number" name="tileGap" value="2" min="0" max="20" step="1">
+								</div>
+							</div>
+						</div>
+					</div>
+				<div class="right-footer" data-page-node-id="rightFooter000">
+					<button type="button" class="advanced-link" id="advancedDesign" aria-controls="chartSettings" aria-expanded="false">高级设计</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 旧设置弹层已迁移到右侧栏，保留空壳以防 JS 引用 -->
+	<div class="settings" data-page-node-id="AGzt3s0q1VYIfcrbQKZgTV"></div>
+	<div class="linkHTTP" role="dialog" aria-modal="true" aria-labelledby="httpDialogTitle" data-page-node-id="txY6aaoQHYcz5jPvPL2TXs">
+	  <div class="popup_header" data-page-node-id="DriWRPPQ0qoNjo0y3qwViD">
+	    <h1 id="httpDialogTitle" data-page-node-id="JMgaVywzcITToBozfUtk06">JSON 的 HTTPS 链接</h1>
+	    <a href="#" class="closeHTTP" data-page-node-id="obAxKv0PpypfFdsynUp37T">关闭</a>
+	  </div>
+	  <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" name="linkHTTP" placeholder="https://..."></textarea>
+	  <p data-page-node-id="ACzW8Kb48x6u56mIbrTwbu">
+		    输入返回有效 JSON 的 HTTPS 地址或 REST API 地址。
+	  </p>
+	  <div class="footer" data-page-node-id="S0sTwa7UPM34riEQYYP2nn">
+	    <button class="button" id="syncHTTP" data-page-node-id="PH72yPtgWwKwzpf7RPQrXa">同步 JSON</button>
+	  </div>
+	</div>
+
+<script type="application/javascript">
+
+		// CHART DATA STORAGE
+		var chartConfig = {
+		    data : {
+				chartName : "",
+				selected : "table",
+				random : {
+					categories : {
+						enabled : true,
+						name : "",
+						value : 1
+					},
+					items : {
+            			enabled : true,
+						name : "",
+						value : 1
+					},
+					randType : "0",
+					range : true,
+					min : 0,
+					max : 100,
+					data : []
+				},
+				csv : {
+					name : null,
+					type : null,
+					data : [],
+					headers : false,
+					seriesNames : [],
+					seriesNamesChart : null,
+					columns : [],
+					header : []
+				},
+				json : {
+					jsonLink : null,
+					jsonName : null,
+					data : null,
+					keys : [],
+					header : []
+				}
+			}
+			}
+		var canvasData,
+			confApplied = false;
+
+		let templates,
+			defaultTemplate;
+			var activeChart = 'lineChart';
+			var inspectorAdvanced = false;
+			var colorDrafts = {};
+			var colorEditor = null;
+			var renderedColorGroup = null;
+			var DEFAULT_TEMPLATE_SOURCE = window.XChartDefaultTemplate;
+			var experimentalPalette = DEFAULT_TEMPLATE_SOURCE.palette;
+			var formSchema = window.XChartFormSchema;
+			var areaStyleLabels = {
+				solid: '半透明纯色',
+				'solid-line': '描边加半透明纯色',
+				'gradient-line': '描边加半透明渐变色'
+			};
+
+		function deepClone(value){ return JSON.parse(JSON.stringify(value)); }
+			function finiteNumber(value, fallback){
+			var defaultValue = Number(fallback);
+			if (!isFinite(defaultValue)) defaultValue = 0;
+			if (value === null || value === undefined || String(value).trim() === '') return defaultValue;
+			var parsed = Number(value);
+				return isFinite(parsed) ? parsed : defaultValue;
+			}
+			function selectedAreaFillStyle(){ return $('.area-style-option.active').attr('data-style') || 'solid'; }
+			function selectAreaFillStyle(style){
+				style = areaStyleLabels[style] ? style : 'solid';
+				$('.area-style-option').each(function(){
+					var selected = $(this).attr('data-style') === style;
+					$(this).toggleClass('active', selected).attr('aria-pressed', String(selected));
+				});
+				$('#areaStyleCaption').text(areaStyleLabels[style]);
+				$('input[name=areaLineWidth]').prop('disabled', style === 'solid');
+				$('#areaLineWidth').toggle(style !== 'solid');
+			}
+			function axisStylesAreSeparate(labels){
+				labels = labels || {};
+				if (labels.separateAxisStyles != null) return labels.separateAxisStyles === true;
+				var xa = labels.xAxis || {}, ya = labels.yAxis || {};
+				return labels.type === 2 || labels.type === 3 || xa.line === false || xa.ticks === false || ya.line === false || ya.ticks === false ||
+					xa.labels === false || ya.labels === false || xa.lineColor != null || ya.lineColor != null ||
+					(xa.fontSize != null && xa.fontSize !== labels.fontSize) || (ya.fontSize != null && ya.fontSize !== labels.fontSize) ||
+					(xa.color != null && xa.color !== labels.color) || (ya.color != null && ya.color !== labels.color);
+			}
+			function inspectorFieldState(){
+				var taxonomySelection = window.XChartStudio && XChartStudio.getSelection ? XChartStudio.getSelection() : window.XChartTaxonomySelection;
+				return {
+					areaFillStyle: selectedAreaFillStyle(),
+					separateAxisStyles: $('[name=separateAxisStyles]').is(':checked'),
+					taxonomyBaseId: taxonomySelection && taxonomySelection.baseId
+				};
+			}
+			function refreshInspectorFields(chart){
+				formSchema.applyInspector(document.querySelector('.chart-settings'), chart, inspectorAdvanced, inspectorFieldState());
+			}
+		function isHexColor(value){ return /^#[0-9a-fA-F]{6}$/.test($.trim(value)); }
+			function validateStyleColors(){
+				var invalid = null;
+				var selector = 'input[name=progressBgColor], input[name=gridColor], input[name=labelColor]';
+				if ($('[name=separateAxisStyles]').is(':checked')) selector += ', input[name=xAxisLineColor], input[name=xAxisColor], input[name=yAxisLineColor], input[name=yAxisColor]';
+				$(selector).each(function(){
+				if (!isHexColor($(this).val()) && !invalid) invalid = this;
+			});
+			if (!invalid) return true;
+			showAlert('颜色必须使用完整六位 HEX，例如 #0f62fe');
+			invalid.focus();
+			return false;
+		}
+		function templateById(id){
+			return (templates || []).find(function(item){ return String(item.id) === String(id); });
+		}
+		function colorGroup(chart){ return XChartColors.colorGroup(chart); }
+		function currentColors(){
+			return colorEditor ? colorEditor.getVisibleColors() : [];
+		}
+		function captureColors(chart){
+			var group = colorGroup(chart);
+			if (!colorEditor || renderedColorGroup !== group) return;
+			colorDrafts[group] = colorEditor.getFullColors();
+		}
+		function resetColorDrafts(template){
+			var colors = template.colors || {};
+			colorDrafts = {
+				common: (colors.common || experimentalPalette).slice(),
+				progressChart: (colors.progressChart || DEFAULT_TEMPLATE_SOURCE.create().colors.progressChart).slice(),
+				sparkline: (colors.sparkline || DEFAULT_TEMPLATE_SOURCE.create().colors.sparkline).slice(),
+				scatterPlot: (colors.scatterPlot || DEFAULT_TEMPLATE_SOURCE.create().colors.scatterPlot).slice(),
+				candlestickChart: (colors.candlestickChart || ['#da1e28','#198038']).slice()
+			};
+			renderedColorGroup = null;
+		}
+		function safePalette(group){
+			var fallback = group === 'candlestickChart' ? DEFAULT_TEMPLATE_SOURCE.create().colors.candlestickChart : (group === 'common' ? experimentalPalette : ['#0a84ff']);
+			var palette = (colorDrafts[group] || []).slice();
+			while (palette.length < fallback.length) palette.push(fallback[palette.length]);
+			return palette;
+		}
+		function syncColorDataSelection(){
+			if (!chartConfig || !chartConfig.data) return;
+			chartConfig.data.taxonomy = currentTaxonomySelection();
+			var selected = $('.data-tab.active').attr('data-target');
+			if (selected) chartConfig.data.selected = selected;
+			if ($('#tableKeys input').length) {
+				chartConfig.data.csv.columns = $('#tableKeys input').map(function(){
+					return { name: $.trim($(this).parent().text()), index: Number($(this).val()), checked: $(this).is(':checked') };
+				}).get();
+			}
+			if ($('#jsonKeys input').length) {
+				chartConfig.data.json.keys = $('#jsonKeys input').map(function(){
+					return { name: $.trim($(this).parent().text()), path: $(this).val(), checked: $(this).is(':checked') };
+				}).get();
+			}
+			if ($('select[name=jsonHeader] option').length) {
+				chartConfig.data.json.header = $('select[name=jsonHeader] option').map(function(){
+					return { name: $(this).text(), path: $(this).val(), checked: $(this).is(':selected') };
+				}).get();
+			}
+		}
+		function currentTaxonomySelection(){
+			return window.XChartStudio && XChartStudio.getSelection ? XChartStudio.getSelection() : (window.XChartTaxonomySelection || null);
+		}
+		function refreshColorEditor(){
+			if (!colorEditor) return;
+			syncColorDataSelection();
+			var chart = $('.icon_active').attr('data-action') || activeChart;
+			captureColors(chart);
+			var group = colorGroup(chart);
+			var template = templateById($('select[name=template]').val() || defaultTemplate);
+			var count = XChartColors.requiredCount(chart, chartConfig.data);
+			renderedColorGroup = group;
+			colorEditor.render({
+				colors: colorDrafts[group] || safePalette(group),
+				count: count,
+				labels: XChartColors.labelsFor(chart, chartConfig.data, count),
+				templateColors: XChartColors.templatePalette(template, chart)
+			});
+		}
+
+		// CREATE TABLE
+		// 表头语义来自中台数据规则（schema.dataRules.seriesLabels）
+			function tableColumnLabel(chart, dataIndex){
+				var rules = formSchema.getDataRules(chart || activeChart, currentTaxonomySelection());
+			var labels = rules.seriesLabels;
+			return (labels && labels[dataIndex]) ? labels[dataIndex] : '数据';
+		}
+		function tableCellText(value){
+			return $('<div>').text(value == null ? '' : String(value)).html();
+		}
+
+		function createTable(data, chart){
+			chart = chart || activeChart;
+			// 内部统一结构：[标签数组, 系列1数组, 系列2数组...]
+			// UI 采用“标签横向、数据系列纵向”，首列只显示系列名，不写入内部数据。
+			data = Array.isArray(data) ? data : [];
+				var taxonomySelection = currentTaxonomySelection();
+				var rules = formSchema.getDataRules(chart, taxonomySelection);
+			var taxonomyBase = taxonomySelection && formSchema.getTaxonomyBase ? formSchema.getTaxonomyBase(taxonomySelection.baseId) : null;
+			var taxonomyVariant = taxonomyBase && taxonomyBase.variants ? taxonomyBase.variants.filter(function(item){ return item.id === taxonomySelection.variantId; })[0] : null;
+				var defaultSeries = rules.seriesLabels && rules.seriesLabels.length
+					? rules.seriesLabels.length
+					: taxonomyVariant && taxonomyVariant.fixedCategories === true
+				? 1
+				: (rules.categories && rules.categories.visible ? Math.max(1, Number(rules.categories.value) || 1) : 1);
+			var defaultPoints = rules.items && rules.items.visible ? Math.max(1, Number(rules.items.value) || 5) : 1;
+			var labels = Array.isArray(data[0]) ? data[0].slice() : [];
+			var series = data.slice(1).filter(function(row){ return Array.isArray(row); }).map(function(row){ return row.slice(); });
+			var storedSeriesNames = chartConfig && chartConfig.data && chartConfig.data.csv && Array.isArray(chartConfig.data.csv.seriesNames)
+				? chartConfig.data.csv.seriesNames
+				: [];
+			if (chartConfig.data.csv.seriesNamesChart && chartConfig.data.csv.seriesNamesChart !== chart) storedSeriesNames = [];
+			var pointCount = Math.max(defaultPoints, labels.length, series.reduce(function(max, row){ return Math.max(max, row.length); }, 0));
+			var seriesCount = Math.max(defaultSeries, series.length);
+			var seriesLabels = rules.seriesLabels || [];
+			var table = '<tr class="bold"><td>标签</td>';
+			for (var k = 0; k < pointCount; k++) table += '<td contenteditable="true">' + tableCellText(labels[k]) + '</td>';
+			table += '</tr>';
+			for (var i = 0; i < seriesCount; i++) {
+				var row = '<tr><td class="series-label" contenteditable="true">' + tableCellText(storedSeriesNames[i] || seriesLabels[i] || tableColumnLabel(chart, i)) + '</td>';
+				for (var j = 0; j < pointCount; j++) {
+					var value = series[i] && series[i][j] != null ? series[i][j] : '';
+					row += '<td contenteditable="true">' + tableCellText(value) + '</td>';
+				}
+				row += '</tr>';
+				table += row;
+			}
+			$('#csvTable').html(table);
+		}
+
+		function addTableColumn(){
+			$('#csvTable tr').each(function(index){
+				$(this).append('<td contenteditable="true"></td>');
+			});
+		}
+
+		function addTableRow(){
+			var columns = $('#csvTable tr').first().find('td').length;
+			var row = '<tr><td class="series-label" contenteditable="true">' + tableColumnLabel(activeChart, $('#csvTable tr').length - 1) + '</td>';
+			for (var i = 1; i < columns; i++) row += '<td contenteditable="true"></td>';
+			row += '</tr>';
+			$('#csvTable').append(row);
+		}
+
+		function ensureTableSize(requiredRows, requiredColumns){
+			while ($('#csvTable tr').length < requiredRows) addTableRow();
+			while ($('#csvTable tr').first().find('td').length < requiredColumns) addTableColumn();
+		}
+
+		// TRANSPOSE
+		function transpose(a) {
+			return Object.keys(a[0]).map(function(c) {
+				return a.map(function(r) { return r[c]; });
+			});
+		}
+
+		// EXPORT TABLE
+		function exportTable(){
+			var rows = $('#csvTable tr');
+			if (!rows.length) return [];
+			var header = [];
+			rows.first().find('td').slice(1).each(function(){ header.push($.trim($(this).text())); });
+			while (header.length && header[header.length - 1] === '') header.pop();
+			if (!header.length) return [];
+			var table = [header];
+			var seriesNames = [];
+			rows.slice(1).each(function(){
+				var row = [];
+				$(this).find('td').slice(1, header.length + 1).each(function(){ row.push($.trim($(this).text())); });
+				while (row.length < header.length) row.push('');
+				if (row.some(function(cell){ return cell !== ''; })) {
+					var fallbackIndex = seriesNames.length;
+					var name = $.trim($(this).find('td').first().text()) || tableColumnLabel(activeChart, fallbackIndex);
+					table.push(row);
+					seriesNames.push(name);
+				}
+			});
+			if (chartConfig && chartConfig.data && chartConfig.data.csv) {
+				chartConfig.data.csv.seriesNames = seriesNames;
+				chartConfig.data.csv.seriesNamesChart = $('.icon_active').attr('data-action') || activeChart;
+			}
+			return table;
+		}
+
+		function fillRandomTable(){
+			var chart = $('.icon_active').attr('data-action') || activeChart;
+			var rows = Number($('input[name=categories]').val()) || 1;
+				var taxonomySelection = currentTaxonomySelection();
+			var taxonomyBase = taxonomySelection && formSchema.getTaxonomyBase ? formSchema.getTaxonomyBase(taxonomySelection.baseId) : null;
+			var taxonomyVariant = taxonomyBase && taxonomyBase.variants ? taxonomyBase.variants.filter(function(item){ return item.id === taxonomySelection.variantId; })[0] : null;
+			if (taxonomyVariant && taxonomyVariant.fixedCategories === true) rows = 1;
+			if (chart === 'pieChart' || chart === 'donutChart' || chart === 'progressChart' || chart === 'sparkline') rows = 1;
+				if (chart === 'scatterPlot') rows = taxonomySelection && taxonomySelection.baseId === 'bubble' ? 3 : 2;
+			if (chart === 'candlestickChart') rows = 4;
+			var columns = Number($('input[name=items]').val()) || 1;
+			var generated = window.generateChartData(chart, rows, columns,
+				$('input[name=randomMin]').val(), $('input[name=randomMax]').val(), $('select[name=randomType]').val());
+			var labels = [];
+			for (var i = 0; i < columns; i++) labels.push(String(i + 1));
+			if (chartConfig.data.csv.seriesNamesChart && chartConfig.data.csv.seriesNamesChart !== chart) chartConfig.data.csv.seriesNames = [];
+			createTable([labels].concat(generated && generated.table ? generated.table : []), chart);
+			chartConfig.data.selected = 'table';
+			chartConfig.data.csv.type = null;
+			chartConfig.data.csv.headers = true;
+			chartConfig.data.csv.data = exportTable();
+			refreshColorEditor();
+			PreviewEngine.update();
+		}
+
+		function isNumeric(n) {
+			return !isNaN(parseFloat(n)) && isFinite(n);
+		}
+
+		// VALIDATION
+		function clearFieldErrors(){
+			$('.has-error').removeClass('has-error').find('.field-error').remove();
+			$('#csvTable td.invalid-cell').removeClass('invalid-cell');
+		}
+
+		function showFieldError(selector, message){
+			var field = $(selector).first();
+			field.addClass('has-error');
+			field.append('<div class="field-error" role="alert"></div>');
+			field.find('.field-error').last().text(message);
+		}
+
+		function markTableErrors(errors){
+			(errors || []).forEach(function(error){
+				if (error.row == null || error.column == null) return;
+				// validateSeriesTable 的列索引不包含 UI 的系列名首列。
+				$('#csvTable tr').eq(error.row).find('td').eq(error.column + 1).addClass('invalid-cell');
+			});
+		}
+
+		function dataValidation(data){
+			let validationCount = 0,
+				message = "Valid";
+			clearFieldErrors();
+
+			if(data.selected === "random"){
+				if(!isNumeric(data.random.categories.value) || Number(data.random.categories.value) < 1){ validationCount++; showFieldError('#categories', '请输入大于 0 的数量'); }
+				if(!isNumeric(data.random.items.value) || Number(data.random.items.value) < 1){ validationCount++; showFieldError('#items', '请输入大于 0 的数量'); }
+				if(!isNumeric(data.random.min)){ validationCount++; showFieldError('#randomMin', '请输入有效数字'); }
+				if(!isNumeric(data.random.max)){ validationCount++; showFieldError('#randomMax', '请输入有效数字'); }
+				if(isNumeric(data.random.min) && isNumeric(data.random.max) && Number(data.random.min) >= Number(data.random.max)){
+					validationCount++;
+					showFieldError('#randomMax', '最大值必须大于最小值');
+				}
+				if(validationCount > 0) message = "请检查随机数据参数";
+			} else if(data.selected === "table"){
+					var taxonomySelection = currentTaxonomySelection();
+					var tableValidation = data.csv.type === null
+						? XChartData.validateSeriesTable(data.csv.data, data.chartName || activeChart, taxonomySelection)
+						: XChartData.validateImportedTable(data.csv, data.chartName || activeChart, taxonomySelection);
+				if(!tableValidation.valid){
+					message = tableValidation.errors[0].message;
+					showFieldError(data.csv.type === null ? '.raw_table' : '#tableKeys', message);
+					if(data.csv.type === null) markTableErrors(tableValidation.errors);
+				}
+			} else if(data.selected === "json"){
+					var jsonValidation = XChartData.validateJsonSeries(data.json.data, data.json.keys, data.chartName || activeChart, currentTaxonomySelection());
+				if(!jsonValidation.valid){
+					message = jsonValidation.errors[0].message;
+					showFieldError('#jsonKeys', message);
+				}
+			}
+
+			return message;
+		}
+
+
+		// SHOW ALLERT
+		function showAlert(message){
+			$('#alert_text').text(message);
+			$('.alert').css('display','flex')
+        	setTimeout(closeAlert, 5000)
+		}
+		$('.close_alert').click(closeAlert)
+
+		function closeAlert(){
+			$('.alert').hide()
+		}
+
+		function interceptClickEvent(event) {
+		  const target = event.target.closest('a')
+		  if (target && target.getAttribute('target') === '_blank') {
+		    event.preventDefault()
+		    window.postMessage('externalLinkClicked', target.href)
+		  }
+		}
+
+		// APPLY COLORS
+			function applyColors(){ refreshColorEditor(); }
+
+		// RANDOM DATA
+			function applyRandomData(chart){
+				var taxonomySelection = currentTaxonomySelection();
+				var rules = formSchema.getDataRules(chart, taxonomySelection);
+			var taxonomyBase = taxonomySelection && formSchema.getTaxonomyBase ? formSchema.getTaxonomyBase(taxonomySelection.baseId) : null;
+			var taxonomyVariant = taxonomyBase && taxonomyBase.variants ? taxonomyBase.variants.filter(function(item){ return item.id === taxonomySelection.variantId; })[0] : null;
+			var categoriesVisible = rules.categories.visible && !(taxonomyVariant && taxonomyVariant.fixedCategories === true);
+			$('.random_categories').text(rules.categories.label);
+			$('.random_items').text(rules.items.label);
+			$('#categories').toggle(categoriesVisible);
+			$('#items').toggle(rules.items.visible);
+			$('input[name=categories]').val(rules.categories.value);
+			$('input[name=items]').val(rules.items.value);
+		}
+
+		// SETTINGS
+		function applySettings(chart, selectedTemplate, resetValues){
+			if (resetValues === undefined) resetValues = true;
+			let template = templateById(selectedTemplate) || (templates && templates[0]) || DEFAULT_TEMPLATE_SOURCE.create();
+			if (!template) return;
+			if (resetValues) resetColorDrafts(template);
+			else captureColors(activeChart);
+
+				var fieldState = inspectorFieldState();
+			var hasAdvancedFields = formSchema.hasAdvancedFields(chart, fieldState);
+			if (!hasAdvancedFields) inspectorAdvanced = false;
+			formSchema.applyInspector(document.querySelector('.chart-settings'), chart, inspectorAdvanced, fieldState);
+			if (['areaChart','stackedAreaChart','percentStackedAreaChart'].indexOf(chart) >= 0) {
+				$('#areaLineWidth').toggle(selectedAreaFillStyle() !== 'solid');
+			}
+			$('.template-select').show();
+			$('#styleSectionTitle').text(inspectorAdvanced ? '高级设计' : '样式');
+			$('#advancedDesign').text(inspectorAdvanced ? '返回常用设置' : '高级设计');
+			$('#advancedDesign').attr('aria-expanded', String(inspectorAdvanced));
+			$('.right-footer').toggle(hasAdvancedFields);
+
+			applyColors(colorDrafts[colorGroup(chart)]);
+			activeChart = chart;
+			if (!resetValues) {
+				document.dispatchEvent(new CustomEvent('xchart:refresh-controls'));
+				PreviewEngine.update();
+				return;
+			}
+
+			// APPLY COMMON SETTINGS（从模板读值）
+			$('#grid option:eq('+template.grid.type+')').prop('selected', true)
+				$('select[name=labels]').val(String(template.labels.type === 0 ? 0 : 1))
+				$('select[name=lineType]').val(String(template.lineType === 2 ? 2 : (template.lineType === 1 ? 1 : 0)))
+				$('select[name=binMode]').val((template.histogram && template.histogram.binMode) || 'auto')
+				$('input[name=binCount]').val((template.histogram && template.histogram.binCount) || 8)
+				$('input[name=binWidth]').val((template.histogram && template.histogram.binWidth) || 0)
+				$('select[name=axisAssignment]').val((template.combo && template.combo.axisAssignment) || 'auto')
+				$('[name=spiderLabels]').prop('checked', !!template.spiderLabels)
+			$('#sorting option:eq('+template.sorting+')').prop('selected', true)
+			$('#typeOfCircle option:eq('+template.typeOfCircle+')').prop('selected', true)
+			$('#beginAtZero option:eq('+template.beginAtZero+')').prop('selected', true)
+			$('input[name=gridLineWidth]').val(template.grid.lineWidth != null ? template.grid.lineWidth : 1)
+			$('input[name=gridColor]').val(template.grid.color || '#e0e0e0')
+			$('input[name=yAxisSegments]').val(template.grid.yAxisSegments != null ? template.grid.yAxisSegments : 0)
+			XChartFontPicker.setValue(template.labels.fontName || 'IBM Plex Sans')
+			$('input[name=labelFontSize]').val(template.labels.fontSize != null ? template.labels.fontSize : 12)
+			$('input[name=labelColor]').val(template.labels.color || '#525252')
+			$('[name=radarGridShape]').val((template.radarChart && template.radarChart.grid) || 'polygon')
+			$('input[name=radarLevels]').val(template.radarChart && template.radarChart.levels != null ? template.radarChart.levels : 4)
+			$('input[name=radarFillOpacity]').val(template.radarChart && template.radarChart.fillOpacity != null ? template.radarChart.fillOpacity : 0.16)
+			$('input[name=funnelGap]').val(template.funnelChart && template.funnelChart.gap != null ? template.funnelChart.gap : 6)
+			$('input[name=funnelShape]').val((template.funnelChart && template.funnelChart.shape) || 'standard')
+			$('select[name=labelPosition]').val((template.funnelChart && template.funnelChart.labelPosition) || 'inside')
+
+			// X/Y 轴独立设置（兼容旧模板无 xAxis/yAxis 字段）
+				let xa = (template.labels && template.labels.xAxis) || { line: true, ticks: true, fontSize: template.labels.fontSize || 12, color: template.labels.color || '#525252' };
+				let ya = (template.labels && template.labels.yAxis) || { line: true, ticks: true, fontSize: template.labels.fontSize || 12, color: template.labels.color || '#525252' };
+				$('[name=separateAxisStyles]').prop('checked', axisStylesAreSeparate(template.labels));
+				$('[name=xAxisLabels]').prop('checked', xa.labels != null ? xa.labels !== false : (template.labels.type === 1 || template.labels.type === 3));
+				$('[name=xAxisLine]').prop('checked', xa.line !== false);
+				$('[name=xAxisTicks]').prop('checked', xa.ticks !== false);
+				$('input[name=xAxisFontSize]').val(xa.fontSize);
+				$('input[name=xAxisLineColor]').val(xa.lineColor || '#8d8d8d');
+				$('input[name=xAxisColor]').val(xa.color);
+				$('[name=yAxisLabels]').prop('checked', ya.labels != null ? ya.labels !== false : (template.labels.type === 1 || template.labels.type === 2));
+				$('[name=yAxisLine]').prop('checked', ya.line !== false);
+				$('[name=yAxisTicks]').prop('checked', ya.ticks !== false);
+				$('input[name=yAxisFontSize]').val(ya.fontSize);
+				$('input[name=yAxisLineColor]').val(ya.lineColor || '#8d8d8d');
+				$('input[name=yAxisColor]').val(ya.color);
+
+			// 个性字段读值（补齐新字段）
+			$('#dotType option:eq('+template.lineChart.dotType+')').prop('selected', true)
+			$('input[name=lineWidth]').val(template.lineChart.lineWidth)
+			$('input[name=dotDiameter]').val(template.lineChart.dotDiameter)
+
+				var areaConf = template.areaChart || {};
+				$('input[name=areaOpacity]').val(areaConf.opacity != null ? areaConf.opacity : 0.4);
+				$('input[name=areaLineWidth]').val(areaConf.lineWidth != null && areaConf.lineWidth > 0 ? areaConf.lineWidth : 2);
+				selectAreaFillStyle(areaConf.fillStyle || (areaConf.lineWidth > 0 ? 'solid-line' : 'solid'));
+
+				$('input[name=marginV]').val(template.verticalBarChart.margin)
+				$('input[name=stackGapV]').val(template.verticalBarChart.stackGap != null ? template.verticalBarChart.stackGap : 0)
+				$('input[name=roundTopV]').val(template.verticalBarChart.roundTop != null ? template.verticalBarChart.roundTop : 0)
+				$('input[name=marginH]').val(template.horizontalBarChart.margin)
+				$('input[name=stackGapH]').val(template.horizontalBarChart.stackGap != null ? template.horizontalBarChart.stackGap : 0)
+				$('input[name=roundTopH]').val(template.horizontalBarChart.roundTop != null ? template.horizontalBarChart.roundTop : 0)
+				$('input[name=groupMarginV]').val(template.groupedBarChart.margin)
+				$('input[name=groupInnerGapV]').val(template.groupedBarChart.innerGap != null ? template.groupedBarChart.innerGap : 0)
+				$('input[name=groupRoundTopV]').val(template.groupedBarChart.roundTop != null ? template.groupedBarChart.roundTop : 0)
+				$('input[name=groupMarginH]').val(template.groupedHorizontalBarChart.margin)
+				$('input[name=groupInnerGapH]').val(template.groupedHorizontalBarChart.innerGap != null ? template.groupedHorizontalBarChart.innerGap : 0)
+				$('input[name=groupRoundTopH]').val(template.groupedHorizontalBarChart.roundTop != null ? template.groupedHorizontalBarChart.roundTop : 0)
+				if (['comboChart','dualBarChart','dualLineBarChart'].indexOf(chart) >= 0) {
+					var comboBar = template.combo || {};
+					$('input[name=groupMarginV]').val(comboBar.margin != null ? comboBar.margin : template.groupedBarChart.margin);
+					$('input[name=groupInnerGapV]').val(comboBar.innerGap != null ? comboBar.innerGap : (template.groupedBarChart.innerGap || 0));
+					$('input[name=groupRoundTopV]').val(comboBar.roundTop != null ? comboBar.roundTop : (template.groupedBarChart.roundTop || 0));
+				}
+
+			$('input[name=thicknessOfDonut]').val(template.donutChart.thicknessOfDonut)
+			$('input[name=segmentGap]').val(template.segmentGap != null ? template.segmentGap : 0)
+			$('input[name=thicknessOfProgress]').val(template.progressChart.thicknessOfProgress)
+			$('input[name=progressBgColor]').val(template.progressChart.backgroundColor != null ? template.progressChart.backgroundColor : '#e0e0e0')
+			$('#endOfLine option:eq('+template.progressChart.endOfLine+')').prop('selected', true)
+			$('input[name=sparkLineWidth]').val(template.sparkline.lineWidth)
+			$('input[name=sparkDotDiameter]').val(template.sparkline.dotDiameter)
+			$('input[name=scatterDotDiameter]').val(template.scatterPlot.dotDiameter)
+			$('input[name=candleMargin]').val(template.candlestickChart.margin)
+
+				refreshInspectorFields(chart);
+				document.dispatchEvent(new CustomEvent('xchart:refresh-controls'));
+			PreviewEngine.update();
+		}
+
+		// listen for link click events at the document level
+		document.addEventListener('click', interceptClickEvent)
+
+
+		window.dataMsg = function(dataMsg){
+			canvasData = dataMsg.canvas;
+			window.xchartCanvasData = dataMsg.canvas;
+			var sourceCanvas = dataMsg.canvas && dataMsg.canvas[0];
+			if (sourceCanvas && Number(sourceCanvas.width) > 0 && Number(sourceCanvas.height) > 0) {
+				window.xchartStudioSize = { width: Number(sourceCanvas.width), height: Number(sourceCanvas.height) };
+				if (PreviewEngine.setTargetSize) PreviewEngine.setTargetSize(window.xchartStudioSize);
+			}
+
+			if(confApplied === false){
+				templates = dataMsg.conf;
+				templates.forEach((template, index) => {
+					var option = document.createElement('option');
+					option.value = template.id;
+					option.textContent = template.name;
+					option.selected = index === 0;
+					if(index === 0) defaultTemplate = template.id;
+					document.getElementById('template').appendChild(option);
+				})
+
+				applySettings("lineChart", defaultTemplate)
+				$('#updateTemplateLabel').text('同时更新模板「' + $('#template option:selected').text() + '」');
+			}
+			confApplied = true;
+			// 初始化预览画布与首次渲染
+			setTimeout(function(){ PreviewEngine.init(); PreviewEngine.render(); }, 0);
+		}
+
+		// Load a local table file selected by the native file picker.
+		window.loadTableFile = function(tableObject) {
+			$('.raw_table').hide()
+			$('.imported_table').css('display','grid')
+			$('.tableLink').text(tableObject.name)
+
+			var columns = tableObject.table[0],
+				options = new Array();
+			var headerSelect = document.querySelector('select[name=tableHeader]');
+			headerSelect.textContent = '';
+
+			columns.forEach((column, i) => {
+				var tempOption = {
+					name   : column,
+					value  : i,
+					checked: false
+				}
+				options.push(tempOption)
+
+				var option = document.createElement('option');
+				option.value = i;
+				option.textContent = column;
+				headerSelect.appendChild(option);
+			})
+			$('select[name=tableKeys]').multiselect( 'loadOptions', options);
+
+			// Store data
+			chartConfig.data.csv.name = tableObject.name;
+			chartConfig.data.csv.type = tableObject.type;
+			tableObject.table.shift()
+			chartConfig.data.csv.data = tableObject.table;
+			refreshColorEditor();
+		}
+
+		// HTTP JSON
+		function jsonFieldOptions(records){
+			var fields = [], seen = {};
+			function visit(value, path){
+				if (value && Object.prototype.toString.call(value) === '[object Object]') {
+					Object.keys(value).forEach(function(name){ visit(value[name], path ? path + '.' + name : name); });
+					return;
+				}
+				if (!path || seen[path]) return;
+				seen[path] = true;
+				fields.push({ name: path, path: path });
+			}
+			(records || []).slice(0, 20).forEach(function(record){ visit(record, ''); });
+			return fields;
+		}
+
+		window.loadJSON = function(jsonObject) {
+			var jsonValidation = XChartData.validateJsonRecords(jsonObject.json);
+			if (!jsonValidation.valid) {
+				window.importFailed(jsonValidation.message);
+				return;
+			}
+			$('.jsonLink').text(jsonObject.name)
+			$('#jsonEmptyHint').hide();
+			chartConfig.data.json.jsonName = jsonObject.name;
+			chartConfig.data.json.data = jsonObject.json;
+
+			var fields = jsonFieldOptions(jsonObject.json),
+				options = new Array();
+			var jsonHeaderSelect = document.querySelector('select[name=jsonHeader]');
+			jsonHeaderSelect.textContent = '';
+
+			fields.forEach((field, i) => {
+				var tempOption = {
+					name   : field.name,
+					value  : field.path,
+					path   : field.path,
+					checked: false
+				}
+				options.push(tempOption)
+
+				var option = document.createElement('option');
+				option.value = field.path;
+				option.textContent = field.name;
+				jsonHeaderSelect.appendChild(option);
+			})
+
+			$('select[name=jsonKeys]').multiselect( 'loadOptions', options);
+			$('#jsonKeys').show();
+
+
+			$('#jsonHeader').show();
+
+			$('.linkHTTP').removeClass('active');
+			$('.closeHTTP').show();
+			$('textarea[name=linkHTTP]').prop('disabled',false);
+			$('textarea[name=linkHTTP]').val('');
+			$('#syncHTTP').text("同步 JSON");
+			$('#localJSON').text("本地 JSON")
+			refreshColorEditor();
+		}
+
+		window.importCancelled = function() {
+			$('#localJSON').text('本地 JSON');
+		}
+
+		window.importFailed = function(message) {
+			$('#localJSON').text('本地 JSON');
+			$('#syncHTTP').text('同步 JSON');
+			$('.closeHTTP').show();
+			$('textarea[name=linkHTTP]').prop('disabled', false);
+			showAlert(message || '数据导入失败');
+		}
+
+		window.creationFailed = function(message) {
+			$('.loader').removeClass('flex');
+			showAlert(message || '创建图表失败');
+		}
+
+			$(document).ready(function(){
+				// 随机填充属于数据编辑流程：固定在表格下方，避免用户在右侧来回寻找。
+				$('#dataSection').detach().addClass('center-random-panel').insertBefore('.center-footer');
+				colorEditor = XChartColors.createEditor({
+					onChange: function(fullPalette){
+						if (renderedColorGroup) colorDrafts[renderedColorGroup] = fullPalette;
+						PreviewEngine.update();
+					}
+				});
+				// MULTISELECT
+			$('select[name=jsonKeys]').multiselect({
+				maxPlaceholderOpts: 2,
+				texts: {
+					placeholder: '选择数据字段'
+				},
+				minHeight : 0,
+				maxHeight : 100,
+					onChange: function(){ refreshColorEditor(); PreviewEngine.update(); }
+			});
+			$('select[name=tableKeys]').multiselect({
+				maxPlaceholderOpts: 2,
+				texts: {
+					placeholder: '选择数据列'
+				},
+				minHeight : 0,
+				maxHeight : 100,
+					onChange: function(){ refreshColorEditor(); PreviewEngine.update(); }
+			});
+
+			// DATA TABS
+			$('.data-tab').click(function(){
+				var tab_id = $(this).attr('data-target');
+
+				$('.data-tab').removeClass('active');
+				$('.data-panel').removeClass('active');
+
+				$(this).addClass('active');
+				$("#"+tab_id).addClass('active');
+
+				chartConfig.data.selected = tab_id;
+					refreshColorEditor();
+					PreviewEngine.update();
+			})
+			$('#advancedDesign').click(function(e){
+				e.preventDefault();
+				inspectorAdvanced = !inspectorAdvanced;
+				applySettings(activeChart, defaultTemplate, false);
+				$('.right-panel').scrollTop(0);
+			});
+
+			// ICON BUTTONS
+					$('.tools').on('click', '.icon_tools', function(){
+					$('.icon_tools').removeClass('icon_active');
+					$(this).addClass('icon_active');
+				})
+
+				createTable(null)
+			fillRandomTable()
+
+			// 兜底初始化预览（即使 dataMsg 未被调用也能显示空状态）
+			PreviewEngine.init();
+			PreviewEngine.render();
+
+			// UPLOAD CSV
+			$('#csv').click(function(){
+				window.postMessage('nativeLog', 'csv', 'Upload CSV')
+			})
+
+		// UPLOAD JSON
+		$('#localJSON').click(function(){
+			chartConfig.data.json.jsonLink = null;
+			window.postMessage('nativeLog', 'json', 'Upload JSON')
+			$('#localJSON').text("正在上传 JSON...")
+		})
+
+		// 示例 JSON（空状态入口）
+		$('#sampleJSON').click(function(){
+			var base = [42, 65, 38, 71, 55, 80];
+			var sample = [];
+			for (var i = 0; i < base.length; i++) sample.push({ '月份': (i + 1) + '月', '销量': base[i], '目标': 50 });
+			window.loadJSON({ name: '示例数据（内置）', json: sample });
+			refreshColorEditor();
+			PreviewEngine.update();
+		})
+
+			// SYNC WITH JSON
+			$('#syncHTTP').click(function(){
+				var link = $('textarea[name=linkHTTP]').val();
+				chartConfig.data.json.jsonLink = link;
+				window.postMessage('nativeLog', 'http', link)
+				$('#syncHTTP').text("正在同步...")
+				$('.closeHTTP').hide();
+				$('textarea[name=linkHTTP]').prop('disabled', true)
+			})
+
+			// TABLE FUNC
+				$('#clearTable').click(function(){
+					chartConfig.data.csv.seriesNames = [];
+					chartConfig.data.csv.seriesNamesChart = activeChart;
+					chartConfig.data.csv.data = [];
+					createTable(null)
+					refreshColorEditor();
+					PreviewEngine.update();
+				})
+				$('#dataSection').on('change', 'input,select', fillRandomTable)
+					$('.area-style-option').on('click', function(){
+					selectAreaFillStyle($(this).attr('data-style'));
+						PreviewEngine.update();
+					});
+					$('[name=separateAxisStyles]').on('change', function(){
+						refreshInspectorFields(activeChart);
+						PreviewEngine.update();
+					});
+				$('#addTableRow').click(function(){ addTableRow(); chartConfig.data.csv.data = exportTable(); refreshColorEditor(); PreviewEngine.update(); })
+				$('#addTableColumn').click(function(){ addTableColumn(); chartConfig.data.csv.data = exportTable(); refreshColorEditor(); })
+			$('.remove_upload').click(function(){
+				$('.imported_table').hide()
+				$('.raw_table').css("display", "grid")
+				chartConfig.data.csv.name = null;
+				chartConfig.data.csv.type = null;
+				chartConfig.data.csv.data = [];
+				chartConfig.data.csv.seriesNames = [];
+				chartConfig.data.csv.seriesNamesChart = activeChart;
+				refreshColorEditor();
+				PreviewEngine.update();
+			})
+			$('#transposeTable').click(function(){
+				var currentTable = exportTable();
+				if (!currentTable.length) return;
+				var currentLabels = currentTable[0].slice();
+				var currentSeriesNames = (chartConfig.data.csv.seriesNames || []).slice();
+				var transposedSeries = transpose(currentTable.slice(1));
+				chartConfig.data.csv.seriesNames = currentLabels;
+				createTable([currentSeriesNames].concat(transposedSeries), activeChart)
+				chartConfig.data.csv.data = exportTable();
+				refreshColorEditor();
+				PreviewEngine.update();
+			})
+
+			// PASTE FROM CLIPBOARD
+			$("#csvTable").on("paste", "td", function(e){
+			    e.preventDefault();
+			    var pastedData = e.originalEvent.clipboardData.getData('text');
+			    var tab = pastedData.search(/\t/);
+			    var enter = pastedData.search(/\n/);
+
+				    if(tab >= 0 || enter >=0 ){
+					    var currentCell = {
+					    	row : $(this).closest('tr').index(),
+					    	column : $(this).index()
+					    }
+					    var dataTable = pastedData.replace(/\r/g, '').replace(/\n$/, '').split("\n");
+					    for (var i in dataTable) {
+							dataTable[i] = dataTable[i].split("\t")
+						}
+						var requiredRows = currentCell.row + dataTable.length + 1;
+						var requiredColumns = currentCell.column + Math.max.apply(null, dataTable.map(function(row){ return row.length; })) + 1;
+						ensureTableSize(requiredRows, requiredColumns);
+						for(var i = 0; i < dataTable.length; i++){
+							for(var j = 0; j < dataTable[i].length; j++){
+								$('#csvTable tr').eq(currentCell.row + i).find('td').eq(currentCell.column + j).text(dataTable[i][j])
+							}
+						}
+				    } else {
+				    	$(this).text(pastedData);
+				    }
+					chartConfig.data.csv.data = exportTable();
+					refreshColorEditor();
+					PreviewEngine.update();
+				} );
+			$('#csvTable').on('input', 'td', function(){
+				chartConfig.data.csv.data = exportTable();
+				refreshColorEditor();
+				PreviewEngine.update();
+			});
+			$("#csvTable").on("keypress", "td", function(e){
+				if (e.keyCode === 10 || e.keyCode === 13) {
+			        e.preventDefault();
+			    }
+					if (e.keyCode === 13) {
+						var currentCell = {
+					    	row : $(this).closest('tr').index(),
+					    	column : $(this).index()
+					    }
+					    if (currentCell.row >= $('#csvTable tr').length - 1) addTableRow();
+					    $('#csvTable tr').eq(currentCell.row + 1).find('td').eq(currentCell.column).focus()
+					}
+			})
+
+			// CHANGE TEMPLATE
+			$('#template').on('change', function() {
+				let chart = $('.icon_active').attr('data-action');
+				defaultTemplate = this.value;
+				applySettings(chart, this.value);
+				$('#updateTemplateLabel').text('同时更新模板「' + $('#template option:selected').text() + '」');
+			});
+
+			// SWITCH CHARTS
+				$('.tools').on('click', '.icon_tools', function(){
+				    var chart_id = $(this).attr('data-action');
+				applySettings(chart_id, defaultTemplate, false)
+			    applyRandomData(chart_id)
+				fillRandomTable()
+			})
+
+			// JSON POPUP
+			var httpDialogTrigger = null;
+			$('#httpJSON').click(function(){
+				httpDialogTrigger = this;
+				$('.linkHTTP').addClass('active');
+				setTimeout(function(){ $('textarea[name=linkHTTP]').focus(); }, 0);
+			})
+			$('.closeHTTP').click(function(){
+				$('.linkHTTP').removeClass('active');
+				if (httpDialogTrigger) httpDialogTrigger.focus();
+			})
+
+			// CREATE CHART
+			$('.create-chart').click(function(){
+				// COLLECT SETTINGS
+				if (!validateStyleColors()) return;
+					var chartName = $('.icon_active').attr('data-action')
+				var selectedTemplate = $('select[name=template]').val()
+				captureColors(chartName);
+
+				let selectedTemplateObject = templateById(selectedTemplate);
+				if (!selectedTemplateObject) {
+					showAlert('所选模板已不存在，请重新选择模板');
+					return;
+				}
+				let newTemplate = deepClone(selectedTemplateObject);
+				newTemplate.colors = newTemplate.colors || {};
+				newTemplate.grid = newTemplate.grid || {};
+				newTemplate.labels = newTemplate.labels || {};
+				newTemplate.lineChart = newTemplate.lineChart || {};
+				newTemplate.areaChart = newTemplate.areaChart || {};
+				newTemplate.verticalBarChart = newTemplate.verticalBarChart || {};
+				newTemplate.horizontalBarChart = newTemplate.horizontalBarChart || {};
+				newTemplate.groupedBarChart = newTemplate.groupedBarChart || {};
+				newTemplate.groupedHorizontalBarChart = newTemplate.groupedHorizontalBarChart || {};
+				newTemplate.donutChart = newTemplate.donutChart || {};
+				newTemplate.progressChart = newTemplate.progressChart || {};
+				newTemplate.sparkline = newTemplate.sparkline || {};
+				newTemplate.scatterPlot = newTemplate.scatterPlot || {};
+				newTemplate.candlestickChart = newTemplate.candlestickChart || {};
+				newTemplate.radarChart = newTemplate.radarChart || {};
+				newTemplate.funnelChart = newTemplate.funnelChart || {};
+				newTemplate.grid.type = Number($('select[name=grid]').val());
+				newTemplate.grid.lineWidth = finiteNumber($('input[name=gridLineWidth]').val(), 1);
+				newTemplate.grid.color = $('input[name=gridColor]').val() || '#e0e0e0';
+				newTemplate.grid.yAxisSegments = finiteNumber($('input[name=yAxisSegments]').val(), 0);
+					var separateAxisStyles = $('[name=separateAxisStyles]').is(':checked');
+					var showXLabels = separateAxisStyles ? $('[name=xAxisLabels]').is(':checked') : Number($('select[name=labels]').val()) === 1;
+					var showYLabels = separateAxisStyles ? $('[name=yAxisLabels]').is(':checked') : Number($('select[name=labels]').val()) === 1;
+					newTemplate.labels.type = showXLabels ? (showYLabels ? 1 : 3) : (showYLabels ? 2 : 0);
+					newTemplate.labels.separateAxisStyles = separateAxisStyles;
+				newTemplate.labels.fontName = $('[name=labelFontName]').val() || 'IBM Plex Sans';
+				newTemplate.labels.fontSize = finiteNumber($('input[name=labelFontSize]').val(), 12);
+				newTemplate.labels.color = $('input[name=labelColor]').val() || '#525252';
+				newTemplate.lineType = Number($('select[name=lineType]').val());
+				newTemplate.histogram = newTemplate.histogram || {};
+				newTemplate.histogram.binMode = $('select[name=binMode]').val() || 'auto';
+				newTemplate.histogram.binCount = Math.max(1, Number($('input[name=binCount]').val()) || 8);
+				newTemplate.histogram.binWidth = Math.max(0, Number($('input[name=binWidth]').val()) || 0);
+					newTemplate.combo = newTemplate.combo || {};
+					newTemplate.combo.axisAssignment = $('select[name=axisAssignment]').val() || 'auto';
+					newTemplate.combo.margin = Number($('input[name=groupMarginV]').val());
+					newTemplate.combo.innerGap = Number($('input[name=groupInnerGapV]').val()) || 0;
+					newTemplate.combo.roundTop = Number($('input[name=groupRoundTopV]').val()) || 0;
+				newTemplate.spiderLabels = $('[name=spiderLabels]').is(':checked');
+				newTemplate.sorting = Number($('select[name=sorting]').val());
+				newTemplate.typeOfCircle = Number($('select[name=typeOfCircle]').val());
+				newTemplate.beginAtZero = Number($('select[name=beginAtZero]').val());
+				newTemplate.interaction = newTemplate.interaction || {};
+				// 浮窗是统一交互能力，不再作为创建页的独立开关；兼容旧模板的关闭配置。
+				newTemplate.interaction.showValueTooltip = newTemplate.interaction.showValueTooltip !== false;
+				newTemplate.radarChart.levels = Math.max(1, Number($('input[name=radarLevels]').val()) || 4);
+				newTemplate.radarChart.fillOpacity = Number($('input[name=radarFillOpacity]').val());
+				if (!isFinite(newTemplate.radarChart.fillOpacity)) newTemplate.radarChart.fillOpacity = 0.16;
+				newTemplate.radarChart.grid = $('[name=radarGridShape]').val() || 'polygon';
+				newTemplate.funnelChart = newTemplate.funnelChart || {};
+				newTemplate.funnelChart.gap = Math.max(0, Number($('input[name=funnelGap]').val()) || 6);
+				newTemplate.funnelChart.shape = $('input[name=funnelShape]').val() || 'standard';
+				newTemplate.funnelChart.labelPosition = $('select[name=labelPosition]').val() || 'inside';
+				newTemplate.lineChart.lineWidth = Number($('input[name=lineWidth]').val());
+				newTemplate.lineChart.dotType = Number($('select[name=dotType]').val());
+				newTemplate.lineChart.dotDiameter = Number($('input[name=dotDiameter]').val());
+					newTemplate.areaChart.type = chartName === 'percentStackedAreaChart' ? 'percent' : (chartName === 'stackedAreaChart' ? 'stacked' : 'normal');
+					newTemplate.areaChart.fillStyle = selectedAreaFillStyle();
+					newTemplate.areaChart.opacity = finiteNumber($('input[name=areaOpacity]').val(), 0.4);
+					newTemplate.areaChart.lineWidth = newTemplate.areaChart.fillStyle === 'solid' ? 0 : Math.max(0.5, finiteNumber($('input[name=areaLineWidth]').val(), 2));
+					newTemplate.verticalBarChart.margin = Number($('input[name=marginV]').val());
+					newTemplate.verticalBarChart.stackGap = Number($('input[name=stackGapV]').val()) || 0;
+					newTemplate.verticalBarChart.roundTop = Number($('input[name=roundTopV]').val()) || 0;
+					newTemplate.horizontalBarChart.margin = Number($('input[name=marginH]').val());
+					newTemplate.horizontalBarChart.stackGap = Number($('input[name=stackGapH]').val()) || 0;
+					newTemplate.horizontalBarChart.roundTop = Number($('input[name=roundTopH]').val()) || 0;
+					newTemplate.groupedBarChart.margin = Number($('input[name=groupMarginV]').val());
+					newTemplate.groupedBarChart.innerGap = Number($('input[name=groupInnerGapV]').val()) || 0;
+					newTemplate.groupedBarChart.roundTop = Number($('input[name=groupRoundTopV]').val()) || 0;
+					newTemplate.groupedHorizontalBarChart.margin = Number($('input[name=groupMarginH]').val());
+					newTemplate.groupedHorizontalBarChart.innerGap = Number($('input[name=groupInnerGapH]').val()) || 0;
+				newTemplate.groupedHorizontalBarChart.roundTop = Number($('input[name=groupRoundTopH]').val()) || 0;
+				newTemplate.donutChart.thicknessOfDonut = Number($('input[name=thicknessOfDonut]').val());
+				newTemplate.segmentGap = Math.max(0, Math.min(20, finiteNumber($('input[name=segmentGap]').val(), 0)));
+				newTemplate.progressChart.thicknessOfProgress = Number($('input[name=thicknessOfProgress]').val());
+				newTemplate.progressChart.backgroundColor = $('input[name=progressBgColor]').val() || '#e0e0e0';
+				newTemplate.progressChart.endOfLine = Number($('select[name=endOfLine]').val());
+				newTemplate.sparkline.lineWidth = Number($('input[name=sparkLineWidth]').val());
+				newTemplate.sparkline.dotDiameter = Number($('input[name=sparkDotDiameter]').val());
+				newTemplate.scatterPlot.dotDiameter = Number($('input[name=scatterDotDiameter]').val());
+				newTemplate.candlestickChart.margin = Number($('input[name=candleMargin]').val());
+					newTemplate.labels.xAxis = {
+						labels: showXLabels,
+						line: $('[name=xAxisLine]').is(':checked'),
+						ticks: $('[name=xAxisTicks]').is(':checked'),
+						fontSize: Number($('input[name=xAxisFontSize]').val()) || 12,
+						lineColor: $('input[name=xAxisLineColor]').val() || '#8d8d8d',
+						color: $('input[name=xAxisColor]').val() || '#525252'
+					};
+					newTemplate.labels.yAxis = {
+						labels: showYLabels,
+						line: $('[name=yAxisLine]').is(':checked'),
+						ticks: $('[name=yAxisTicks]').is(':checked'),
+						fontSize: Number($('input[name=yAxisFontSize]').val()) || 12,
+						lineColor: $('input[name=yAxisLineColor]').val() || '#8d8d8d',
+						color: $('input[name=yAxisColor]').val() || '#525252'
+				};
+
+
+				newTemplate.colors.common = safePalette('common');
+				newTemplate.colors.progressChart = safePalette('progressChart');
+				newTemplate.colors.sparkline = safePalette('sparkline');
+				newTemplate.colors.scatterPlot = safePalette('scatterPlot');
+				newTemplate.colors.candlestickChart = safePalette('candlestickChart');
+
+					chartConfig.settings = newTemplate;
+					chartConfig = XChartConfig.prepareConfigForSave(chartConfig, templates, {
+						templateId: selectedTemplate,
+						mode: $('#followTemplate').is(':checked') ? 'linked' : 'frozen',
+						resolvedSettings: newTemplate
+					});
+
+				// COLLECT DATA
+				chartConfig.data.random = chartConfig.data.random || { categories: {}, items: {}, min: 0, max: 100, randType: '0', data: [] };
+				chartConfig.data.random.categories = chartConfig.data.random.categories || {};
+				chartConfig.data.random.items = chartConfig.data.random.items || {};
+				chartConfig.data.csv = chartConfig.data.csv || { type: null, data: [], headers: true, seriesNames: [], seriesNamesChart: null, header: [], columns: [] };
+				chartConfig.data.csv.seriesNames = chartConfig.data.csv.seriesNames || [];
+				chartConfig.data.json = chartConfig.data.json || { data: null, keys: [], header: [] };
+				chartConfig.data.chartName = chartName;
+				chartConfig.data.fullChartName = $('.chart_name').text();
+				chartConfig.data.taxonomy = window.XChartStudio && XChartStudio.getSelection
+					? XChartStudio.getSelection()
+					: (window.XChartTaxonomySelection || null);
+				chartConfig.data.selected = $('.data-tab.active').attr('data-target') || 'table';
+
+				// RANDOM
+				chartConfig.data.random.categories.value = $('input[name=categories]').val();
+				chartConfig.data.random.items.value = $('input[name=items]').val();
+				chartConfig.data.random.min = $('input[name=randomMin]').val();
+				chartConfig.data.random.max = $('input[name=randomMax]').val();
+				chartConfig.data.random.randType = $('select[name=randomType]').val();
+				chartConfig.data.random.categories.name = $('.random_categories').text();
+				chartConfig.data.random.items.name = $('.random_items').text();
+
+				if(chartName === "pieChart" || chartName === "donutChart" || chartName === "progressChart" || chartName === "sparkline"){
+					chartConfig.data.random.categories.value = canvasData.length
+				}
+
+				// Freeze the exact data used by the preview so native Sketch rendering
+				// compiles the same values into the same Scene.
+				chartConfig.data.random.data = chartConfig.data.selected === "random" && window.__previewRandomData
+					? JSON.parse(JSON.stringify(window.__previewRandomData))
+					: [];
+
+				// TABLE
+				if(chartConfig.data.selected === "table" && chartConfig.data.csv.type === null){
+					chartConfig.data.csv.data = exportTable();
+					chartConfig.data.csv.headers = true;
+				} else {
+					var headers = new Array();
+					$('select[name=tableHeader] option').each(function(){
+						let newHeader = {
+							name : $(this).text(),
+							checked : $(this).is(':selected'),
+							index : Number($(this).val())
+						}
+						headers.push(newHeader)
+					})
+					chartConfig.data.csv.header = headers;
+
+					var columns = new Array();
+					$('#tableKeys input').each(function(){
+						let newKey = {
+							name    : $(this).parent().text(),
+							checked : false,
+							index : Number($(this).val())
+						}
+						if ($(this).is(":checked")) {
+							newKey.checked = true;
+						}
+						columns.push(newKey)
+					})
+					chartConfig.data.csv.columns = columns;
+				}
+				
+				// JSON
+				var headers = new Array();
+				$('select[name=jsonHeader] option').each(function(){
+					let newHeader = {
+						name : $(this).text(),
+						path : $(this).val(),
+						checked : $(this).is(':selected')
+					}
+					headers.push(newHeader)
+				})
+				chartConfig.data.json.header = headers;
+
+				var keys = new Array();
+				$('#jsonKeys input').each(function(){
+					let newKey = {
+						name    : $(this).parent().text(),
+						path    : $(this).val(),
+						checked : false
+					}
+					if ($(this).is(":checked")) {
+						newKey.checked = true;
+					}
+					keys.push(newKey)
+				})
+				chartConfig.data.json.keys = keys;
+
+			var messageToPlugin = {
+				canvas : canvasData,
+				conf : chartConfig,
+				updateTemplate : $("#updateTemplate").is(':checked'),
+				studioSize : window.xchartStudioSize || null
+			}
+
+				console.log(chartConfig)
+
+				var jsonString = JSON.stringify(messageToPlugin)
+				var validation = dataValidation(chartConfig.data)
+
+				if(validation === "Valid"){
+					window.postMessage('nativeLog', 'create', jsonString)
+					$('.loader').addClass('flex')
+				} else {
+					showAlert(validation);
+				}
+			})
+		})
+	</script>
+	<script src="./drag.js?v=8.1.1"></script>
+	<script src="./multiselect.js"></script>
+
+
+
+</body>
+</html>
