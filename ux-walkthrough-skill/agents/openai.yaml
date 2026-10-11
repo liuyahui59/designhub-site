@@ -1,0 +1,6 @@
+interface:
+  display_name: "体验走查"
+  short_description: "对 PC 端 B 端产品执行首次体验走查或修改后设计复查"
+  default_prompt: "使用 $ux-walkthrough 对 PC 端 B 端产品执行首次体验走查；若用户提供原报告并要求复查，则复用原前提并验证修改结果与回归。"
+policy:
+  allow_implicit_invocation: true

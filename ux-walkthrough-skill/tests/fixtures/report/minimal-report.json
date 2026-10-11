@@ -1,0 +1,691 @@
+{
+  "schema_version": 7,
+  "title": "示例系统完整体验走查报告",
+  "project": "示例系统",
+  "source": "url",
+  "review_mode": "initial",
+  "report_status": "complete",
+  "generated_at": "2026-08-21T15:10:00+08:00",
+  "scope": "下单页与下单任务",
+  "review_brief": {
+    "status": "confirmed",
+    "answered_by_user": true,
+    "object_scope_purpose": "已上线的内部下单系统；检查下单页面、提交反馈和失败恢复",
+    "primary_users": "每日下单且熟悉业务规则的内部运营人员",
+    "user_goal": "准确完成下单并确认最终结果",
+    "critical_tasks": [
+      {
+        "id": "TASK-01",
+        "name": "创建订单并确认结果",
+        "primary_user": "内部运营人员",
+        "start_condition": "从创建订单入口进入下单页",
+        "intended_outcome": "订单创建成功且最终结果明确",
+        "success_criteria": [
+          "提交结果明确",
+          "失败后保留输入并可重试"
+        ]
+      }
+    ],
+    "context": {
+      "frequency": "每日高频",
+      "display_environment": "1920×1080，浏览器 100% 缩放，全屏使用",
+      "data_scale": "单次一条订单，每日约 50 条",
+      "time_pressure": "普通，活动期较高",
+      "interruption_collaboration": "偶尔被消息打断，不涉及多人同时编辑"
+    },
+    "failure_impact": "失败或重复提交会增加人工核对成本",
+    "fixed_constraints": "订单提交后必须保留操作记录"
+  },
+  "activated_packs": [
+    "core",
+    "visual",
+    "accessibility-pc"
+  ],
+  "scope_inventory": {
+    "inventory_basis": [
+      {
+        "id": "BASIS-01",
+        "type": "user_confirmed_scope",
+        "description": "用户明确指定只检查下单页和创建订单任务"
+      },
+      {
+        "id": "BASIS-02",
+        "type": "navigation_traversal",
+        "description": "已核对下单入口、下单页和提交结果状态"
+      }
+    ],
+    "inventory_completeness": "confirmed",
+    "completeness_reason": "用户指定范围均已映射到页面和任务，未发现未解释入口。",
+    "excluded_surfaces": [],
+    "surfaces": [
+      {
+        "id": "PAGE-01",
+        "name": "下单页",
+        "visual_status": "completed",
+        "evidence_ids": [
+          "EV-VIS"
+        ]
+      }
+    ],
+    "tasks": [
+      {
+        "id": "TASK-01",
+        "name": "创建订单并确认结果",
+        "flow_status": "completed",
+        "state_inventory": {
+          "inventory_basis": [
+            {
+              "type": "user_confirmed_task",
+              "description": "用户确认任务从进入下单页开始，以明确成功结果或失败后可恢复为结束"
+            },
+            {
+              "type": "interaction_path",
+              "description": "实际完成录入、提交、成功、失败与重试路径"
+            },
+            {
+              "type": "interface_branch",
+              "description": "提交控件和结果反馈明确包含处理中、成功与失败分支"
+            }
+          ],
+          "inventory_completeness": "confirmed",
+          "completeness_reason": "用户任务、实际路径和界面分支能够相互对应，没有未解释的状态缺口。",
+          "excluded_states": [
+            {
+              "state_id": "permission",
+              "state_name": "权限受限",
+              "reason": "本次指定运营角色固定拥有创建订单权限，任务内没有部分权限分支"
+            },
+            {
+              "state_id": "empty",
+              "state_name": "空状态",
+              "reason": "任务从独立创建入口开始，不依赖列表数据或搜索结果"
+            },
+            {
+              "state_id": "partial_success",
+              "state_name": "部分成功",
+              "reason": "单次仅创建一个订单，不存在多对象混合结果"
+            },
+            {
+              "state_id": "context_return",
+              "state_name": "返回上下文",
+              "reason": "本次任务以确认最终创建结果为终点，不包含返回上游页面"
+            }
+          ],
+          "results": [
+            {
+              "state_id": "entry",
+              "state_name": "任务入口",
+              "status": "verified_pass",
+              "method": "interaction",
+              "evidence_ids": ["EV-FLOW"],
+              "observation": "从明确的创建订单入口进入下单页，初始任务上下文清楚"
+            },
+            {
+              "state_id": "input",
+              "state_name": "订单录入",
+              "status": "verified_pass",
+              "method": "interaction",
+              "evidence_ids": ["EV-FLOW"],
+              "observation": "订单字段可连续填写，必填与格式要求在录入过程中可识别"
+            },
+            {
+              "state_id": "processing",
+              "state_name": "提交处理中",
+              "status": "verified_pass",
+              "method": "interaction",
+              "evidence_ids": ["EV-FLOW"],
+              "observation": "提交期间显示处理中并阻止重复提交"
+            },
+            {
+              "state_id": "success",
+              "state_name": "提交成功",
+              "status": "verified_pass",
+              "method": "interaction",
+              "evidence_ids": ["EV-FLOW"],
+              "observation": "成功结果明确并能确认最终订单状态"
+            },
+            {
+              "state_id": "failure",
+              "state_name": "提交失败",
+              "status": "verified_pass",
+              "method": "interaction",
+              "evidence_ids": ["EV-FLOW"],
+              "observation": "失败原因明确，已填订单内容保持不丢失"
+            },
+            {
+              "state_id": "recovery",
+              "state_name": "失败恢复",
+              "status": "verified_pass",
+              "method": "interaction",
+              "evidence_ids": ["EV-FLOW"],
+              "observation": "修正失败字段后可安全重试并获得明确结果"
+            }
+          ]
+        },
+        "evidence_ids": [
+          "EV-FLOW",
+          "EV-A11Y"
+        ]
+      }
+    ]
+  },
+  "cross_page_consistency": {
+    "status": "not_applicable",
+    "surface_ids": ["PAGE-01"],
+    "evidence_ids": [],
+    "reason": "本次范围只有下单页一个可比较页面"
+  },
+  "pc_environment_validation": {
+    "status": "completed",
+    "target_environment": "1920×1080，浏览器 100% 缩放，全屏使用",
+    "environments": [
+      {
+        "id": "PC-ENV-01",
+        "role": "primary",
+        "viewport_width": 1920,
+        "viewport_height": 1080,
+        "browser_zoom_percent": 100,
+        "window_mode": "全屏",
+        "capture_source": "live_browser",
+        "surface_ids": ["PAGE-01"],
+        "evidence_ids": ["EV-VIS"],
+        "observation": "下单页在主要工作环境中完整可达，未出现裁切、遮挡或异常横滚。"
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "id": "EV-VIS",
+      "type": "screenshot",
+      "source": "url",
+      "task_ids": [
+        "TASK-01"
+      ],
+      "surface_ids": [
+        "PAGE-01"
+      ],
+      "state": "default",
+      "observation": "实际渲染页面完成视觉清单检查，层级、布局、组件和状态视觉未发现确定缺陷",
+      "artifact": "/tmp/fixture-page.png",
+      "confidence": "high"
+    },
+    {
+      "id": "EV-FLOW",
+      "type": "interaction",
+      "source": "url",
+      "task_ids": [
+        "TASK-01"
+      ],
+      "surface_ids": [
+        "PAGE-01"
+      ],
+      "state": "success_failure_recovery",
+      "observation": "实际完成提交成功、失败与重试，输入得到保留且结果与订单状态一致",
+      "confidence": "high"
+    },
+    {
+      "id": "EV-A11Y",
+      "type": "accessibility_tree",
+      "source": "url",
+      "task_ids": [
+        "TASK-01"
+      ],
+      "surface_ids": [
+        "PAGE-01"
+      ],
+      "state": "keyboard_and_zoom",
+      "observation": "使用键盘完成关键任务并检查焦点、表单语义、状态反馈和浏览器缩放",
+      "confidence": "high"
+    }
+  ],
+  "coverage": {
+    "CORE-01": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "页面主信息和主操作直接支持完成下单目标",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-02": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "入口、当前位置、提交落点和返回路径明确",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-03": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "主操作、字段状态和可操作范围均可发现",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-04": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "提交期间展示处理中并阻止重复提交",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-05": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "成功与失败结果均明确并反映到订单状态",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-06": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "提交失败保留输入并提供安全重试路径",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-07": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "字段、操作、术语和结果反馈保持一致",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-08": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "高频下单无需重复录入或人工核对结果",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-09": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "页面反馈与最终订单状态一致且更新时间可见",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "CORE-10": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-FLOW"
+          ],
+          "observation": "字段、错误与操作文案使用一致的业务术语",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "VIS-01": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "标题、表单和主操作形成明确阅读顺序",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-02": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "页面骨架、栅格和区域关系稳定",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-03": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "相同信息关系使用一致间距和视觉节奏",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-04": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "文字字号、行高、截断和换行均清晰可读",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-05": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "功能色职责明确且文字与控件对比清楚",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-06": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "按钮、输入框和反馈组件视觉一致",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-07": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "页面密度符合熟练用户的扫描与录入需要",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-08": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "not_applicable",
+          "reason": "本次页面没有图像、图标入口或数据可视化",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-09": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "默认、聚焦、禁用、加载、错误和成功状态视觉完整",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "VIS-10": {
+      "target_type": "surface",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "screenshot",
+          "evidence_ids": [
+            "EV-VIS"
+          ],
+          "observation": "页面未见占位内容、默认样式或多套视觉语言",
+          "target_id": "PAGE-01"
+        }
+      ]
+    },
+    "A11Y-01": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "keyboard",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "关键任务可用键盘完成且无键盘陷阱",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-02": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "keyboard",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "焦点始终可见且错误后落到对应字段",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-03": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "contrast",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "文字、控件和状态对比清楚且不只依赖颜色",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-04": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "browser_zoom",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "浏览器缩放后内容和关键操作仍可达",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-05": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "表单标签持续可见且字段错误可定位",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-06": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "accessibility_tree",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "组件名称、角色、值和禁用状态正确",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-07": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "not_applicable",
+          "reason": "本次页面没有数据表格",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-08": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "accessibility_tree",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "加载、成功和错误反馈均能被辅助技术感知",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-09": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "not_applicable",
+          "reason": "本次任务没有超时、自动刷新或非必要动效",
+          "target_id": "TASK-01"
+        }
+      ]
+    },
+    "A11Y-10": {
+      "target_type": "task",
+      "results": [
+        {
+          "status": "verified_pass",
+          "method": "interaction",
+          "evidence_ids": [
+            "EV-A11Y"
+          ],
+          "observation": "业务语言稳定且错误原因与下一步明确",
+          "target_id": "TASK-01"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "overall": "在本次用户、任务、场景与证据范围内，未发现达到正式问题标准的确定缺陷。",
+    "key_points": [
+      "页面视觉质量、关键任务流程与 PC 基础可访问性均完成验证"
+    ],
+    "improvement_direction": "保持现有模式，并在后续改版中继续回归失败恢复与状态反馈。"
+  },
+  "issues": [],
+  "validation_backlog": [],
+  "positive_patterns": [
+    {
+      "id": "POS-01",
+      "title": "提交失败后保留输入",
+      "observation": "模拟提交失败后，已填写订单内容仍保留且错误定位到字段",
+      "user_value": "失败后支持直接修正，无需重新录入已填内容",
+      "preservation_guidance": "后续改版继续保留输入保护与字段级错误定位",
+      "checklist_ids": [
+        "CORE-06"
+      ],
+      "task_ids": [
+        "TASK-01"
+      ],
+      "surface_ids": [
+        "PAGE-01"
+      ],
+      "evidence_ids": [
+        "EV-FLOW"
+      ]
+    }
+  ],
+  "opportunities": [],
+  "appendix": {
+    "note": "该 fixture 仅用于 v7 脚本验证。",
+    "items": [
+      "零确定问题是有效结果"
+    ],
+    "limitations": [
+      "不代表真实产品结论"
+    ]
+  }
+}

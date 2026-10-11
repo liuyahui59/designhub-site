@@ -1,0 +1,5 @@
+{
+  "deprecated": true,
+  "replacement": "../tests/fixtures/report/minimal-report.json",
+  "note": "v7 烟雾测试统一使用 tests/fixtures/report/minimal-report.json，避免维护两份结构化报告样例。"
+}

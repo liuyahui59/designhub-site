@@ -307,13 +307,23 @@
 
       <section class="start section" id="start" aria-labelledby="start-title">
         <div class="start-copy reveal">
-          <p class="eyebrow">USE IN CODEX</p>
-          <h2 id="start-title">在 Codex 中<br />调用这个 Skill。</h2>
-          <p>这是 Skill 的介绍网站，不在网页内直接执行走查。将 ux-walkthrough 安装到 Codex 后，复制右侧指令到对话，并附上代码库、URL 或截图即可开始。</p>
+          <p class="eyebrow">INSTALL THEN REVIEW</p>
+          <h2 id="start-title">先安装，<br />再开始走查。</h2>
+          <p>这个页面现在包含真实的 ux-walkthrough Skill。先将安装指令发给 Codex；安装完成后新建一个任务，再用 <code>$ux-walkthrough</code> 调用。未安装时，调用指令只是普通文字。</p>
+          <div class="install-card">
+            <div><span class="mono">STEP 01 · INSTALL</span><strong>安装真实 Skill</strong></div>
+            <button type="button" data-copy-install aria-label="复制安装指令"><svg class="carbon-icon" aria-hidden="true"><use href="#icon-copy"></use></svg><span data-install-label>复制安装指令</span></button>
+            <pre><code data-install-prompt>$skill-installer
+
+请从 GitHub 仓库 https://github.com/liuyahui59/designhub-site 的 ux-walkthrough-skill 目录安装这个 Skill。安装完成后告诉我实际安装路径。</code></pre>
+            <a href="https://github.com/liuyahui59/designhub-site/tree/main/ux-walkthrough-skill" target="_blank" rel="noopener noreferrer">查看完整 Skill 源码 <svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+          </div>
         </div>
         <div class="prompt-box reveal">
-          <div class="prompt-head"><span>CODEX PROMPT</span><button type="button" data-copy-prompt aria-label="复制调用指令"><svg class="carbon-icon" aria-hidden="true"><use href="#icon-copy"></use></svg><span data-copy-label>复制指令</span></button></div>
-          <pre><code data-prompt>使用 ux-walkthrough Skill，对这个 PC 端 B 端产品做一次体验走查。
+          <div class="prompt-head"><span>STEP 02 · NEW TASK</span><button type="button" data-copy-prompt aria-label="复制调用指令"><svg class="carbon-icon" aria-hidden="true"><use href="#icon-copy"></use></svg><span data-copy-label>复制调用指令</span></button></div>
+          <pre><code data-prompt>$ux-walkthrough
+
+对这个 PC 端 B 端产品做一次体验走查。
 
 输入：&lt;代码库 / URL / 截图&gt;
 本次范围：&lt;页面或流程&gt;

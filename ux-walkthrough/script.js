@@ -81,22 +81,33 @@ $$('[data-matrix]').forEach((button) => button.addEventListener("click", () => {
   $$('[data-type]').forEach((cell) => cell.classList.toggle("hidden-cell", selected !== "all" && cell.dataset.type !== selected));
 }));
 
-const copyButton = $("[data-copy-prompt]");
-copyButton.addEventListener("click", async () => {
-  const text = $("[data-prompt]").textContent;
+const copyText = async ({ source, label, idleLabel }) => {
+  const text = $(source).textContent;
   try {
     await navigator.clipboard.writeText(text);
-    $("[data-copy-label]").textContent = "已复制";
-    window.setTimeout(() => { $("[data-copy-label]").textContent = "复制指令"; }, 1600);
+    $(label).textContent = "已复制";
+    window.setTimeout(() => { $(label).textContent = idleLabel; }, 1600);
   } catch {
-    $("[data-copy-label]").textContent = "已选中";
+    $(label).textContent = "已选中";
     const range = document.createRange();
-    range.selectNodeContents($("[data-prompt]"));
+    range.selectNodeContents($(source));
     const selection = window.getSelection();
     selection.removeAllRanges();
     selection.addRange(range);
   }
-});
+};
+
+$("[data-copy-install]").addEventListener("click", () => copyText({
+  source: "[data-install-prompt]",
+  label: "[data-install-label]",
+  idleLabel: "复制安装指令",
+}));
+
+$("[data-copy-prompt]").addEventListener("click", () => copyText({
+  source: "[data-prompt]",
+  label: "[data-copy-label]",
+  idleLabel: "复制调用指令",
+}));
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
