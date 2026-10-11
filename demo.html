@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DesignHub 标注与切图公开体验">
+<title>工单 · 标注 · DesignHub</title>
+<link rel="stylesheet" href="./designhub.css">
+<link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <a class="brand" href="./index.html"><img class="brand-logo" src="./assets/brand-logo.svg" width="100" height="32" alt="DesignHub"></a>
+    <div class="sep"></div>
+    <div class="breadcrumb"><a class="crumb" id="crumbHome" href="./index.html">官网</a><span style="color:var(--text-faint)">/</span><span class="crumb cur" id="crumbProject">工单</span></div>
+    <select id="artboardSelect" class="btn sm" style="max-width:240px"><option value="ticket">员工工单详情 · 1920×1150</option></select>
+    <span class="chip ok">公开只读体验</span>
+    <div class="spacer"></div>
+    <a class="btn sm" id="projectWorkspaceLink" href="./workspace.html">项目文档</a>
+    <span class="chip review" aria-label="当前页面为公开演示模式">演示模式</span>
+    <div class="searchbox"><svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.6"></circle><path d="m16 16 4.5 4.5"></path></svg><input id="layerSearch" placeholder="搜图层 / 文案" autocomplete="off"></div>
+    <button class="btn sm" id="copyLinkBtn" title="复制当前公开体验链接">分享链接</button>
+  </div>
+  <div class="notice-bar hidden" id="noticeBar"></div>
+  <div class="workspace">
+    <div class="panel panel-left">
+      <div class="panel-head"><span>图层</span><span class="spacer"></span><button class="btn ghost sm" id="expandAllBtn" title="全部展开 / 收起">收起</button></div>
+      <div class="panel-body"><div class="tree" id="tree"></div></div>
+    </div>
+    <div class="canvas-wrap" id="canvasWrap">
+      <div class="canvas-tools">
+        <div class="canvas-toolbar">
+          <button class="btn sm" id="zoomOut" title="缩小 ( - )">−</button><button class="zoom-label" id="zoomLabel" title="原始尺寸（100%）">100%</button><button class="btn sm" id="zoomIn" title="放大 ( + )">+</button><button class="btn sm" id="zoomFit" title="适应窗口 ( 0 )">适应</button>
+          <div class="sep"></div><button class="btn sm active" id="toggleSpacing" aria-pressed="true">间距</button><button class="btn sm active" id="toggleHots" aria-pressed="true">热区</button><button class="btn sm" id="measureMode" aria-pressed="false">固定测距</button>
+          <div class="sep"></div><button class="btn sm" id="commentMode">批注</button><span class="chip clickable" id="commentCount" title="查看批注">2 条批注</span><div class="spacer"></div><span class="chip" id="canvasMeta">1920×1150 · 图层 261 · 切图 2</span>
+        </div>
+        <div class="measure-bar"><span id="measureHint">选中元素，悬停其他元素查看距离 · 数值单位 px</span><button class="btn sm hidden" id="copyMeasure">复制距离</button></div>
+      </div>
+      <div class="canvas-stage" id="stage">
+        <div class="canvas-frame" id="frame">
+          <img class="preview" id="preview" src="./assets/demo-workorder/preview.png" alt="员工工单详情设计稿">
+          <div class="vec-root" id="vecRoot" style="display:none"></div><div id="hots" style="position:absolute;inset:0"></div><div id="cmtPins" style="position:absolute;inset:0;pointer-events:none"></div><svg class="overlay" id="overlay"></svg>
+        </div>
+      </div>
+      <div class="search-panel" id="searchPanel"></div>
+    </div>
+    <div class="panel panel-right">
+      <div class="tabs" id="tabs"><button class="tab active" data-tab="props">属性</button><button class="tab" data-tab="assets">切图</button><button class="tab" data-tab="code">代码</button><button class="tab" data-tab="tokens">设计变量</button><button class="tab" data-tab="comments" id="tabComments">批注</button></div>
+      <div class="panel-body"><div class="tabpane active" data-pane="props" id="paneProps"></div><div class="tabpane" data-pane="assets" id="paneAssets"></div><div class="tabpane" data-pane="code" id="paneCode"></div><div class="tabpane" data-pane="tokens" id="paneTokens"></div><div class="tabpane" data-pane="comments" id="paneComments"></div></div>
+    </div>
+  </div>
+</div>
+<script type="module" src="./demo.js?v=inspect-4"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DesignHub：把 Sketch 设计稿变成开发者和 AI 都能理解的结构化交付。">
+  <title>DesignHub · 让设计稿成为可以被实现的结构</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+  <link rel="stylesheet" href="./styles.css?v=site-18">
+</head>
+<body>
+  <div class="site">
+    <header class="nav shell">
+      <a class="brand brand-logo-link" href="#top" aria-label="DesignHub 首页"><span class="brand-logo-frame"><img src="./assets/designhub-logo.svg" width="116" height="37" alt="DesignHub"></span></a>
+      <nav class="nav-links" data-nav>
+        <a href="#product">协作流程</a><a href="#demo">交互演示</a><a href="#capabilities">产品能力</a><a href="#system">系统架构</a><a href="#direction">下一步</a>
+      </nav>
+      <div class="nav-actions"><a class="button dark small" href="./demo.html">体验 V1</a></div>
+      <button class="menu-button" type="button" data-menu aria-label="打开导航"><span></span><span></span></button>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <figure class="fact-anatomy fact-map-figure fade-in delay" data-fact-anatomy>
+          <figcaption class="anatomy-kicker"><span>设计事实中转图 / V1</span><b>261 图层 · 67 文本 · 2 资源</b></figcaption>
+          <div class="fact-map" data-fact-map data-mode="structure" aria-label="DesignHub 设计事实关系图">
+            <span class="map-axis axis-x">结构化设计空间</span><span class="map-axis axis-y">来源 → 汇聚 → 输出</span>
+            <i class="map-wire wire-docs" data-track="product agent"></i><i class="map-wire wire-sketch" data-track="structure layout tokens agent"></i><i class="map-wire wire-browser" data-track="structure layout tokens product"></i><i class="map-wire wire-agent" data-track="structure layout tokens product agent"></i>
+            <button class="map-node node-docs" type="button" data-fact="product" data-track="product agent"><small>来源 01</small><strong>产品文档</strong><span>范围 · 状态 · 验收</span></button>
+            <button class="map-node node-sketch active" type="button" data-fact="structure" data-track="structure layout tokens agent"><small>来源 02</small><strong>SKETCH</strong><span>图层 · 布局 · 变量</span></button>
+            <div class="map-core" data-track="all"><b>D<span>H</span></b><strong>DESIGN<br>HUB</strong><small>汇聚 · 对齐 · 分发</small></div>
+            <button class="map-node node-browser" type="button" data-fact="layout" data-track="structure layout tokens product"><small>输出 01</small><strong>浏览器</strong><span>查看 · 测量 · 导出</span></button>
+            <button class="map-node node-agent" type="button" data-fact="agent" data-track="structure layout tokens product agent"><small>输出 02</small><strong>AGENT</strong><span>大纲 · 图层 · 代码</span></button>
+            <button class="map-glyph glyph-layers" type="button" data-fact="structure" data-track="structure agent" aria-label="图层结构"><i></i><i></i><i></i><span>语义图层树</span></button>
+            <button class="map-glyph glyph-layout" type="button" data-fact="layout" data-track="layout agent" aria-label="布局测量"><i></i><i></i><i></i><span>8 · 16 · 24</span></button>
+            <button class="map-glyph glyph-tokens" type="button" data-fact="tokens" data-track="tokens agent" aria-label="设计变量"><i></i><i></i><i></i><span>变量引用</span></button>
+            <button class="map-glyph glyph-context" type="button" data-fact="product" data-track="product agent" aria-label="产品上下文"><i></i><i></i><i></i><span>产品上下文</span></button>
+          </div>
+          <div class="anatomy-readout" aria-live="polite"><strong data-fact-number>01</strong><div class="fact-content" data-fact-content><small>结构</small><h3>图层树成为语义图</h3><p>页面、区块和组件拥有稳定角色，位置变化不会改变它们的业务身份。</p><div class="fact-values"><span>页面</span><span>区块</span><span>组件</span><span>数值</span></div></div></div>
+          <div class="fact-index" role="tablist" aria-label="设计事实视角"><button class="active" type="button" role="tab" aria-selected="true" data-fact="structure"><b>01</b>结构</button><button type="button" role="tab" aria-selected="false" data-fact="layout"><b>02</b>布局</button><button type="button" role="tab" aria-selected="false" data-fact="tokens"><b>03</b>变量</button><button type="button" role="tab" aria-selected="false" data-fact="product"><b>04</b>产品</button><button type="button" role="tab" aria-selected="false" data-fact="agent"><b>05</b>Agent</button></div>
+        </figure>
+        <div class="hero-copy fade-in"><p class="eyebrow"><i></i> 设计到实现的协作工作台 · V1</p><h1>让设计稿成为<br><em>可以被实现的结构。</em></h1><p class="hero-text">DesignHub 把产品文档与 Sketch 设计稿组织成开发者和 AI 都能理解的交付上下文。产品定义需求，设计师发布重点页面，开发者与 Agent 读取同一份真实结构。</p><div class="hero-actions"><a class="button blue" href="#demo">探索交互演示 <span>↓</span></a><a class="underlink" href="#system">查看系统架构 <span>→</span></a></div><div class="hero-meta"><span><b>文档</b> 产品上下文</span><i></i><span><b>Sketch</b> 插件发布</span><i></i><span><b>MCP</b> 结构化读取</span><i></i><span><b>局域网</b> 私有部署</span></div></div>
+        <div class="product-window fade-in delay" aria-label="DesignHub 工作台预览"><div class="window-head"><span class="window-dots"><i></i><i></i><i></i></span><span><b class="mini-logo">D</b> DesignHub <small>/</small> 电商 App</span><span class="sync">● 已同步</span></div><div class="window-body"><aside class="layers"><label>图层 <small>12</small></label><div class="layer active">▣　商品详情 <b>⌄</b></div><div class="layer indent">T　商品标题</div><div class="layer indent">◫　商品图片</div><div class="layer indent selected">↕　价格与操作</div><div class="layer indent">◉　颜色选择</div><div class="layer">▱　推荐商品 <b>›</b></div><hr><label>页面状态</label><div class="state">●　默认状态</div><div class="state muted">○　加载中</div></aside><div class="canvas"><div class="canvas-bar">标注视图 <span>100%</span><b>⌘　⊙</b></div><div class="canvas-content"><div class="phone"><div class="notch"></div><div class="phone-nav"><span>‹</span><b>商品详情</b><span>⌃</span></div><div class="phone-image"><em>NEW</em></div><div class="phone-copy"><small>秋季新品</small><h3>轻量保暖外套</h3><strong>¥399</strong><hr><div class="swatches"><i></i><i></i><i></i></div><p>采用轻量保暖面料，立体剪裁贴合身形。适合秋冬通勤与日常出行。</p><button>立即购买</button></div></div><span class="measure gap">8 px</span><span class="measure width">328 px</span></div></div><aside class="inspector"><div class="inspector-tabs"><button class="active" data-inspector="layout">布局</button><button data-inspector="style">样式</button><button data-inspector="code">代码</button></div><div class="inspector-content" data-inspector-content><div class="inspector-title"><b>↕</b><span><strong>价格与操作</strong><small>Stack / Horizontal</small></span></div><dl><dt>方向</dt><dd>横向</dd><dt>间距</dt><dd class="blue-text">8 px</dd><dt>内边距</dt><dd>16 / 16 / 16 / 16</dd><dt>主轴对齐</dt><dd>space-between</dd><dt>尺寸策略</dt><dd>填充父容器</dd></dl><hr><code><em>display</em>: flex;<br><em>gap</em>: 8px;<br><em>padding</em>: 16px;</code></div></aside></div><div class="window-foot"><span>● 2 个切图</span><span>● 12 个组件</span><span>● 3 条批注</span><b>最后发布于 10:42</b></div></div>
+      </section>
+
+      <section class="section white" id="product"><div class="shell"><div class="section-heading"><div><p class="eyebrow">01 / 协作流程</p><h2>从需求到实现，<br><em>每个角色都在同一条链路上。</em></h2></div><p>产品文档定义“为什么和做到什么”，设计稿提供“长什么样和如何布局”，实现过程持续回流到具体页面。</p></div><div class="workflow"><article><small>01 / 产品</small><span class="feature-icon"><img src="./assets/carbon/documentation.svg" alt=""></span><h3>产品维护项目文档</h3><p>在项目内记录背景、范围、页面状态与验收口径，让设计和实现始终有业务依据。</p><code>背景 · 范围 · 验收</code></article><article><small>02 / 设计</small><span class="feature-icon"><img src="./assets/carbon/design-and-development--01.svg" alt=""></span><h3>设计师发布重点页面</h3><p>在 Sketch 中选择画板，一键完成解析、出图和上传，并保留图层与变量语义。</p><code>Sketch → DesignHub</code></article><article><small>03 / 开发</small><span class="feature-icon"><img src="./assets/carbon/software--development.svg" alt=""></span><h3>开发者读取实现参数</h3><p>同时查看间距、Stack、字体、变量、切图和批注，不再依赖截图反推规则。</p><code>间距 · 内边距 · 变量</code></article><article><small>04 / AGENT</small><span class="feature-icon"><img src="./assets/carbon/ai--ready.svg" alt=""></span><h3>Agent 读取完整上下文</h3><p>通过 MCP 同时获得页面结构与产品文档，在明确约束下生成和扩展界面。</p><code>context://designhub</code></article></div></div></section>
+
+      <section class="section demo" id="demo"><div class="shell"><div class="section-heading"><div><p class="eyebrow">02 / 交互演示</p><h2>点开一个图层，<br><em>看看设计规则如何出现。</em></h2></div><p>预览不是终点，能被实现的上下文才是交付。</p></div><div class="demo-shell"></div><div class="demo-cta"><a class="button dark" href="./demo.html">进入完整交互体验 ↗</a><span>公开体验使用 DesignHub 真实项目快照，不依赖本地服务</span></div></div></section>
+
+      <section class="section white capabilities" id="capabilities"><div class="shell"><div class="section-heading"><div><p class="eyebrow">03 / V1 产品能力</p><h2>一次发布，<br><em>形成可以直接开工的交付包。</em></h2></div><p>V1 已经覆盖发布、看稿、取数、切图、走查和 Agent 读取。每项能力都对应交付中的一个具体动作。</p></div><div class="cap-grid"><article><small>01 / 发布</small><span class="cap-icon"><img src="./assets/carbon-icons/cloud--upload.svg" alt=""></span><h3>受控发布，不误覆盖</h3><p>插件只读取选中的画板；上传前检查保存状态、Node、画板和切图。更新对应页面时，项目其他画板与原分享链接保持不变。</p><span class="cap-proof">预检 · 局部更新 · 链接不变</span></article><article><small>02 / 标注</small><span class="cap-icon"><img src="./assets/carbon-icons/ruler--alt.svg" alt=""></span><h3>可信标注与测距</h3><p>查看完整图层树、尺寸、相对坐标、Stack 和样式；悬停即可比较兄弟元素，固定测距可保留任意两层间的结果。</p><span class="cap-proof">父边距 · 兄弟间距 · Stack</span></article><article><small>03 / 切图</small><span class="cap-icon"><img src="./assets/carbon-icons/image--reference.svg" alt=""></span><h3>原生切图直接交付</h3><p>沿用 Sketch 的 Make Exportable，自动识别 1x / 2x / 3x 与 SVG；开发可筛选、定位、单独下载或打包 ZIP。</p><span class="cap-proof">原生标记 · 多倍率 · ZIP</span></article><article><small>04 / 文档与权限</small><span class="cap-icon"><img src="./assets/carbon-icons/document--protected.svg" alt=""></span><h3>文档与权限各归其位</h3><p>项目 Markdown 独立于 Sketch 保存。分享凭证用于看稿、下载和批注，编辑口令只交给维护产品文档的人。</p><a href="./workspace.html">查看项目文档 →</a></article><article><small>05 / 走查</small><span class="cap-icon"><img src="./assets/carbon-icons/review.svg" alt=""></span><h3>反馈落到页面和版本</h3><p>批注支持打点、回复、解决与删除；重新发布后保留协作入口，并生成变更摘要和未完成提示。</p><span class="cap-proof">批注闭环 · 变更摘要</span></article><article><small>06 / AGENT</small><span class="cap-icon"><img src="./assets/carbon-icons/bot.svg" alt=""></span><h3>按需读取，不撑爆上下文</h3><p>Agent 先用结构大纲定位目标，再读取单图层规格、间距、变量、切图和批注，并生成多端代码供人工核对。</p><span class="cap-proof">大纲 → 图层 → 代码</span></article></div></div></section>
+
+      <section class="section system" id="system">
+        <div class="shell">
+          <div class="section-heading">
+            <div><p class="eyebrow">04 / 系统架构</p><h2>一份发布包，<br><em>怎样成为共同的设计事实。</em></h2></div>
+            <p>设计机负责真实解析与渲染，私有服务负责持久化与授权；浏览器和 Agent 只读取同一份已发布结果。</p>
+          </div>
+          <div class="system-board">
+            <div class="system-flow" aria-label="DesignHub 从设计机到浏览器与 Agent 的数据流">
+              <article class="system-node system-source">
+                <header><span class="arch-icon"><svg class="carbon-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M26 24H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2ZM6 8v14h20V8H6Z"/><path d="M2 26h28v2H2z"/></svg></span><small>01 / 本机生成</small></header>
+                <h3>Sketch + 插件</h3>
+                <p>在设计师的 Mac 上完成真实文件解析与画板渲染。</p>
+                <div class="source-pipeline"><span>发布预检</span><span>结构解析</span><span>本机渲染</span></div>
+                <footer><span>生成</span><b>JSON · PNG · 切图资源</b></footer>
+              </article>
+              <article class="system-node system-hub">
+                <header><span class="arch-icon"><svg class="carbon-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 7a8 8 0 0 1 7.86 6.49l.26 1.35 1.35.24A5.5 5.5 0 0 1 24.5 26h-17a5.5 5.5 0 0 1-.97-10.92l1.34-.24.26-1.35A8 8 0 0 1 16 7Zm0-2a10 10 0 0 0-9.83 8.12A7.5 7.5 0 0 0 7.5 28h17a7.5 7.5 0 0 0 1.32-14.88A10 10 0 0 0 16 5Z"/></svg></span><small>02 / 发布并汇聚</small></header>
+                <h3>汇聚交付事实</h3>
+                <p>将同一版本的结构、视觉与产品上下文放进一个可追踪的发布包。</p>
+                <div class="hub-data"><span><b>结构</b><em>design.json</em></span><span><b>视觉</b><em>preview.png / assets</em></span><span><b>上下文</b><em>project.md</em></span></div>
+                <footer><span>控制</span><b>授权 · 对象 ID · 原子发布</b></footer>
+              </article>
+              <article class="system-node system-outputs">
+                <header><span class="arch-icon"><svg class="carbon-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M30.94 15.66A16.69 16.69 0 0 0 16 5 16.69 16.69 0 0 0 1.06 15.66a1 1 0 0 0 0 .68A16.69 16.69 0 0 0 16 27a16.69 16.69 0 0 0 14.94-10.66 1 1 0 0 0 0-.68ZM16 25C10.7 25 5.1 21.07 3.07 16 5.1 10.93 10.7 7 16 7s10.9 3.93 12.93 9C26.9 21.07 21.3 25 16 25Z"/><path d="M16 10a6 6 0 1 0 6 6 6 6 0 0 0-6-6Zm0 10a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z"/></svg></span><small>03 / 按需读取</small></header>
+                <h3>同一结果，两种读取方式</h3>
+                <p>人和 Agent 不再各自猜测设计意图。</p>
+                <div class="output-list"><div><b>浏览器工作台</b><span>看稿 · 测距 · 变量 · 切图 · 批注</span></div><div><b>MCP 按需读取</b><span>大纲定位 · 图层规格 · 资源与上下文</span></div></div>
+                <footer><span>原则</span><b>只读取已发布版本</b></footer>
+              </article>
+            </div>
+            <div class="system-rules-grid">
+              <article>
+                <small>命名协议</small><h3>名称是稳定接口</h3>
+                <p>职责、变体、状态和断点写进图层名，结构移动后仍可识别。</p>
+                <code>&lt;role&gt;-&lt;key&gt; --state-disabled</code>
+              </article>
+              <article>
+                <small>事实来源</small><h3>信息各有唯一来源</h3>
+                <p>图层名管语义，Sketch 管视觉属性，产品文档管业务与验收。</p>
+                <code>名称 · 属性 · 文档 · 对象 ID</code>
+              </article>
+              <article>
+                <small>发布保护</small><h3>错误停在发布之前</h3>
+                <p>保存、选择、解析、切图与命名逐项预检，通过后再原子替换。</p>
+                <code>预检 → 解析 → 原子发布</code>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section direction" id="direction"><div class="shell"><div class="direction-card"><div><p class="eyebrow">下一步 / 产品路线</p><h2>先让交付可靠，<br><em>再让 Agent 扩展。</em></h2><p>DesignHub 的演进围绕同一条工具链：先建立可信的设计事实，再补齐规范守卫和版本能力，最后进入受约束、可审核的页面扩展。</p><div class="flow"><span>重点页面</span><b>+</b><span>设计规范</span><b>+</b><span>产品文档</span><b>→</b><strong>受控扩展</strong></div></div><div class="tool-roadmap" aria-label="DesignHub 产品规划"><article class="current"><div><small>当前 · V1</small><strong>结构化交付</strong></div><p>发布、标注、切图、项目文档、批注与 MCP 读取。</p><span>已提供</span></article><article><div><small>下一阶段 · V1.x</small><strong>设计规范守卫</strong></div><p>命名校验、Token 白名单、栅格检查与像素级版本 Diff。</p><span>规划中</span></article><article><div><small>远期 · V2</small><strong>Agent 页面扩展</strong></div><p>依据重点页面、设计规范和产品文档扩展，再由设计师审核回写。</p><span>概念</span></article></div></div></div></section>
+    </main>
+    <footer class="footer shell"><a class="brand brand-logo-link" href="#top" aria-label="DesignHub 首页"><span class="brand-logo-frame"><img src="./assets/designhub-logo.svg" width="106" height="34" alt="DesignHub"></span></a><p>让产品文档、设计结构与实现上下文保持一致。</p><nav><a href="./workspace.html">项目文档</a><a href="./demo.html">体验 V1</a><a href="#system">系统架构</a></nav><small>用明确意图构建 · 2026</small></footer>
+  </div>
+  <script type="module" src="./script.js?v=site-18"></script>
+</body>
+</html>

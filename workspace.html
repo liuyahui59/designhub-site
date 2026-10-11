@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DesignHub 工单项目文档公开体验">
+<title>工单 · 项目文档 · DesignHub</title>
+<link rel="stylesheet" href="./designhub.css">
+<link rel="icon" type="image/svg+xml" href="./assets/logo.svg">
+</head>
+<body class="document-page">
+<div class="app document-app">
+  <header class="topbar document-topbar">
+    <a class="brand" href="./index.html">
+      <img class="brand-logo" src="./assets/brand-logo.svg" width="100" height="32" alt="DesignHub">
+    </a>
+    <div class="sep"></div>
+    <div class="breadcrumb">
+      <a class="crumb" href="./index.html">官网</a>
+      <span class="crumb-separator">/</span>
+      <span class="crumb cur">工单</span>
+    </div>
+    <span class="chip ok">公开只读体验</span>
+    <div class="spacer"></div>
+    <span class="save-state" id="saveState" role="status">只读</span>
+    <button class="btn sm" id="copyContextBtn" type="button">复制文档</button>
+    <a class="btn sm" id="inspectLink" href="./demo.html">标注与切图</a>
+    <span class="chip review" aria-label="当前页面为公开演示模式">演示模式</span>
+  </header>
+
+  <div class="document-workspace">
+    <aside class="document-sidebar" id="documentSidebar" aria-label="文档目录">
+      <div class="document-sidebar-head"><strong>文档目录</strong></div>
+      <nav class="document-toc" id="documentToc"></nav>
+      <p class="document-toc-help">项目文档与设计稿一起构成交付上下文，并提供给开发者和 Agent。</p>
+    </aside>
+
+    <main class="document-main">
+      <header class="document-header">
+        <div class="document-title-row">
+          <div>
+            <span class="eyebrow">项目文档</span>
+            <h1>工单项目 Spec</h1>
+          </div>
+        </div>
+        <div class="document-modes" role="group" aria-label="文档显示方式">
+          <button type="button" class="active" aria-pressed="true">预览</button>
+        </div>
+      </header>
+
+      <div class="document-panes" data-mode="preview">
+        <section class="document-preview" id="documentPreview" tabindex="0" aria-label="文档预览">
+          <article class="markdown-document" id="documentArticle" aria-live="polite"></article>
+        </section>
+      </div>
+
+      <footer class="document-footer">
+        <span id="documentCount">—</span>
+        <span id="updatedAt">公开快照 · 2026-10-11</span>
+        <span class="document-shortcut">产品文档 + 设计数据 = Agent 上下文</span>
+      </footer>
+    </main>
+  </div>
+</div>
+<script type="module" src="./workspace.js?v=workorder-1"></script>
+</body>
+</html>
