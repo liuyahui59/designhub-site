@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="UX Walkthrough —— 为 PC 端 B 端产品提供基于证据的体验走查，支持代码库、URL 和截图输入。"
+    />
+    <meta name="theme-color" content="#f4f1ea" />
+    <title>UX Walkthrough · 把走查变成可验证的结论</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-arrow-right" viewBox="0 0 16 16"><path d="M9.3 3.7 12.6 7H2v2h10.6l-3.3 3.3 1.4 1.4L16.4 8l-5.7-5.7z" /></symbol>
+      <symbol id="icon-arrow-down" viewBox="0 0 16 16"><path d="m12.3 9.3-3.3 3.3V2H7v10.6L3.7 9.3l-1.4 1.4L8 16.4l5.7-5.7z" /></symbol>
+      <symbol id="icon-arrow-down-right" viewBox="0 0 16 16"><path d="M12 5v7H5v-2h3.6L3.3 4.7l1.4-1.4L10 8.6V5z" /></symbol>
+      <symbol id="icon-arrow-up" viewBox="0 0 16 16"><path d="M8 1.6 2.3 7.3l1.4 1.4L7 5.4V16h2V5.4l3.3 3.3 1.4-1.4z" /></symbol>
+      <symbol id="icon-checkmark" viewBox="0 0 16 16"><path d="m6.5 12.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4z" /></symbol>
+      <symbol id="icon-copy" viewBox="0 0 16 16"><path d="M4 2h8v2h2v10H6v-2H4zm4 4v6h4V6zM2 2h2v10H2z" /></symbol>
+      <symbol id="icon-menu" viewBox="0 0 16 16"><path d="M1 3h14v2H1zm0 4h14v2H1zm0 4h14v2H1z" /></symbol>
+    </svg>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="UX Walkthrough 首页">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>UX Walkthrough</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false" data-menu-toggle>
+        <svg class="carbon-icon" aria-hidden="true"><use href="#icon-menu"></use></svg>
+      </button>
+      <nav class="site-nav" aria-label="主导航" data-nav>
+        <a href="#method">方法</a>
+        <a href="#coverage">覆盖</a>
+        <a href="#output">交付</a>
+        <a class="nav-cta" href="#start">使用 Skill <svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-down-right"></use></svg></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span>v3.4.1</span> PC 端 B 端体验走查</p>
+          <h1 id="hero-title">UX<br />Walkthrough</h1>
+          <p class="hero-lede">不给一堆主观意见。<br />给你可追溯、可复现、可验收的设计结论。</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#start">获取调用指令 <svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+            <a class="text-link" href="#method">了解工作方式 <svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-down"></use></svg></a>
+          </div>
+        </div>
+
+        <figure class="hero-product hero-abstract" aria-label="UX Walkthrough 证据图谱抽象视觉">
+          <div class="abstract-frame">
+            <figcaption>
+              <span>EVIDENCE MAP / 01</span>
+              <b><i></i> SYSTEM ACTIVE</b>
+            </figcaption>
+            <div class="abstract-canvas" aria-hidden="true">
+              <div class="abstract-grid"></div>
+              <div class="orbit orbit-one"></div>
+              <div class="orbit orbit-two"></div>
+              <div class="orbit orbit-three"></div>
+              <div class="axis axis-x"></div>
+              <div class="axis axis-y"></div>
+              <div class="abstract-core">
+                <span>UX</span>
+                <b>WALK<br />THROUGH</b>
+                <i></i>
+              </div>
+              <div class="source-node source-code"><span>01</span><b>CODE</b><i></i></div>
+              <div class="source-node source-url"><span>02</span><b>URL</b><i></i></div>
+              <div class="source-node source-shot"><span>03</span><b>SHOT</b><i></i></div>
+              <div class="track-node track-task"><span>TASK</span><b>任务体验</b></div>
+              <div class="track-node track-visual"><span>VISUAL</span><b>视觉质量</b></div>
+              <div class="result-node result-evidence"><span>EV</span><b>EVIDENCE</b></div>
+              <div class="result-node result-issue"><span>P1</span><b>ISSUE</b></div>
+              <div class="result-node result-report"><span>R</span><b>REPORT</b></div>
+              <div class="pulse pulse-one"></div>
+              <div class="pulse pulse-two"></div>
+              <div class="pulse pulse-three"></div>
+              <div class="coordinate coordinate-one">A0 / BRIEF</div>
+              <div class="coordinate coordinate-two">B / DUAL TRACK</div>
+              <div class="coordinate coordinate-three">C / DELIVERY</div>
+            </div>
+            <div class="abstract-legend">
+              <span><i></i>INPUT</span>
+              <span><i></i>REVIEW</span>
+              <span><i></i>OUTPUT</span>
+              <b>ACTUAL PAGE <svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg> VERIFIABLE CONCLUSION</b>
+            </div>
+          </div>
+        </figure>
+        <div class="hero-index" aria-hidden="true">01 / EVIDENCE-BASED REVIEW</div>
+      </section>
+
+      <section class="signal-band" aria-label="能力概览">
+        <div class="signal-intro">
+          <span class="section-no">01</span>
+          <p>从输入到交付，<br />每一条结论都有来路。</p>
+        </div>
+        <div class="signal"><strong>3</strong><span>种输入<br />CODE / URL / SHOT</span></div>
+        <div class="signal"><strong>30</strong><span>项基础检查<br />CORE / VIS / A11Y</span></div>
+        <div class="signal"><strong>4</strong><span>阶段闭环<br />A0 / A1 / B / C</span></div>
+      </section>
+
+      <section class="origin section" id="why" aria-labelledby="origin-title">
+        <div class="section-lead reveal">
+          <div><span class="section-no">02</span><p class="eyebrow">WHY / 为什么做</p></div>
+          <h2 id="origin-title">没有设计稿，<br />也能做严谨的体验走查。</h2>
+          <p>真实项目里，设计稿不一定存在，实现结果也不一定与设计稿一致。比起追问“还原了多少”，更需要回答“用户面对的实际产品好不好用”。</p>
+        </div>
+        <div class="paradigm reveal">
+          <article class="paradigm-old">
+            <div><span>BEFORE</span><b>传统走查</b></div>
+            <h3>检查实现和设计稿<br />差了多少</h3>
+            <ol>
+              <li><span>01</span>找到设计稿</li>
+              <li><span>02</span>逐页对照实现</li>
+              <li><span>03</span>标记还原差异</li>
+            </ol>
+            <p>无设计稿或实现已偏离时，检查基准失效。</p>
+          </article>
+          <div class="paradigm-shift" aria-hidden="true"><span><svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></span><small>SHIFT THE BASELINE</small></div>
+          <article class="paradigm-new">
+            <div><span>NOW</span><b>UX Walkthrough</b></div>
+            <h3>检查实际页面<br />能否支持用户任务</h3>
+            <ol>
+              <li><span>01</span>建立用户任务契约</li>
+              <li><span>02</span>检查流程与视觉质量</li>
+              <li><span>03</span>用证据给出验收标准</li>
+            </ol>
+            <p>以用户最终面对的产品为证据起点。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="method section" id="method" aria-labelledby="method-title">
+        <div class="section-lead reveal">
+          <div><span class="section-no">03</span><p class="eyebrow">METHOD / 方法</p></div>
+          <h2 id="method-title">不从“好不好用”开始。<br />从用户要完成什么开始。</h2>
+          <p>先锁定人、任务、环境和成功标准，再进入界面。这会让设计判断有边界，也让后续修改真正可验收。</p>
+        </div>
+
+        <div class="method-workbench reveal">
+          <div class="phase-rail" role="tablist" aria-label="走查阶段">
+            <button class="active" type="button" role="tab" aria-selected="true" data-phase="a0"><b>A0</b><span>前置调查</span></button>
+            <button type="button" role="tab" aria-selected="false" data-phase="a1"><b>A1</b><span>证据检查</span></button>
+            <button type="button" role="tab" aria-selected="false" data-phase="b"><b>B</b><span>双轨走查</span></button>
+            <button type="button" role="tab" aria-selected="false" data-phase="c"><b>C</b><span>校验交付</span></button>
+          </div>
+
+          <div class="phase-stage">
+            <div class="phase-copy" aria-live="polite">
+              <p class="mono" data-phase-kicker>REVIEW BRIEF · 7/7 CONFIRMED</p>
+              <h3 data-phase-title>设计前置调查</h3>
+              <p data-phase-desc>确认走查范围、主要用户、核心目标、关键任务、PC 使用情境、成功标准和失败影响。</p>
+              <div class="phase-proof"><span data-phase-proof-label>GATE</span><strong data-phase-proof>7 项前提由用户明确确认</strong></div>
+            </div>
+            <div class="phase-visual" data-phase-visual="a0" aria-hidden="true">
+              <div class="brief-list">
+                <span class="checked"><i>01</i>对象、范围与目的<b><svg class="carbon-icon" aria-hidden="true"><use href="#icon-checkmark"></use></svg></b></span>
+                <span class="checked"><i>02</i>用户职责与熟练度<b><svg class="carbon-icon" aria-hidden="true"><use href="#icon-checkmark"></use></svg></b></span>
+                <span class="checked"><i>03</i>最重要的业务目标<b><svg class="carbon-icon" aria-hidden="true"><use href="#icon-checkmark"></use></svg></b></span>
+                <span class="active"><i>04</i>关键任务契约<b><svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></b></span>
+                <span><i>05</i>PC 使用情境<b>·</b></span>
+                <span><i>06</i>成功标准<b>·</b></span>
+                <span><i>07</i>失败影响与约束<b>·</b></span>
+              </div>
+              <div class="task-contract">
+                <small>TASK CONTRACT</small>
+                <strong>批量处理异常订单</strong>
+                <p>进入列表 → 筛选并批量处理 → 确认每条结果</p>
+                <div><span>SUCCESS</span><b>失败项可定位与重试</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="principles section" aria-labelledby="principles-title">
+        <div class="section-lead compact reveal">
+          <div><span class="section-no">04</span><p class="eyebrow">EVIDENCE / 证据</p></div>
+          <h2 id="principles-title">页面事实、专家推断、用户实证，<br />三者不混在一起。</h2>
+        </div>
+        <div class="evidence-layout reveal">
+          <article class="evidence-feature">
+            <span class="evidence-label">01 · OBSERVATION</span>
+            <h3>先记录“看到了什么”</h3>
+            <p>实际交互、页面截图、DOM、无障碍树和代码证据分别归档，不把推测包装成观察。</p>
+            <div class="evidence-strip">
+              <span><i></i>EV-03</span><span>interaction</span><span>PAGE-01</span><strong>HIGH</strong>
+            </div>
+          </article>
+          <article>
+            <span class="evidence-label">02 · IMPACT</span>
+            <h3>再解释“为什么是问题”</h3>
+            <p>影响来源、用户任务和业务风险单独表达；没有用户实测，就不虚构错误率或效率数据。</p>
+          </article>
+          <article>
+            <span class="evidence-label">03 · CONFIDENCE</span>
+            <h3>证据不足，不硬定级</h3>
+            <p>高、中置信的确定问题才进入问题清单；其他风险进入待验证队列，并给出验证方法。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="coverage section" id="coverage" aria-labelledby="coverage-title">
+        <div class="coverage-shell">
+          <div class="section-lead inverse reveal">
+            <div><span class="section-no">05</span><p class="eyebrow">COVERAGE / 覆盖</p></div>
+            <h2 id="coverage-title">不用一个百分比，<br />遮住没有检查的地方。</h2>
+            <p>页面视觉、关键任务和适用状态分别展示。每一个目标只能是已验证、有问题、未测试、不适用或被阻断。</p>
+          </div>
+
+          <div class="matrix-panel reveal">
+            <div class="matrix-toolbar">
+              <div>
+                <span class="live-dot"></span>
+                <p>WALKTHROUGH COVERAGE</p>
+              </div>
+              <div class="matrix-filter" role="group" aria-label="覆盖类型">
+                <button class="active" type="button" data-matrix="all" aria-pressed="true">ALL</button>
+                <button type="button" data-matrix="surface" aria-pressed="false">SURFACE</button>
+                <button type="button" data-matrix="task" aria-pressed="false">TASK</button>
+              </div>
+            </div>
+            <div class="matrix-summary">
+              <div><span>VISUAL SURFACES</span><strong data-metric="surface">05 / 05</strong><i><b style="width: 100%"></b></i></div>
+              <div><span>CRITICAL TASKS</span><strong data-metric="task">02 / 03</strong><i><b style="width: 66%"></b></i></div>
+              <div><span>APPLICABLE STATES</span><strong data-metric="state">08 / 10</strong><i><b style="width: 80%"></b></i></div>
+            </div>
+            <div class="matrix-scroll">
+              <div class="matrix-grid" data-matrix-grid>
+                <div class="matrix-corner">TARGET <svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></div>
+                <div class="matrix-head">01</div><div class="matrix-head">02</div><div class="matrix-head">03</div><div class="matrix-head">04</div><div class="matrix-head">05</div><div class="matrix-head">06</div><div class="matrix-head">07</div><div class="matrix-head">08</div><div class="matrix-head">09</div><div class="matrix-head">10</div>
+                <div class="matrix-label" data-type="surface"><b>VIS</b><span>PAGE-01 订单列表</span></div>
+                <i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="issue" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="na" data-type="surface"></i><i class="pass" data-type="surface"></i>
+                <div class="matrix-label" data-type="surface"><b>VIS</b><span>PAGE-02 处理弹层</span></div>
+                <i class="pass" data-type="surface"></i><i class="issue" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i><i class="pass" data-type="surface"></i>
+                <div class="matrix-label" data-type="task"><b>CORE</b><span>TASK-01 批量处理</span></div>
+                <i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="issue" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i>
+                <div class="matrix-label" data-type="task"><b>A11Y</b><span>TASK-01 批量处理</span></div>
+                <i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="issue" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="blocked" data-type="task"></i><i class="pass" data-type="task"></i><i class="pass" data-type="task"></i><i class="na" data-type="task"></i><i class="pass" data-type="task"></i>
+              </div>
+            </div>
+            <div class="matrix-legend"><span><i class="pass"></i>已验证</span><span><i class="issue"></i>有问题</span><span><i class="blocked"></i>被阻断</span><span><i class="na"></i>不适用</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="outputs section" id="output" aria-labelledby="output-title">
+        <div class="section-lead compact reveal">
+          <div><span class="section-no">06</span><p class="eyebrow">OUTPUT / 交付</p></div>
+          <h2 id="output-title">不止是一份“看起来很专业”的报告。</h2>
+        </div>
+        <div class="output-list reveal">
+          <article>
+            <span>01</span>
+            <div><p class="mono">REPORT.MD</p><h3>完整走查报告</h3><p>范围、方法、覆盖、问题、待验证风险、正向模式与限制。</p></div>
+            <b aria-hidden="true">MD</b>
+          </article>
+          <article>
+            <span>02</span>
+            <div><p class="mono">REPORT.JSON</p><h3>结构化证据模型</h3><p>Issue、task、surface、state、evidence 和 coverage 双向引用，可继续处理。</p></div>
+            <b aria-hidden="true">{ }</b>
+          </article>
+          <article>
+            <span>03</span>
+            <div><p class="mono">ANNOTATIONS</p><h3>可定位的标注图</h3><p>URL 与截图模式的确定问题附带标注与 bbox，不手估位置。</p></div>
+            <b aria-hidden="true">⌖</b>
+          </article>
+          <article>
+            <span>04</span>
+            <div><p class="mono">REPORT.DOCX</p><h3>可分发的本地文档</h3><p>经结构和标注校验后生成，适合审阅、归档与设计评审。</p></div>
+            <b aria-hidden="true">W</b>
+          </article>
+        </div>
+        <div class="review-loop reveal">
+          <div>
+            <p class="mono">FOLLOW-UP REVIEW</p>
+            <h3>修改后，回到原验收标准复查</h3>
+            <p>不记录“开发说已完成”，只判断修改后的实际设计体验，并检查受影响页面与相邻状态的回归。</p>
+          </div>
+          <div class="review-states" aria-label="设计复查结果">
+            <span><i></i>RESOLVED<b>已解决</b></span>
+            <span><i></i>PARTIAL<b>部分解决</b></span>
+            <span><i></i>UNRESOLVED<b>未解决</b></span>
+            <span><i></i>CANNOT VERIFY<b>无法验证</b></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="boundaries section" aria-labelledby="boundaries-title">
+        <div class="boundary-heading reveal">
+          <span class="section-no">07</span>
+          <div><p class="eyebrow">BOUNDARIES / 边界</p><h2 id="boundaries-title">严谨，不等于什么都说。</h2></div>
+        </div>
+        <div class="boundary-grid reveal">
+          <article><span>IN</span><h3>PC 端 B 端产品</h3><p>管理后台、业务工作台、数据管理、运营、配置与审批系统。</p></article>
+          <article><span>IN</span><h3>键盘、焦点与缩放</h3><p>它们是 PC 体验的一部分，与对比度和辅助技术一起进入正式检查。</p></article>
+          <article class="muted"><span>OUT</span><h3>移动端与触屏任务</h3><p>App、小程序、手势与跨设备连续性不在这套 Skill 的正式结论范围内。</p></article>
+        </div>
+      </section>
+
+      <section class="start section" id="start" aria-labelledby="start-title">
+        <div class="start-copy reveal">
+          <p class="eyebrow">USE IN CODEX</p>
+          <h2 id="start-title">在 Codex 中<br />调用这个 Skill。</h2>
+          <p>这是 Skill 的介绍网站，不在网页内直接执行走查。将 ux-walkthrough 安装到 Codex 后，复制右侧指令到对话，并附上代码库、URL 或截图即可开始。</p>
+        </div>
+        <div class="prompt-box reveal">
+          <div class="prompt-head"><span>CODEX PROMPT</span><button type="button" data-copy-prompt aria-label="复制调用指令"><svg class="carbon-icon" aria-hidden="true"><use href="#icon-copy"></use></svg><span data-copy-label>复制指令</span></button></div>
+          <pre><code data-prompt>使用 ux-walkthrough Skill，对这个 PC 端 B 端产品做一次体验走查。
+
+输入：&lt;代码库 / URL / 截图&gt;
+本次范围：&lt;页面或流程&gt;
+
+请先完成设计走查前置调查，再按四阶段流程执行。</code></pre>
+          <div class="prompt-foot"><span>支持 CODE · URL · SCREENSHOT</span><i></i><b>ux-walkthrough@3.4.1</b></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>UX Walkthrough</span></a>
+      <p>为 PC 端 B 端产品而作 · Evidence over opinion.</p>
+      <a class="back-to-top" href="#top">回到顶部 <svg class="carbon-icon" aria-hidden="true"><use href="#icon-arrow-up"></use></svg></a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
