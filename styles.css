@@ -246,7 +246,7 @@ body{font-size:16px;line-height:1.5}
 
 /* A quiet recruiter-facing index for current and upcoming tools. */
 .tool-dock{position:fixed;z-index:40;right:16px;top:50%;display:flex;align-items:stretch;transform:translateY(-50%);font-size:12px}
-.tool-dock-tab{display:flex;align-items:center;gap:8px;min-height:116px;padding:14px 9px;color:#fff;background:#0f62fe;border:1px solid #0043ce;cursor:pointer;writing-mode:vertical-rl;transition:background-color .12s}
+.tool-dock-tab{display:flex;align-items:center;gap:8px;min-height:0;padding:10px 8px;color:#fff;background:#0f62fe;border:1px solid #0043ce;cursor:pointer;writing-mode:vertical-rl;transition:background-color .12s}
 .tool-dock-tab:hover,.tool-dock:focus-within .tool-dock-tab{background:#0353e9}
 .tool-dock-tab img{display:block;width:18px;height:18px;filter:brightness(0) invert(1)}
 .tool-dock-tab span{font:500 11px var(--sans);letter-spacing:.08em}
@@ -257,7 +257,7 @@ body{font-size:16px;line-height:1.5}
 .tool-dock-link{color:#161616}.tool-dock-link:hover{color:#0f62fe}
 .tool-dock-link span,.tool-dock-item span{display:grid;gap:3px;min-width:0}.tool-dock-link strong,.tool-dock-item strong{font-size:13px;font-weight:500}.tool-dock-link small,.tool-dock-item small{color:#6f6f6f;font-size:10px;white-space:nowrap}.tool-dock-link b{color:#0f62fe;font:16px var(--mono);font-weight:400}.tool-dock-item{color:#525252}.tool-dock-item em{flex:0 0 auto;padding:3px 5px;color:#6f6f6f;border:1px solid #c6c6c6;font:8px var(--mono);font-style:normal}
 
-@media(max-width:720px){.tool-dock{right:10px}.tool-dock-panel{display:none}.tool-dock-tab{min-height:92px;padding:11px 8px}}
+@media(max-width:720px){.tool-dock{right:10px}.tool-dock-panel{display:none}.tool-dock-tab{padding:9px 7px}}
 
 @media(max-width:1200px) and (min-width:1051px){.hero h1{font-size:54px}}
 
