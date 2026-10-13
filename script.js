@@ -15,6 +15,12 @@ function mountProductView(host, className, title, interactive = false) {
 
 mountProductView(qs('.demo-shell'), 'demo-live-frame', 'DesignHub 完整交互演示', true);
 
+// Keep the real workbench on desktop; show its real project snapshot on phones.
+const mobilePreview = document.createElement('figure');
+mobilePreview.className = 'demo-mobile-preview';
+mobilePreview.innerHTML = '<img src="./assets/demo-workorder/preview.png" alt="DesignHub 演示项目的真实工单页面设计稿" loading="lazy"><figcaption>真实项目预览 · 完整工作台建议在电脑上体验</figcaption>';
+qs('.demo-shell')?.append(mobilePreview);
+
 const designFacts = {
   structure: {
     number: '01',
@@ -59,8 +65,32 @@ showDesignFact('structure');
 
 const menu = qs('[data-menu]');
 const nav = qs('[data-nav]');
-menu?.addEventListener('click', () => nav.classList.toggle('open'));
-qsa('.nav-links a').forEach((a) => a.addEventListener('click', () => nav.classList.remove('open')));
+function setMenuOpen(open) {
+  nav?.classList.toggle('open', open);
+  menu?.setAttribute('aria-expanded', String(open));
+  menu?.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
+}
+menu?.addEventListener('click', () => setMenuOpen(!nav.classList.contains('open')));
+qsa('.nav-links a').forEach((a) => a.addEventListener('click', () => setMenuOpen(false)));
+
+const dock = qs('.tool-dock');
+const dockButton = qs('.tool-dock-tab');
+function setDockOpen(open) {
+  dock?.classList.toggle('is-open', open);
+  dockButton?.setAttribute('aria-expanded', String(open));
+}
+dockButton?.addEventListener('click', () => setDockOpen(!dock.classList.contains('is-open')));
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.nav')) setMenuOpen(false);
+  if (!event.target.closest('.tool-dock')) setDockOpen(false);
+});
+document.addEventListener('keydown', (event) => {
+  if (event.key !== 'Escape') return;
+  if (nav?.classList.contains('open')) { setMenuOpen(false); menu?.focus(); }
+  if (dock?.classList.contains('is-open')) { setDockOpen(false); dockButton?.focus(); }
+});
+window.matchMedia('(max-width:1050px)').addEventListener('change', () => setMenuOpen(false));
+window.matchMedia('(max-width:720px)').addEventListener('change', () => setDockOpen(false));
 
 const inspector = {
   layout: '<div class="inspector-title"><b>↕</b><span><strong>价格与操作</strong><small>Stack / Horizontal</small></span></div><dl><dt>方向</dt><dd>横向</dd><dt>间距</dt><dd class="blue-text">8 px</dd><dt>内边距</dt><dd>16 / 16 / 16 / 16</dd><dt>主轴对齐</dt><dd>space-between</dd><dt>尺寸策略</dt><dd>填充父容器</dd></dl><hr><code><em>display</em>: flex;<br><em>gap</em>: 8px;<br><em>padding</em>: 16px;</code>',

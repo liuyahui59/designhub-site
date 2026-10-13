@@ -6,17 +6,17 @@
   <meta name="description" content="DesignHub：把 Sketch 设计稿变成开发者和 AI 都能理解的结构化交付。">
   <title>DesignHub · 让设计稿成为可以被实现的结构</title>
   <link rel="icon" type="image/svg+xml" href="./assets/person-play.svg">
-  <link rel="stylesheet" href="./styles.css?v=site-18">
+  <link rel="stylesheet" href="./styles.css?v=mobile-1">
 </head>
 <body>
   <div class="site">
     <header class="nav shell">
       <a class="brand brand-logo-link" href="#top" aria-label="DesignHub 首页"><span class="brand-logo-frame"><img src="./assets/designhub-logo.svg" width="116" height="37" alt="DesignHub"></span></a>
-      <nav class="nav-links" data-nav>
+      <nav class="nav-links" id="site-navigation" data-nav aria-label="页面导航">
         <a href="#product">协作流程</a><a href="#demo">交互演示</a><a href="#capabilities">产品能力</a><a href="#system">系统架构</a><a href="#direction">下一步</a>
       </nav>
       <div class="nav-actions"><a class="button dark small" href="./demo.html">体验 V1</a></div>
-      <button class="menu-button" type="button" data-menu aria-label="打开导航"><span></span><span></span></button>
+      <button class="menu-button" type="button" data-menu aria-label="打开导航" aria-expanded="false" aria-controls="site-navigation"><span></span><span></span></button>
     </header>
 
     <main id="top">
@@ -103,11 +103,11 @@
       <section class="section direction" id="direction"><div class="shell"><div class="direction-card"><div><p class="eyebrow">下一步 / 产品路线</p><h2>先让交付可靠，<br><em>再让 Agent 扩展。</em></h2><p>DesignHub 的演进围绕同一条工具链：先建立可信的设计事实，再补齐规范守卫和版本能力，最后进入受约束、可审核的页面扩展。</p><div class="flow"><span>重点页面</span><b>+</b><span>设计规范</span><b>+</b><span>产品文档</span><b>→</b><strong>受控扩展</strong></div></div><div class="tool-roadmap" aria-label="DesignHub 产品规划"><article class="current"><div><small>当前 · V1</small><strong>结构化交付</strong></div><p>发布、标注、切图、项目文档、批注与 MCP 读取。</p><span>已提供</span></article><article><div><small>下一阶段 · V1.x</small><strong>设计规范守卫</strong></div><p>命名校验、Token 白名单、栅格检查与像素级版本 Diff。</p><span>规划中</span></article><article><div><small>远期 · V2</small><strong>Agent 页面扩展</strong></div><p>依据重点页面、设计规范和产品文档扩展，再由设计师审核回写。</p><span>概念</span></article></div></div></div></section>
     </main>
     <aside class="tool-dock" aria-label="其他工具">
-      <button class="tool-dock-tab" type="button" aria-label="查看其他工具">
+      <button class="tool-dock-tab" type="button" aria-label="查看其他工具" aria-expanded="false" aria-controls="other-tools">
         <img src="./assets/person-play.svg" alt="">
         <span>其他工具</span>
       </button>
-      <div class="tool-dock-panel">
+      <div class="tool-dock-panel" id="other-tools">
         <p class="tool-dock-label">工具索引 / TOOL INDEX</p>
         <a class="tool-dock-link" href="https://styleatlas.art/local/" target="_blank" rel="noopener noreferrer">
           <span><strong>Style Atlas</strong><small>AI 视觉素材库 · 分析与复用</small></span><b>↗</b>
@@ -122,6 +122,6 @@
     </aside>
     <footer class="footer shell"><a class="brand brand-logo-link" href="#top" aria-label="DesignHub 首页"><span class="brand-logo-frame"><img src="./assets/designhub-logo.svg" width="106" height="34" alt="DesignHub"></span></a><p>让产品文档、设计结构与实现上下文保持一致。</p><nav><a href="./workspace.html">项目文档</a><a href="./demo.html">体验 V1</a><a href="#system">系统架构</a></nav><small>用明确意图构建 · 2026</small></footer>
   </div>
-  <script type="module" src="./script.js?v=site-18"></script>
+  <script type="module" src="./script.js?v=mobile-1"></script>
 </body>
 </html>
