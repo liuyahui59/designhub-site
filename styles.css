@@ -35,12 +35,14 @@ body{font-size:16px;line-height:1.5}
 .eyebrow{color:#6f6f6f;font:500 11px var(--mono);text-transform:uppercase}
 .eyebrow i{width:6px;height:6px;margin-right:8px;background:#24a148;box-shadow:none}
 
-.hero{grid-template-columns:minmax(0,.82fr) minmax(570px,1.18fr);gap:40px;min-height:720px;padding-top:68px;padding-bottom:88px}
+.hero{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;min-height:720px;padding-top:68px;padding-bottom:88px}
 .hero-copy{grid-column:1;grid-row:1}
-.hero h1{max-width:680px;margin-top:28px;font-size:64px;font-weight:700;line-height:1.08}
+.hero h1{max-width:680px;margin-top:28px;font-size:clamp(52px,4.45vw,64px);font-weight:700;letter-spacing:-.045em;line-height:1.15}
+.hero h1 em{display:inline-block;white-space:nowrap}
+.hero-title-break{display:none}
 .hero-text{max-width:590px;margin-top:28px;color:#525252;font-size:17px;line-height:1.65}
 .hero-actions{gap:12px;margin-top:36px}
-.hero-meta{gap:14px;margin-top:48px;color:#6f6f6f;font:11px var(--mono)}
+.hero-meta{flex-wrap:wrap;gap:14px;margin-top:48px;color:#6f6f6f;font:11px var(--mono)}
 .hero-meta b{font-weight:500}
 .hero>.product-window{display:none}
 .product-window{border-color:#393939;border-radius:0;box-shadow:none;transform:none}
@@ -259,7 +261,7 @@ body{font-size:16px;line-height:1.5}
 
 @media(max-width:720px){.tool-dock{right:10px}.tool-dock-panel{display:none}.tool-dock-tab{padding:9px 7px}}
 
-@media(max-width:1200px) and (min-width:1051px){.hero h1{font-size:54px}}
+@media(max-width:1200px) and (min-width:1051px){.fact-map .map-glyph{display:none}}
 
 @media(max-width:1050px) and (min-width:721px){
   .hero{grid-template-columns:1fr;min-height:0}
@@ -421,7 +423,7 @@ body{font-size:16px;line-height:1.5}
 :root{--type-caption:12px;--type-body:14px;--type-lead:16px;--type-subtitle:18px;--type-title:24px}
 .eyebrow,.hero-meta,.anatomy-kicker{font-size:var(--type-caption);line-height:1.5}
 .hero-text{font-size:var(--type-lead)}
-.hero-actions .button,.hero-actions .underlink{font-size:var(--type-body);line-height:1.5}
+.hero-actions .button,.hero-actions .underlink{display:flex;align-items:center;justify-content:space-between;min-width:176px;min-height:56px;padding:0 20px;font-size:var(--type-lead);line-height:1.5}
 .map-axis,.map-node small,.map-node span,.map-core>small,.map-glyph span{font-size:var(--type-caption);line-height:1.33333}
 .map-node{width:148px;min-height:80px}
 .map-node strong,.map-core>strong{font-size:var(--type-body);line-height:1.4}
@@ -432,7 +434,7 @@ body{font-size:16px;line-height:1.5}
 .map-axis.axis-y{display:none}
 .wire-docs,.wire-sketch{left:148px;width:calc(50% - 148px)}
 .wire-browser,.wire-agent{width:calc(50% - 148px)}
-.fact-index button{font-size:var(--type-body)}
+.fact-index button{font-size:var(--type-caption)}
 .fact-index b{font-size:var(--type-caption);line-height:1.33333}
 
 /* One reading column: viewpoint, explanation, then a compact keyword row. */
@@ -444,6 +446,23 @@ body{font-size:16px;line-height:1.5}
 .anatomy-readout .fact-content>p{grid-column:1/-1;margin-top:8px;font-size:var(--type-body);line-height:1.7}
 .fact-values{grid-column:1/-1;grid-row:auto;display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;border:0}
 .fact-values>span{display:inline-flex;align-items:center;width:auto;min-height:24px;padding:4px 8px;border:0;background:#e8e8e8;font-size:var(--type-caption);line-height:1.33333}
+
+@media(min-width:1051px){
+  .hero{align-items:stretch;min-height:0;padding-top:64px;padding-bottom:80px}
+  .hero-copy{display:flex;flex-direction:column}
+  .hero-title-break{display:block}
+  .hero-meta{margin-top:auto;padding-top:32px}
+  .fact-map{height:300px}
+  .wire-browser,.wire-agent{top:150px}
+  .anatomy-readout{padding:16px 0}
+  .anatomy-readout .fact-content>p{line-height:1.6}
+  .fact-values{margin-top:8px}
+}
+
+@media(min-width:721px) and (max-width:1050px){
+  .hero-copy{grid-row:1}
+  .fact-anatomy{grid-row:2}
+}
 
 .workflow article>small,.cap-grid article>small,.workflow code,.cap-proof,.cap-grid a,.demo-cta>span{font-size:var(--type-caption);line-height:1.5}
 .system-node small,.system-rules-grid small,.system-node footer span,.system-node footer b,.source-pipeline span,.hub-data span,.output-list span,.system-rules-grid code{font-size:var(--type-caption);line-height:1.5}
@@ -462,6 +481,7 @@ body{font-size:16px;line-height:1.5}
   .system-node h3{font-size:20px}
 }
 @media(max-width:720px){
+  .hero-actions .button,.hero-actions .underlink{min-width:0;padding:0 12px;font-size:var(--type-body)}
   .map-node{width:calc(50% - 8px)}
   .map-core{width:212px}
   .map-axis.axis-x{font-size:var(--type-caption)}
