@@ -147,6 +147,9 @@ body{font-size:16px;line-height:1.5}
 .cap-grid{grid-template-columns:repeat(3,1fr)}
 .cap-grid article:nth-child(3n){border-right:0}
 .cap-grid article:nth-child(n+4){border-top:1px solid var(--line)}
+@media(min-width:1051px){
+  .cap-grid article:nth-child(3n+1){padding-left:0}
+}
 .cap-grid h3{margin-top:48px}
 .cap-grid p{max-width:340px}
 .cap-proof{display:inline-block;margin-top:24px;padding-top:10px;color:#0043ce;border-top:1px solid #a6c8ff;font:11px var(--mono)}
@@ -295,6 +298,7 @@ body{font-size:16px;line-height:1.5}
   .hero h1{font-size:48px}
   .fact-anatomy{width:100%;max-width:680px;justify-self:center}
   .workflow,.cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cap-grid article:nth-child(2n+1){padding-left:0}
   .workflow article{padding:24px;min-height:280px}
   .workflow article+article{padding-left:24px}
   .workflow article:nth-child(2n){border-right:0}
